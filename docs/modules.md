@@ -1,4 +1,14 @@
-# Modules
+# Control logic
+
+## NLMS operation steps
+1. GET X SAMPLE - first step of the processing, entered when start_processing signal (driven from register file) goes high. x_fifo_buff inside datapath is requested to fetch new samples from x_buff and d_buff. In this stage reset of fifo buff can be performed, but only if this is first iteration of processing sequence. FSM waits in this state until x_fifo_buff reports that fetching ended (sample_ready = 1). 
+2. UPDATE X SUM OF SQUARES - if performed operation is NLMS filtration, then control logic issues request to multipliers module and product_processor module to update x_sum_of_squares. product_processor then automatically triggers computation of normalized mi. FSM waits in this state until datapath_ready is high, ie. handshake occured and datapath is processing request. 
+3. START FIR FILTRATION - step present in every operation. Makes start_fir_filtration high (which starts FIR filtering sequences in multipliers module and product processor) and start_outputting_data high (which makes x_fifo_buff start spitting its data). FSM waits in this state until datapath_ready is high, ie. handshake occured and datapath is processing request. 
+4. CALCULATE ADAPTATION COEF - triggers multipliers module to calculate adaptation coeff, which means that it multiplies err and mi_final. FSM stays in this state until adaptation_coef_ready is high, which means that it was calculated. 
+5. START ADAPTATION - starts adaptation sequence (start_filter_adaptation for multipliers and product_processor and start_outputting_data for x_fifo_buff go high). FSM stays here until datapath_ready is high (handshake occurs).
+6. ADAPTATION_WAIT - FSM waits until adaptation is over (wchich means until datapath_ready is high again), and then increments counter of iterations. If counter is less than programmed number of x samples, next iteration begins. If all samples have been processed, FSM returns to IDLE state. 
+
+# Datapath
 
 ## x_fifo_buff
 This module fetches x and d samples and stores previous x data samples, needed for FIR filtration and filter adaptation.
@@ -68,6 +78,7 @@ Interface:
 - out_wdata - data signal, contains data to be written to out_buff (y or err)
 - out_we - enables memory write to out_buff
 - out_waddr - address that out sample will be written to. Incremented after write, and reset at the begining of x_buff processing. 
+- datapath_ready - feedback to control logic, high state indicates that datapath is ready to start new operation. Low state means that datapath is busy. 
 
 ## mi_calculator
 
