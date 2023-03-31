@@ -1,0 +1,115 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "system_top_bram_ip_top_0_2",
+    "cell_name": "bram_ip_top_0",
+    "component_reference": "xilinx.com:user:bram_ip_top:1.0",
+    "ip_revision": "3",
+    "gen_directory": "../../../../../../nlms_acc.gen/sources_1/bd/system_top/ip/system_top_bram_ip_top_0_2",
+    "parameters": {
+      "component_parameters": {
+        "DATA_WIDTH": [ { "value": "32", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "ADDR_WIDTH": [ { "value": "12", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "MEM_HEIGHT": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "Component_Name": [ { "value": "system_top_bram_ip_top_0_2", "resolve_type": "user", "usage": "all" } ]
+      },
+      "model_parameters": {
+        "DATA_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "ADDR_WIDTH": [ { "value": "12", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "MEM_HEIGHT": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "zynq" } ],
+        "BASE_BOARD_PART": [ { "value": "digilentinc.com:cora-z7-07s:part0:1.1" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xc7z007s" } ],
+        "PACKAGE": [ { "value": "clg400" } ],
+        "PREFHDL": [ { "value": "VERILOG" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-1" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "" } ],
+        "USE_RDI_CUSTOMIZATION": [ { "value": "TRUE" } ],
+        "USE_RDI_GENERATION": [ { "value": "TRUE" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "3" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../nlms_acc.gen/sources_1/bd/system_top/ip/system_top_bram_ip_top_0_2" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2022.2" } ],
+        "SYNTHESISFLOW": [ { "value": "OUT_OF_CONTEXT" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "bram_addr_a": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
+        "bram_clk_a": [ { "direction": "in" } ],
+        "bram_wrdata_a": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "bram_rddata_a": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
+        "bram_en_a": [ { "direction": "in" } ],
+        "bram_rst_a": [ { "direction": "in" } ],
+        "bram_we_a": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
+        "bram_addr_b": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
+        "bram_clk_b": [ { "direction": "in" } ],
+        "bram_wrdata_b": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "bram_rddata_b": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
+        "bram_en_b": [ { "direction": "in" } ],
+        "bram_rst_b": [ { "direction": "in" } ],
+        "bram_we_b": [ { "direction": "in", "size_left": "3", "size_right": "0" } ]
+      },
+      "interfaces": {
+        "PORT_A": {
+          "vlnv": "xilinx.com:interface:bram:1.0",
+          "abstraction_type": "xilinx.com:interface:bram_rtl:1.0",
+          "mode": "slave",
+          "memory_map_ref": "PORT_A",
+          "parameters": {
+            "NUM_READ_OUTSTANDING": [ { "value": "", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
+            "NUM_WRITE_OUTSTANDING": [ { "value": "", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
+            "MEM_SIZE": [ { "value": "8192", "value_src": "ip_propagated", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "MEM_WIDTH": [ { "value": "32", "value_src": "ip_propagated", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "MEM_ECC": [ { "value": "NONE", "value_src": "user_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "MASTER_TYPE": [ { "value": "OTHER", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "READ_WRITE_MODE": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "READ_LATENCY": [ { "value": "1", "value_src": "user_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "bram_rst_a" } ],
+            "CLK": [ { "physical_name": "bram_clk_a" } ],
+            "DIN": [ { "physical_name": "bram_wrdata_a" } ],
+            "EN": [ { "physical_name": "bram_en_a" } ],
+            "DOUT": [ { "physical_name": "bram_rddata_a" } ],
+            "WE": [ { "physical_name": "bram_we_a" } ],
+            "ADDR": [ { "physical_name": "bram_addr_a" } ]
+          }
+        },
+        "PORT_B": {
+          "vlnv": "xilinx.com:interface:bram:1.0",
+          "abstraction_type": "xilinx.com:interface:bram_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "MEM_SIZE": [ { "value": "8192", "value_src": "ip_propagated", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "MEM_WIDTH": [ { "value": "32", "value_src": "ip_propagated", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "MEM_ECC": [ { "value": "NONE", "value_src": "user_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "MASTER_TYPE": [ { "value": "OTHER", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "READ_WRITE_MODE": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "READ_LATENCY": [ { "value": "1", "value_src": "user_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "bram_rst_b" } ],
+            "CLK": [ { "physical_name": "bram_clk_b" } ],
+            "DIN": [ { "physical_name": "bram_wrdata_b" } ],
+            "EN": [ { "physical_name": "bram_en_b" } ],
+            "DOUT": [ { "physical_name": "bram_rddata_b" } ],
+            "WE": [ { "physical_name": "bram_we_b" } ],
+            "ADDR": [ { "physical_name": "bram_addr_b" } ]
+          }
+        }
+      }
+    }
+  }
+}

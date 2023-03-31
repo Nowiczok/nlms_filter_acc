@@ -27,7 +27,13 @@
 	)
 	(
 		// Users to add ports here
-
+        output logic dma_we,
+        output logic [OPT_MEM_ADDR_BITS:0] dma_waddr,
+        output logic [C_S_AXI_DATA_WIDTH-1:0] dma_wdata,
+        
+        input logic dma_re,
+        input logic [OPT_MEM_ADDR_BITS:0] dma_raddr, 
+        input logic [C_S_AXI_DATA_WIDTH-1:0] dma_rdata,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -545,53 +551,50 @@
 	// ------------------------------------------
 
 	generate
-	  if (USER_NUM_MEM >= 1)
-	    begin
+	  if (USER_NUM_MEM >= 1) begin
 	      assign mem_select  = 1;
-	      assign mem_address = (axi_arv_arr_flag? axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]:(axi_awv_awr_flag? axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]:0));
-	    end
+	      assign mem_address = (axi_arv_arr_flag) ? axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]:
+	                                               (axi_awv_awr_flag) ? axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]:0;
+	  end
 	endgenerate
 	     
-	// implement Block RAM(s)
 	generate 
-	  for(i=0; i<= USER_NUM_MEM-1; i=i+1)
-	    begin:BRAM_GEN
-	      wire mem_rden;
-	      wire mem_wren;
+	      localparam WSTROBE_SECTORS_NUM = C_S_AXI_DATA_WIDTH/8;
+	      wire mem_re;
+	      wire mem_we;
+	      logic [WSTROBE_SECTORS_NUM-1:0][7:0]mem_wdata;
 	
-	      assign mem_wren = axi_wready && S_AXI_WVALID ;
-	
-	      assign mem_rden = axi_arv_arr_flag ; //& ~axi_rvalid
+	      assign mem_we = axi_wready && S_AXI_WVALID ;
+	      assign mem_re = axi_arv_arr_flag ; //& ~axi_rvalid
 	     
-	      for(mem_byte_index=0; mem_byte_index<= (C_S_AXI_DATA_WIDTH/8-1); mem_byte_index=mem_byte_index+1)
-	      begin:BYTE_BRAM_GEN
-	        wire [8-1:0] data_in ;
+	      for(mem_byte_index=0; mem_byte_index < WSTROBE_SECTORS_NUM; mem_byte_index=mem_byte_index+1) begin: BYTE_BRAM_GEN
 	        wire [8-1:0] data_out;
-	        reg  [8-1:0] byte_ram [0 : 127];
-	        integer  j;
 	     
 	        //assigning 8 bit data
-	        assign data_in  = S_AXI_WDATA[(mem_byte_index*8+7) -: 8];
-	        assign data_out = byte_ram[mem_address];
-	     
-	        always @( posedge S_AXI_ACLK )
-	        begin
-	          if (mem_wren && S_AXI_WSTRB[mem_byte_index])
-	            begin
-	              byte_ram[mem_address] <= data_in;
-	            end   
+	        assign data_out = 'x;
+	       // 
+	        always_ff @( posedge S_AXI_ACLK, negedge S_AXI_ARESETN) begin
+	          if(!S_AXI_ARESETN) begin
+	            mem_wdata[mem_byte_index] <= '0;
+	            dma_we <= '0;
+	            dma_waddr <= '0;
+	          end else begin
+	            mem_wdata[mem_byte_index] <= (mem_we && S_AXI_WSTRB[mem_byte_index]) ? S_AXI_WDATA[(mem_byte_index*8+7) -: 8] :
+	                                                                                   mem_wdata[mem_byte_index];
+	            dma_we <= mem_we;
+	            dma_waddr <= 
+	          end   
 	        end    
+	        assign dma_wdata = mem_wdata;
 	      
 	        always @( posedge S_AXI_ACLK )
 	        begin
-	          if (mem_rden)
+	          if (mem_re)
 	            begin
 	              mem_data_out[i][(mem_byte_index*8+7) -: 8] <= data_out;
 	            end   
-	        end    
-	               
-	    end
-	  end       
+	        end          
+	    end  
 	endgenerate
 	//Output register or memory read data
 
