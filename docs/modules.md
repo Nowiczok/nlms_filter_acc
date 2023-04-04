@@ -20,6 +20,7 @@ Interface:
 - start_outputting_data - control signal, when high module starts spitting out data for compute modules. Number of transactions is equal to ceil(h_coefs_count/4), if h_coefs_count id not divisible by 4, missing coefs are zero-padded. This signal can not be merged with get_new_x_sample, because one filter iteration (filtration and adaptation) requires data to be outputted two times, once for filtration and once for adaptation. If start_outputting_data goes high while new x/d sample is still fetched, module will wait with outputting data until fetching is finished. 
 - abort_outputting_data - control signal, when high, module stops data outputting sequence and resets it. 
 - abort_processing - control signal, when high, module stops current data outputting sequence, resets it, and resets internal address to new sample.
+- reset_x_d_ptr - resets value of pointer to current x/d sample, issued at the begining of processing
 - reset_x_vals - control signal, module resets values stored in internal memory buff. x_0 and x_thrown_away are also reseted. 
 - x_buff_data - input data bus, provides module with new x sample
 - d_buff_data - input data bus, provides module with new d sample
@@ -33,7 +34,7 @@ Interface:
 - x_fifo_ready - CMs use this signal to inform this module that they consumed data and they are ready for next set.
 - x_0 - first element of fifo, used for x_sum_of_squares update
 - d_sample - value of current d sample, needed for error calculation
-- x_last_transaction - signal goes high during last transaction of x sample
+- x_fifo_last - signal goes high during last transaction of x sample
 
 ## multipliers
 This module performs multiplications during FIR filtration and adaptation. It also computes x_sum_of_squares, needed for mi coeficient calculation. While in operation phase, module ignores all other operation requests. 
