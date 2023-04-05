@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../../../nlms_bram.sv" \
+"../../../../../../nlms_x_fifo_buff.sv" \
+"../../../../nlms_accelerator_ip.srcs/sim_1/new/nlms_x_fifo__TB.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
