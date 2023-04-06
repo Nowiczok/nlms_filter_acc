@@ -1,0 +1,8 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.srcs/sim_1/new/nlms_x_fifo__TB.sv,1680721439,systemVerilog,,,,nlms_x_fifo__TB,,,,,,,,
+D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.srcs/sources_1/new/nlms_bram.sv,1680801628,systemVerilog,,D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.srcs/sources_1/new/nlms_x_fifo_buff.sv,,nlms_bram,,,,,,,,
+D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.srcs/sources_1/new/nlms_x_fifo_buff.sv,1680801620,systemVerilog,,D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.srcs/sim_1/new/nlms_x_fifo__TB.sv,,nlms_x_fifo_buff,,,,,,,,

@@ -1,0 +1,40 @@
+<mxfile host="Electron" modified="2023-04-04T21:34:47.225Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="pmloO0IPVdNXjgjNoFhC" version="21.1.2" type="device">
+  <diagram name="Page-1" id="BMSEtcmA7iiw5DpWT8Qd">
+    <mxGraphModel dx="1050" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bOGZRbPK4TcqC4YLD_gI-1" target="bOGZRbPK4TcqC4YLD_gI-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bOGZRbPK4TcqC4YLD_gI-1" target="bOGZRbPK4TcqC4YLD_gI-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-1" value="IDLE (0)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bOGZRbPK4TcqC4YLD_gI-2" target="bOGZRbPK4TcqC4YLD_gI-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-2" value="FETCH SAMPLES&lt;br&gt;samples_ready &amp;lt;= 0&lt;br&gt;x_buff_raddr &amp;lt;= curr_x_d_sample_addr&lt;br&gt;x_buff_re &amp;lt;= 1&lt;br&gt;d_buff_raddr &amp;lt;= curr_x_d_sample_addr&lt;br&gt;d_buff_re &amp;lt;= 1&lt;br&gt;fifo_raddr_r &amp;lt;= fifo_wptr_r&lt;br&gt;fifo_re_r &amp;lt;= 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="320" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-4" value="get_new_x_d_samples=1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="440" y="250" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="bOGZRbPK4TcqC4YLD_gI-6" target="bOGZRbPK4TcqC4YLD_gI-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-6" value="PUSH_TO_FIFO&lt;br&gt;samples_ready &amp;lt;= 1&lt;br&gt;x_thrown_away &amp;lt;= fifo_rdata&lt;br&gt;fifo_we_r &amp;lt;= 1&lt;br&gt;fifo_waddr_r &amp;lt;= fifo_wptr_r&lt;br&gt;fifo_wdata_r &amp;lt;= x_buff_data&lt;br&gt;fifo_wptr_r &amp;lt;= fifo_wptr_r+1&lt;br&gt;curr_x_d_sample_addr &amp;lt;= curr_x_d_sample_addr&amp;nbsp;+1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="570" width="240" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-9" value="OUTPUT_SAMPLES&lt;br&gt;fifo_raddr_r &amp;lt;= fifo_rptr_r&lt;br&gt;fifo_re_r &amp;lt;= (prev_state=IDLE) ? 1 : x_fifo_ready&lt;br&gt;fifo_rptr_r &amp;lt;= (x_fifo_ready) ? fifo_rptr_r+1 : fifo_rptr_r" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="320" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="bOGZRbPK4TcqC4YLD_gI-12" value="start_outputting_data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="170" y="250" width="140" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
