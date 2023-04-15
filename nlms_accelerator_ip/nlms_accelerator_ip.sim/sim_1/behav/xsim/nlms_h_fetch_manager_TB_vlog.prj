@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../nlms_accelerator_ip.srcs/sources_1/new" \
+"../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_bram.sv" \
+"../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_h_fetch_manager.sv" \
+"../../../../nlms_accelerator_ip.srcs/sim_1/new/nlms_h_fetch_manager_TB.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

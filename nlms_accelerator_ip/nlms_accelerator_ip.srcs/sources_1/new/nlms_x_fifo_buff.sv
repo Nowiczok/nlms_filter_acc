@@ -1,13 +1,6 @@
 `timescale 1ns / 1ps
 
-`define FF_EN_NRST(q, d, clk, en, nrst, rst_val) \
-always_ff @(posedge clk, negedge nrst) begin \
-  if(!nrst) begin \
-    q <= rst_val; \
-  end else if(en) begin \
-    q <= d; \
-  end \
-end
+`include "nlms_design_macros.vh"
 
 // this module fetches x sample and d sample, and stores x samples in fifo manner
 
