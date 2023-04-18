@@ -57,6 +57,14 @@ Interface:
 - err - data signal, contains value of error between calculated filter output and d sample. Used during calculation of adaptation coef. 
 - mi_final - data signal, contains final mi coef (normalized or not). Used during calculation of adaptation coef. 
 
+Operations:
+- update_x_sum_of_squares - int x int => int
+- start_fir_filtration - int x fract => fract
+- calculate_adaptation_coef - fract x fract => fract
+- start_filter_adaptation - int x fract => fract
+  
+zynq-7000 has 18x25 multipliers, which means output has 43 bits
+
 ## product_processor
 
 This module gets data from multipliers, h_fetch_manager and x_fifo_buff and adds them according to performed operation. It also writes output data to out_buff and h_buff.
