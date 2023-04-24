@@ -6,39 +6,55 @@ module nlms_mul #(
   parameter INPUT_WIDTH = 'x,
   parameter Q_FORMAT = 'x,
   
-  localparam FRACT_DIGITS_WIDTH = $clog2(INPUT_WIDTH)
+  localparam OFFSET_2_U2_CONVERTER = 2**(INPUT_WIDTH-1),
+  localparam SCALING_SHIFT_WIDTH = $clog2(INPUT_WIDTH)
 )(
   input logic clk,
   input logic nrst,
   input logic en,
   
+  input logic input_data_valid,
+  input logic [SCALING_SHIFT_WIDTH-1:0] actual_input_bits,
+  
   input logic a_fract,
+  input logic a_u2,
   input logic [INPUT_WIDTH-1:0] a,
   
   input logic b_fract,
+  input logic b_u2,
   input logic [INPUT_WIDTH-1:0] b, 
   
   output logic [INPUT_WIDTH-1:0] product,
-  output logic saturation
+  output logic saturation,
+  output logic new_product
 );
 
-//--------------------------first stage signals--------------------------
-logic first_stage_en_c;
+//--------------------------input type resolution stage signals--------------------------
+logic type_res_stage_en_c;
 
 logic a_fract_d_nxt_c;
 logic a_fract_d_r;
 
+logic [INPUT_WIDTH-1:0] a_shift;
 logic signed [INPUT_WIDTH-1:0] a_sign_nxt_c;
 logic signed [INPUT_WIDTH-1:0] a_sign_r;
 
 logic b_fract_d_nxt_c;
 logic b_fract_d_r;
 
+logic [INPUT_WIDTH-1:0] b_shift;
 logic signed [INPUT_WIDTH-1:0] b_sign_nxt_c;
 logic signed [INPUT_WIDTH-1:0] b_sign_r;
 
-//--------------------------second stage signals--------------------------
+// stage valid signal, used to enable next state
+logic in_type_res_stage_out_valid_en_c;
+logic in_type_res_stage_out_valid_nxt_c;
+logic in_type_res_stage_out_valid_r;
+
+//--------------------------multiplication stage signals--------------------------
 logic second_stage_en_c;
+
+logic [SCALING_SHIFT_WIDTH-1:0] input_scaling_shift_c;
 
 logic a_fract_d_d_nxt_c;
 logic a_fract_d_d_r;
@@ -49,7 +65,12 @@ logic b_fract_d_d_r;
 logic signed [2*INPUT_WIDTH:0] prod_raw_sign_nxt_c;
 logic signed [2*INPUT_WIDTH:0] prod_raw_sign_r;
 
-//--------------------------third stage signals--------------------------
+// stage valid signal, used to enable next state
+logic mul_stage_out_valid_en_c;
+logic mul_stage_out_valid_nxt_c;
+logic mul_stage_out_valid_r;
+
+//--------------------------output type resolution stage signals--------------------------
 logic third_stage_en_c;
 
 // type resolution signals
@@ -69,23 +90,38 @@ logic saturation_int_neg_c;
 logic saturation_nxt_c;
 logic saturation_r;
 
-//--------------------------first stage rtl--------------------------
-assign first_stage_en_c = en;
+// stage valid signal, used to enable next state
+logic out_type_res_stage_out_valid_en_c;
+logic out_type_res_stage_out_valid_nxt_c;
+logic out_type_res_stage_out_valid_r;
+
+//--------------------------input type resolution stage RTL--------------------------
+assign type_res_stage_en_c = en && input_data_valid;
+
+assign input_scaling_shift_c = INPUT_WIDTH - actual_input_bits - SCALING_SHIFT_WIDTH'('b1);
 
 assign a_fract_d_nxt_c = a_fract;
-`FF_EN_NRST(a_fract_d_r, a_fract_d_nxt_c, clk, first_stage_en_c, nrst, '0)
+`FF_EN_NRST(a_fract_d_r, a_fract_d_nxt_c, clk, type_res_stage_en_c, nrst, '0)
 
-assign a_sign_nxt_c = a;
-`FF_EN_NRST(a_sign_r, a_sign_nxt_c, clk, first_stage_en_c, nrst, '0)
+assign a_shift = a << input_scaling_shift_c;
+assign a_sign_nxt_c = (a_u2) ? a : 
+                      ((a_shift - OFFSET_2_U2_CONVERTER) >>> input_scaling_shift_c);
+`FF_EN_NRST(a_sign_r, a_sign_nxt_c, clk, type_res_stage_en_c, nrst, '0)
 
 assign b_fract_d_nxt_c = b_fract;
-`FF_EN_NRST(b_fract_d_r, b_fract_d_nxt_c, clk, first_stage_en_c, nrst, '0)
+`FF_EN_NRST(b_fract_d_r, b_fract_d_nxt_c, clk, type_res_stage_en_c, nrst, '0)
 
-assign b_sign_nxt_c = b;
-`FF_EN_NRST(b_sign_r, b_sign_nxt_c, clk, first_stage_en_c, nrst, '0)
+assign b_shift = b << input_scaling_shift_c;
+assign b_sign_nxt_c = (b_u2) ? b :
+                      ((b_shift - OFFSET_2_U2_CONVERTER) >>> input_scaling_shift_c);
+`FF_EN_NRST(b_sign_r, b_sign_nxt_c, clk, type_res_stage_en_c, nrst, '0)
 
-//--------------------------second stage rtl--------------------------
-assign second_stage_en_c = en;
+assign in_type_res_stage_out_valid_en_c = en;
+assign in_type_res_stage_out_valid_nxt_c = input_data_valid;
+`FF_EN_NRST(in_type_res_stage_out_valid_r, in_type_res_stage_out_valid_nxt_c, clk, in_type_res_stage_out_valid_en_c, nrst, '0)
+
+//--------------------------multiplication stage RTL--------------------------
+assign second_stage_en_c = en && in_type_res_stage_out_valid_r;
 
 // type info propagation
 assign a_fract_d_d_nxt_c = a_fract_d_r;
@@ -98,8 +134,12 @@ assign b_fract_d_d_nxt_c = b_fract_d_r;
 assign prod_raw_sign_nxt_c = a_sign_r * b_sign_r;  // !!! signed multiplication !!!
 `FF_EN_NRST(prod_raw_sign_r, prod_raw_sign_nxt_c, clk, second_stage_en_c, nrst, '0)
 
-//--------------------------third stage rtl--------------------------
-assign third_stage_en_c = en;
+assign mul_stage_out_valid_en_c = en;
+assign mul_stage_out_valid_nxt_c = in_type_res_stage_out_valid_r;
+`FF_EN_NRST(mul_stage_out_valid_r, mul_stage_out_valid_nxt_c, clk, mul_stage_out_valid_en_c, nrst, '0)
+
+//--------------------------output type resolution stage RTL--------------------------
+assign third_stage_en_c = en && mul_stage_out_valid_r;
 
 // type resolution
 assign integer_integer_mul_c = !(a_fract_d_d_r || b_fract_d_d_r);
@@ -147,8 +187,13 @@ always_comb begin
 end
 `FF_EN_NRST(saturation_r, saturation_nxt_c, clk, third_stage_en_c, nrst, '0)
 
+assign out_type_res_stage_out_valid_en_c = en;
+assign out_type_res_stage_out_valid_nxt_c = mul_stage_out_valid_r;
+`FF_EN_NRST(out_type_res_stage_out_valid_r, out_type_res_stage_out_valid_nxt_c, clk, out_type_res_stage_out_valid_en_c, nrst, '0)
+
 //--------------------------output assignemnts--------------------------
 assign product = product_r;
 assign saturation = saturation_r;
+assign new_product = out_type_res_stage_out_valid_r;
 
 endmodule

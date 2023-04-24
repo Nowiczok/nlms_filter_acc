@@ -40,6 +40,8 @@ Interface:
 This module performs multiplications during FIR filtration and adaptation. It also computes x_sum_of_squares, needed for mi coeficient calculation. While in operation phase, module ignores all other operation requests. 
 
 Interface:
+- x_u2 - high state indicates that x samples are encoded in U2, low that they are unsigned and need to be converted to U2
+- x_fix - high state indicates that x samples are in fix point
 - update_x_sum_of_squares - control signal, used to update sum of squares of x samples inside x_fifo_buff, needed for mi calculation. When high, multiplier 0 squares x_thrown_away signal, and multiplier 1 squares x_0 signal. Calculated squares are then passed to product_processor. 
 - start_fir_filtration - control signal, starts filtration sequence. Module takes data from input x and h valid/ready buses, multiplies them and outputs to output bus (valid signal only?). Module stops operation when x_last_transaction goes high. 
 - calculate_adaptation_coef - control signal, used to multiply mi and err. When high, mul 0 multiplies mi_final and err, and then stores product in internal register. 
@@ -64,6 +66,9 @@ Operations:
 - start_filter_adaptation - int x fract => fract
   
 zynq-7000 has 18x25 multipliers, which means output has 43 bits
+
+## mul
+
 
 ## product_processor
 
