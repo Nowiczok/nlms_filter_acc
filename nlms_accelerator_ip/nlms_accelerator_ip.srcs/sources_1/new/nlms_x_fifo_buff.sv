@@ -8,7 +8,8 @@ module nlms_x_fifo_buff #(
   parameter H_BUFF_HEIGHT = 'x,
   parameter H_BUFF_ADDR_WIDTH = 'x,
   parameter X_D_BUFF_ADDR_WIDH = 'x,
-  parameter X_D_BUFF_SAMPLE_WIDTH = 'x
+  parameter SAMPLE_WIDTH = 'x,
+  parameter NUM_MULS = 'x
 )(
   input logic clk,
   input logic nrst,
@@ -26,20 +27,20 @@ module nlms_x_fifo_buff #(
   // x buff interface
   output logic x_buff_re,
   output logic [X_D_BUFF_ADDR_WIDH-1:0] x_buff_raddr,
-  input logic [X_D_BUFF_SAMPLE_WIDTH-1:0] x_buff_rdata,
+  input logic [SAMPLE_WIDTH-1:0] x_buff_rdata,
   
   // d buff interface
   output logic d_buff_re,
   output logic [X_D_BUFF_ADDR_WIDH-1:0] d_buff_raddr,
-  input logic [X_D_BUFF_SAMPLE_WIDTH-1:0] d_buff_rdata,
+  input logic [SAMPLE_WIDTH-1:0] d_buff_rdata,
   
   // multipliers interface
-  output logic [X_D_BUFF_SAMPLE_WIDTH-1:0] x_fifo_data,
+  output logic [NUM_MULS*SAMPLE_WIDTH-1:0] x_fifo_data,
   output logic x_fifo_valid,
   input logic x_fifo_ready,
   output logic x_fifo_last, 
-  output logic [X_D_BUFF_SAMPLE_WIDTH-1:0] x_thrown_away,
-  output logic [X_D_BUFF_SAMPLE_WIDTH-1:0] x_0,
+  output logic [SAMPLE_WIDTH-1:0] x_thrown_away,
+  output logic [SAMPLE_WIDTH-1:0] x_0,
   
   // product processor interface
   output logic [X_D_BUFF_SAMPLE_WIDTH-1:0] d_sample

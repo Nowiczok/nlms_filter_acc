@@ -17,26 +17,28 @@ module nlms_multipliers #(
   input logic start_fir_filtration,
   input logic start_filter_adaptation,
   input logic abort_processing,
+  input logic x_samples_u2,
+  input logic x_fract,
+  input [$clog2(SAMPLE_WIDTH)-1:0] actual_input_bits,
   
   // x_fifo_buff interface
   input logic [SAMPLE_WIDTH-1:0] x_thrown_away,
   input logic [SAMPLE_WIDTH-1:0] x_0,
-  input logic [NUM_MULS*SAMPLE_WIDTH-1:0] x_fifo_data,
+  input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] x_fifo_data,
   input logic x_fifo_valid,
   output logic x_fifo_ready,
   input logic x_fifo_last,
   
   // h_fetch_manager interface
-  input logic [SAMPLE_WIDTH-1:0] h_fetched_data,
+  input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data,
   input logic h_fetched_valid,
   output logic h_fetched_ready,
   input logic h_fetched_last,
   
   // product_processor interface
-  output logic [NUM_MULS*SAMPLE_WIDTH-1:0] products_data,
-  output logic products_valid,
-  input logic products_ready,
-  output logic products_last,
+  output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] products_data,
+  output logic products_new,
+  output logic products_saturation,
   input logic [SAMPLE_WIDTH-1:0] err,
   input logic [SAMPLE_WIDTH-1:0] mi_final
 );
@@ -53,17 +55,18 @@ logic muls_fsm_state_en_c;
 logic [MULS_FSM_LEN-1:0] muls_fsm_state_r;
 logic [MULS_FSM_LEN-1:0] muls_fsm_state_nxt_c;
 
-logic tran_MULS_FSM_IDLE_FIR_FILTRATION = (muls_fsm_state_r == MULS_FSM_IDLE) && (muls_fsm_state_nxt_c == MULS_FSM_FIR_FILTRATION);
-logic tran_MULS_FSM_IDLE_SUM_OF_SQUARES = (muls_fsm_state_r == MULS_FSM_IDLE) && (muls_fsm_state_nxt_c == MULS_FSM_SUM_OF_SQUARES);
-logic tran_MULS_FSM_IDLE_ADAP_COEF = (muls_fsm_state_r == MULS_FSM_IDLE) && (muls_fsm_state_nxt_c == MULS_FSM_ADAP_COEF);
-logic tran_MULS_FSM_IDLE_ADAPTATION = (muls_fsm_state_r == MULS_FSM_IDLE) && (muls_fsm_state_nxt_c == MULS_FSM_ADAPTATION);
+logic tran_MULS_FSM_IDLE_FIR_FILTRATION;
+logic tran_MULS_FSM_IDLE_SUM_OF_SQUARES;
+logic tran_MULS_FSM_IDLE_ADAP_COEF;
+logic tran_MULS_FSM_IDLE_ADAPTATION;
 
 //--------------------------mul 0 signals--------------------------
+logic mul_0_en_c;
+
+// adaptation coef
+logic [SAMPLE_WIDTH-1:0] adaptation_coef_r;
 
 // mul_0 control interface
-logic [$clog2(SAMPLE_WIDTH)-1:0] mul_0_actual_input_bits_nxt_c;
-logic [$clog2(SAMPLE_WIDTH)-1:0] mul_0_actual_input_bits_r;
-
 logic mul_0_input_data_valid_nxt_c;
 logic mul_0_input_data_valid_r;
 
@@ -88,21 +91,14 @@ logic [SAMPLE_WIDTH-1:0] mul_0_b_nxt_c;
 logic [SAMPLE_WIDTH-1:0] mul_0_b_r;
 
 // mul_0 output interface
-logic [SAMPLE_WIDTH-1:0] mul_0_product_nxt_c;
-logic [SAMPLE_WIDTH-1:0] mul_0_product_r;
-
-logic mul_0_saturation_nxt_c;
-logic mul_0_saturation_r;
-
-logic mul_0_new_product_nxt_c;
-logic mul_0_new_product_r;
+logic [SAMPLE_WIDTH-1:0] mul_0_product_c;
+logic mul_0_saturation_c;
+logic mul_0_new_product_c;
 
 //--------------------------mul 1 signals--------------------------
+logic mul_1_en_c;
 
 // mul_1 control interface
-logic [$clog2(SAMPLE_WIDTH)-1:0] mul_1_actual_input_bits_nxt_c;
-logic [$clog2(SAMPLE_WIDTH)-1:0] mul_1_actual_input_bits_r;
-
 logic mul_1_input_data_valid_nxt_c;
 logic mul_1_input_data_valid_r;
 
@@ -126,8 +122,42 @@ logic mul_1_b_u2_r;
 logic [SAMPLE_WIDTH-1:0] mul_1_b_nxt_c;
 logic [SAMPLE_WIDTH-1:0] mul_1_b_r;
 
-//--------------------------mul n signals--------------------------
+// mul_1 output interface
+logic [SAMPLE_WIDTH-1:0] mul_1_product_c;
+logic mul_1_saturation_c;
+logic mul_1_new_product_c;
 
+//--------------------------mul n signals--------------------------
+logic mul_n_en_c;
+
+// mul_n control interface
+logic mul_n_input_data_valid_nxt_c;
+logic mul_n_input_data_valid_r; 
+
+// mul_n a interface
+logic mul_n_a_fract_nxt_c;
+logic mul_n_a_fract_r;
+
+logic mul_n_a_u2_nxt_c;
+logic mul_n_a_u2_r;
+
+logic [(NUM_MULS-2)-1:0][SAMPLE_WIDTH-1:0] mul_n_a_nxt_c;
+logic [(NUM_MULS-2)-1:0][SAMPLE_WIDTH-1:0] mul_n_a_r;
+
+// mul_n b interface
+logic mul_n_b_fract_nxt_c;
+logic mul_n_b_fract_r;
+
+logic mul_n_b_u2_nxt_c;
+logic mul_n_b_u2_r;
+
+logic [(NUM_MULS-2)-1:0][SAMPLE_WIDTH-1:0] mul_n_b_nxt_c;
+logic [(NUM_MULS-2)-1:0][SAMPLE_WIDTH-1:0] mul_n_b_r;
+
+// mul_n output interface
+logic [(NUM_MULS-2)-1:0][SAMPLE_WIDTH-1:0] mul_n_product_c;
+logic [(NUM_MULS-2)-1:0] mul_n_saturation_c;
+logic [(NUM_MULS-2)-1:0] mul_n_new_product_c;
 
 //--------------------------FSM RTL--------------------------
 assign muls_fsm_state_en_c = en;
@@ -149,13 +179,93 @@ always_comb begin
      MULS_FSM_ADAPTATION:
        muls_fsm_state_nxt_c = (x_fifo_last) ? MULS_FSM_IDLE : 
                                               MULS_FSM_ADAPTATION;
+     default:
+       muls_fsm_state_nxt_c = 'x;
   endcase
 end
 `FF_EN_NRST(muls_fsm_state_r, muls_fsm_state_nxt_c, clk, muls_fsm_state_en_c, nrst, '0)
 
-//--------------------------mul 0 RTL--------------------------
-// special mul, handles calculating x_sum_of_squares (together with mul_1) and adaptatiob coef
+assign tran_MULS_FSM_IDLE_FIR_FILTRATION = (muls_fsm_state_r == MULS_FSM_IDLE) && (muls_fsm_state_nxt_c == MULS_FSM_FIR_FILTRATION);
+assign tran_MULS_FSM_IDLE_SUM_OF_SQUARES = (muls_fsm_state_r == MULS_FSM_IDLE) && (muls_fsm_state_nxt_c == MULS_FSM_SUM_OF_SQUARES);
+assign tran_MULS_FSM_IDLE_ADAP_COEF = (muls_fsm_state_r == MULS_FSM_IDLE) && (muls_fsm_state_nxt_c == MULS_FSM_ADAP_COEF);
+assign tran_MULS_FSM_IDLE_ADAPTATION = (muls_fsm_state_r == MULS_FSM_IDLE) && (muls_fsm_state_nxt_c == MULS_FSM_ADAPTATION);
 
+//--------------------------mul 0 RTL--------------------------
+assign mul_0_en_c = en;
+
+// special mul, handles calculating x_sum_of_squares (together with mul_1) and adaptation coef
+// mul 0 data valid
+assign mul_0_input_data_valid_nxt_c = (tran_MULS_FSM_IDLE_SUM_OF_SQUARES || tran_MULS_FSM_IDLE_ADAP_COEF) ? 1'b1 : 
+                                      (muls_fsm_state_nxt_c == MULS_FSM_FIR_FILTRATION) ? (h_fetched_valid && x_fifo_valid) :
+                                      (muls_fsm_state_nxt_c == MULS_FSM_ADAPTATION) ? x_fifo_valid : 
+                                                                                      '0;
+`FF_EN_NRST(mul_0_input_data_valid_r, mul_0_input_data_valid_nxt_c, clk, mul_0_en_c, nrst, '0);
+
+// mul 0 a port
+always_comb begin 
+  case(muls_fsm_state_nxt_c) 
+  MULS_FSM_IDLE: begin
+    mul_0_a_fract_nxt_c = '0;
+    mul_0_a_u2_nxt_c = '0;
+    mul_0_a_nxt_c = '0;
+    
+    mul_0_b_fract_nxt_c = '0;
+    mul_0_b_u2_nxt_c = '0;
+    mul_0_b_nxt_c = '0;
+  end
+  MULS_FSM_SUM_OF_SQUARES: begin
+    mul_0_a_fract_nxt_c = x_fract;
+    mul_0_a_u2_nxt_c = x_samples_u2;
+    mul_0_a_nxt_c = x_thrown_away;
+    
+    mul_0_b_fract_nxt_c = x_fract;
+    mul_0_b_u2_nxt_c = x_samples_u2;
+    mul_0_b_nxt_c = x_thrown_away;
+  end
+  MULS_FSM_ADAP_COEF: begin
+    mul_0_a_fract_nxt_c = 1'b1;
+    mul_0_a_u2_nxt_c = 1'b1;
+    mul_0_a_nxt_c = err;
+    
+    mul_0_b_fract_nxt_c = 1'b1;
+    mul_0_b_u2_nxt_c = 1'b1;
+    mul_0_b_nxt_c = mi_final;
+  end
+  MULS_FSM_FIR_FILTRATION: begin
+    mul_0_a_fract_nxt_c = x_fract;
+    mul_0_a_u2_nxt_c = x_samples_u2;
+    mul_0_a_nxt_c = x_fifo_data[0];
+    
+    mul_0_b_fract_nxt_c = 1'b1;
+    mul_0_b_u2_nxt_c = 1'b1;
+    mul_0_b_nxt_c = h_fetched_data[0];
+  end
+  MULS_FSM_ADAPTATION: begin
+    mul_0_a_fract_nxt_c = x_fract;
+    mul_0_a_u2_nxt_c = x_samples_u2;
+    mul_0_a_nxt_c = x_fifo_data[0];
+    
+    mul_0_b_fract_nxt_c = 1'b1;
+    mul_0_b_u2_nxt_c = 1'b1;
+    mul_0_b_nxt_c = adaptation_coef_r;
+  end
+  default: begin
+    mul_0_a_fract_nxt_c = 'x;
+    mul_0_a_u2_nxt_c = 'x;
+    mul_0_a_nxt_c = 'x;
+    
+    mul_0_b_fract_nxt_c = 'x;
+    mul_0_b_u2_nxt_c = 'x;
+    mul_0_b_nxt_c = 'x;
+  end
+  endcase
+end
+`FF_EN_NRST(mul_0_a_fract_r, mul_0_a_fract_nxt_c, clk, mul_0_en_c, nrst, '0);
+`FF_EN_NRST(mul_0_a_u2_r, mul_0_a_u2_nxt_c, clk, mul_0_en_c, nrst, '0);
+`FF_EN_NRST(mul_0_a_r, mul_0_a_nxt_c, clk, mul_0_en_c, nrst, '0);
+`FF_EN_NRST(mul_0_b_fract_r, mul_0_b_fract_nxt_c, clk, mul_0_en_c, nrst, '0);
+`FF_EN_NRST(mul_0_b_u2_r, mul_0_b_u2_nxt_c, clk, mul_0_en_c, nrst, '0);
+`FF_EN_NRST(mul_0_b_r, mul_0_b_nxt_c, clk, mul_0_en_c, nrst, '0);
 
 nlms_mul #(
   .INPUT_WIDTH(SAMPLE_WIDTH),
@@ -166,7 +276,7 @@ nlms_mul #(
   .en(en),
   
   .input_data_valid(mul_0_input_data_valid_r),
-  .actual_input_bits(mul_0_actual_input_bits_r),
+  .actual_input_bits(actual_input_bits),
   
   .a_fract(mul_0_a_fract_r),
   .a_u2(mul_0_a_u2_r),
@@ -176,13 +286,87 @@ nlms_mul #(
   .b_u2(mul_0_b_u2_r),
   .b(mul_0_b_r),
   
-  .product(mul_0_product_r),
-  .saturation(mul_0_saturation_r),
-  .new_product(mul_0_new_product_r)
+  .product(mul_0_product_c),
+  .saturation(mul_0_saturation_c),
+  .new_product(mul_0_new_product_c)
 );
 
 //--------------------------mul 1 RTL--------------------------
 // special mul, handles calculating x_sum_of_squares (together with mul_0)
+assign mul_1_en_c = en;
+
+// special mul, handles calculating x_sum_of_squares (together with mul_1) and adaptation coef
+// mul 1 data valid
+assign mul_1_input_data_valid_nxt_c = (tran_MULS_FSM_IDLE_SUM_OF_SQUARES) ? 1'b1 : 
+                                      (muls_fsm_state_nxt_c == MULS_FSM_FIR_FILTRATION) ? (h_fetched_valid && x_fifo_valid) :
+                                      (muls_fsm_state_nxt_c == MULS_FSM_ADAPTATION) ? x_fifo_valid : 
+                                                                                      '0;
+`FF_EN_NRST(mul_1_input_data_valid_r, mul_1_input_data_valid_nxt_c, clk, mul_n_en_c, nrst, '0);
+
+always_comb begin 
+  case(muls_fsm_state_nxt_c) 
+  MULS_FSM_IDLE: begin
+    mul_1_a_fract_nxt_c = '0;
+    mul_1_a_u2_nxt_c = '0;
+    mul_1_a_nxt_c = '0;
+    
+    mul_1_b_fract_nxt_c = '0;
+    mul_1_b_u2_nxt_c = '0;
+    mul_1_b_nxt_c = '0;
+  end
+  MULS_FSM_SUM_OF_SQUARES: begin
+    mul_1_a_fract_nxt_c = x_fract;
+    mul_1_a_u2_nxt_c = x_samples_u2;
+    mul_1_a_nxt_c = x_0;
+    
+    mul_1_b_fract_nxt_c = x_fract;
+    mul_1_b_u2_nxt_c = x_samples_u2;
+    mul_1_b_nxt_c = x_0;
+  end
+  MULS_FSM_ADAP_COEF: begin
+    mul_1_a_fract_nxt_c = '0;
+    mul_1_a_u2_nxt_c = '0;
+    mul_1_a_nxt_c = '0;
+    
+    mul_1_b_fract_nxt_c = '0;
+    mul_1_b_u2_nxt_c = '0;
+    mul_1_b_nxt_c = '0;
+  end
+  MULS_FSM_FIR_FILTRATION: begin
+    mul_1_a_fract_nxt_c = x_fract;
+    mul_1_a_u2_nxt_c = x_samples_u2;
+    mul_1_a_nxt_c = x_fifo_data[1];
+    
+    mul_1_b_fract_nxt_c = 1'b1;
+    mul_1_b_u2_nxt_c = 1'b1;
+    mul_1_b_nxt_c = h_fetched_data[1];
+  end
+  MULS_FSM_ADAPTATION: begin
+    mul_1_a_fract_nxt_c = x_fract;
+    mul_1_a_u2_nxt_c = x_samples_u2;
+    mul_1_a_nxt_c = x_fifo_data[1];
+    
+    mul_1_b_fract_nxt_c = 1'b1;
+    mul_1_b_u2_nxt_c = 1'b1;
+    mul_1_b_nxt_c = adaptation_coef_r;
+  end
+  default: begin
+    mul_1_a_fract_nxt_c = 'x;
+    mul_1_a_u2_nxt_c = 'x;
+    mul_1_a_nxt_c = 'x;
+    
+    mul_1_b_fract_nxt_c = 'x;
+    mul_1_b_u2_nxt_c = 'x;
+    mul_1_b_nxt_c = 'x;
+  end
+  endcase
+end
+`FF_EN_NRST(mul_1_a_fract_r, mul_1_a_fract_nxt_c, clk, mul_1_en_c, nrst, '0);
+`FF_EN_NRST(mul_1_a_u2_r, mul_1_a_u2_nxt_c, clk, mul_1_en_c, nrst, '0);
+`FF_EN_NRST(mul_1_a_r, mul_1_a_nxt_c, clk, mul_1_en_c, nrst, '0);
+`FF_EN_NRST(mul_1_b_fract_r, mul_1_b_fract_nxt_c, clk, mul_1_en_c, nrst, '0);
+`FF_EN_NRST(mul_1_b_u2_r, mul_1_b_u2_nxt_c, clk, mul_1_en_c, nrst, '0);
+`FF_EN_NRST(mul_1_b_r, mul_1_b_nxt_c, clk, mul_1_en_c, nrst, '0);
 
 nlms_mul #(
   .INPUT_WIDTH(SAMPLE_WIDTH),
@@ -192,46 +376,134 @@ nlms_mul #(
   .nrst(nrst),
   .en(en),
   
-  .input_data_valid(),
-  .actual_input_bits(),
+  .input_data_valid(mul_1_input_data_valid_r),
+  .actual_input_bits(actual_input_bits),
   
-  .a_fract(),
-  .a_u2(),
-  .a(),
+  .a_fract(mul_1_a_fract_r),
+  .a_u2(mul_1_a_u2_r),
+  .a(mul_1_a_r),
   
-  .b_fract(),
-  .b_u2(),
-  .b(),
+  .b_fract(mul_1_b_fract_r),
+  .b_u2(mul_1_b_u2_r),
+  .b(mul_1_b_r),
   
-  .product(),
-  .saturation(),
-  .new_product()
+  .product(mul_1_product_c),
+  .saturation(mul_1_saturation_c),
+  .new_product(mul_1_new_product_c)
 );
 
 //--------------------------mul n RTL--------------------------
+// special mul, handles calculating x_sum_of_squares (together with mul_0)
+assign mul_n_en_c = en;
 
-nlms_mul #(
-  .INPUT_WIDTH(SAMPLE_WIDTH),
-  .Q_FORMAT(SAMPLE_Q_FORMAT)
-)mul_n(
-  .clk(clk),
-  .nrst(nrst),
-  .en(en),
-  
-  .input_data_valid(),
-  .actual_input_bits(),
-  
-  .a_fract(),
-  .a_u2(),
-  .a(),
-  
-  .b_fract(),
-  .b_u2(),
-  .b(),
-  
-  .product(),
-  .saturation(),
-  .new_product()
-);
+// mul n data valid
+assign mul_n_input_data_valid_nxt_c = (muls_fsm_state_nxt_c == MULS_FSM_FIR_FILTRATION) ? (h_fetched_valid && x_fifo_valid) :
+                                      (muls_fsm_state_nxt_c == MULS_FSM_ADAPTATION) ? x_fifo_valid : 
+                                                                                      '0;
+`FF_EN_NRST(mul_n_input_data_valid_r, mul_n_input_data_valid_nxt_c, clk, mul_n_en_c, nrst, '0);
+
+always_comb begin 
+  case(muls_fsm_state_nxt_c) 
+  MULS_FSM_IDLE: begin
+    mul_n_a_fract_nxt_c = '0;
+    mul_n_a_u2_nxt_c = '0;
+    mul_1_a_nxt_c = '0;
+    
+    mul_n_b_fract_nxt_c = '0;
+    mul_n_b_u2_nxt_c = '0;
+    mul_n_b_nxt_c = '0;
+  end
+  MULS_FSM_SUM_OF_SQUARES: begin
+    mul_n_a_fract_nxt_c = '0;
+    mul_n_a_u2_nxt_c = '0;
+    mul_1_a_nxt_c = '0;
+    
+    mul_n_b_fract_nxt_c = '0;
+    mul_n_b_u2_nxt_c = '0;
+    mul_n_b_nxt_c = '0;
+  end
+  MULS_FSM_ADAP_COEF: begin
+    mul_n_a_fract_nxt_c = '0;
+    mul_n_a_u2_nxt_c = '0;
+    mul_1_a_nxt_c = '0;
+    
+    mul_n_b_fract_nxt_c = '0;
+    mul_n_b_u2_nxt_c = '0;
+    mul_n_b_nxt_c = '0;
+  end
+  MULS_FSM_FIR_FILTRATION: begin
+    mul_n_a_fract_nxt_c = x_fract;
+    mul_n_a_u2_nxt_c = x_samples_u2;
+    mul_n_a_nxt_c = x_fifo_data[NUM_MULS:2];
+    
+    mul_n_b_fract_nxt_c = 1'b1;
+    mul_n_b_u2_nxt_c = 1'b1;
+    mul_n_b_nxt_c = h_fetched_data[NUM_MULS:2];
+  end
+  MULS_FSM_ADAPTATION: begin
+    mul_n_a_fract_nxt_c = x_fract;
+    mul_n_a_u2_nxt_c = x_samples_u2;
+    mul_n_a_nxt_c = x_fifo_data[NUM_MULS:2];
+    
+    mul_n_b_fract_nxt_c = 1'b1;
+    mul_n_b_u2_nxt_c = 1'b1;
+    mul_n_b_nxt_c = adaptation_coef_r;
+  end
+  default: begin
+    mul_n_a_fract_nxt_c = 'x;
+    mul_n_a_u2_nxt_c = 'x;
+    mul_n_a_nxt_c = 'x;
+    
+    mul_n_b_fract_nxt_c = 'x;
+    mul_n_b_u2_nxt_c = 'x;
+    mul_n_b_nxt_c = 'x;
+  end
+  endcase
+end
+
+`FF_EN_NRST(mul_n_a_fract_r, mul_n_a_fract_nxt_c, clk, mul_n_en_c, nrst, '0);
+`FF_EN_NRST(mul_n_a_u2_r, mul_n_a_u2_nxt_c, clk, mul_n_en_c, nrst, '0);
+`FF_EN_NRST(mul_n_a_r, mul_n_a_nxt_c, clk, mul_n_en_c, nrst, '0);
+`FF_EN_NRST(mul_n_b_fract_r, mul_n_b_fract_nxt_c, clk, mul_n_en_c, nrst, '0);
+`FF_EN_NRST(mul_n_b_u2_r, mul_n_b_u2_nxt_c, clk, mul_n_en_c, nrst, '0);
+`FF_EN_NRST(mul_n_b_r, mul_n_b_nxt_c, clk, mul_n_en_c, nrst, '0);
+
+genvar n;
+generate
+  for(n = 2; n < NUM_MULS; n++) begin : MUL_N_GEN
+    nlms_mul #(
+      .INPUT_WIDTH(SAMPLE_WIDTH),
+      .Q_FORMAT(SAMPLE_Q_FORMAT)
+    )mul_n(
+      .clk(clk),
+      .nrst(nrst),
+      .en(en),
+      
+      .input_data_valid(mul_n_input_data_valid_r),
+      .actual_input_bits(actual_input_bits),
+      
+      .a_fract(mul_n_a_fract_r),
+      .a_u2(mul_n_a_u2_r),
+      .a(mul_n_a_r),
+      
+      .b_fract(mul_n_b_fract_r),
+      .b_u2(mul_n_b_u2_r),
+      .b(mul_n_b_r),
+      
+      .product(mul_n_product_c[n-2]),
+      .saturation(mul_n_saturation_c[n-2]),
+      .new_product(mul_n_new_product_c[n-2])
+    );
+  end
+endgenerate
+
+//--------------------------output assignments--------------------------
+assign x_fifo_ready = ((muls_fsm_state_r == MULS_FSM_FIR_FILTRATION) || 
+                       (muls_fsm_state_r == MULS_FSM_ADAPTATION));
+assign h_fetched_ready = (muls_fsm_state_r == MULS_FSM_FIR_FILTRATION);
+
+assign products_new = mul_0_new_product_c && mul_1_new_product_c && |mul_n_new_product_c;
+assign products_saturation = mul_0_saturation_c || mul_1_saturation_c || |mul_n_saturation_c;
+assign products_data = {mul_n_product_c, mul_1_product_c, mul_0_product_c};
 
 endmodule
