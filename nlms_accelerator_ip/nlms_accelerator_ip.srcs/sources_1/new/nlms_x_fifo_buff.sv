@@ -24,7 +24,7 @@ module nlms_x_fifo_buff #(
   input logic start_outputting_data,
   input logic reset_x_vals,
   input logic abort_processing,
-  input logic [H_BUFF_ADDR_WIDTH-1:0] h_coefs_count,
+  input logic [(H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1):0] h_coefs_blocks,
   input logic reset_x_d_ptr,
   output logic samples_ready,
   
@@ -51,6 +51,8 @@ module nlms_x_fifo_buff #(
 );
 
 // --------------------------write logic signals--------------------------
+logic [H_BUFF_ADDR_WIDTH-1:0] h_coefs_count_c;
+
 // register, indicates that new samples were fetched and x sample is inside fifo
 logic samples_ready_en_c;
 logic samples_ready_nxt_c;
@@ -184,6 +186,9 @@ assign tran_FIFO_FSM_PUSH_TO_FIFO__IDLE = (fifo_fsm_state_r == X_FIFO_FSM_PUSH_T
 assign tran_FIFO_FSM_IDLE__FETCH_SAMPLES = (fifo_fsm_state_r == X_FIFO_FSM_IDLE) && (fifo_fsm_state_nxt_c == X_FIFO_FSM_FETCH_SAMPLES);
 
 //--------------------------write RTL--------------------------
+
+assign h_coefs_count_c = h_coefs_blocks << LOG2_NUM_MULS;  // equal to h_coefs_blocks*NUM_MULS
+
 // x/d buff pointer
 assign curr_x_d_sample_addr_en_c = en && (tran_FIFO_FSM_FETCH_SAMPLES__PUSH_TO_FIFO ||  // reg should increment only after smaple were fetched from x/d buffs
                                          reset_x_d_ptr);
@@ -228,7 +233,7 @@ assign x_0_addr_nxt_c = fifo_wptr_r;
 // fifo_wptr_r
 assign fifo_wptr_en_c = en && (tran_FIFO_FSM_PUSH_TO_FIFO__IDLE || reset_x_vals);
 assign fifo_wptr_nxt_c = (reset_x_vals) ? '0 :  // in case of soft reset return to brgining of buff
-                         ((fifo_wptr_r) == (h_coefs_count-1)) ? '0 :  // at the end of buffer wrap to begining
+                         ((fifo_wptr_r) == (h_coefs_count_c-1)) ? '0 :  // at the end of buffer wrap to begining
                          fifo_wptr_r + 1;  // in other case icrement normally
 `FF_EN_NRST(fifo_wptr_r, fifo_wptr_nxt_c, clk, fifo_wptr_en_c, nrst, '0)
 
@@ -245,13 +250,14 @@ assign fifo_read_samples_cnt_nxt_c = (tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES) ? '0 :
                                                                     fifo_read_samples_inc_c;  // increment at every memory read
 `FF_EN_NRST(fifo_read_samples_cnt_r, fifo_read_samples_cnt_nxt_c, clk, fifo_read_samples_cnt_en_c, nrst, '0)
 
-assign x_fifo_last_read_c = fifo_read_samples_cnt_r >= h_coefs_count;
+// generating last transaction signal
+assign x_fifo_last_read_c = (fifo_read_samples_cnt_r == h_coefs_count_c);
 `FF_EN_NRST(x_fifo_last_read_d_r, x_fifo_last_read_c, clk, en, nrst, '0)  // first delay (mem delay)
 `FF_EN_NRST(x_fifo_last_read_d_d_r, x_fifo_last_read_d_r, clk, en, nrst, '0)  // second delay (sorting register delay)
 
 // raddr generator
 assign fifo_raddr_en_c = en && (!x_fifo_last_read_c || tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES);
-assign fifo_raddr_wrapped_c = (h_coefs_count-H_BUFF_ADDR_WIDTH'('h1))-(NUM_MULS[H_BUFF_ADDR_WIDTH-1:0]+fifo_raddr_r) ;
+assign fifo_raddr_wrapped_c = (h_coefs_count_c-H_BUFF_ADDR_WIDTH'('h1))-(NUM_MULS[H_BUFF_ADDR_WIDTH-1:0]+fifo_raddr_r) ;
 assign fifo_raddr_nxt_c = (tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES) ? x_0_addr_r :  // initialize fifo_raddr with address of last written sample
                                                                 (fifo_raddr_r < NUM_MULS[H_BUFF_ADDR_WIDTH-1:0]) ? fifo_raddr_wrapped_c : // wrapping handling
                                                                 fifo_raddr_r - NUM_MULS[H_BUFF_ADDR_WIDTH-1:0];  // decrement to sample n-1
@@ -307,7 +313,7 @@ nlms_bram #(
   .rdata(fifo_rdata_c)
 );
 
-//output assignments
+//--------------------------output assignments--------------------------
 assign samples_ready = samples_ready_r;
 
 assign x_0 = x_0_r;
