@@ -32,7 +32,6 @@ module nlms_multipliers #(
   // h_fetch_manager interface
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data,
   input logic h_fetched_valid,
-  output logic h_fetched_ready,
   input logic h_fetched_last,
   
   // product_processor interface
@@ -51,6 +50,10 @@ localparam MULS_FSM_SUM_OF_SQUARES = MULS_FSM_LEN'('h2);
 localparam MULS_FSM_ADAP_COEF = MULS_FSM_LEN'('h3);
 localparam MULS_FSM_ADAPTATION = MULS_FSM_LEN'('h4);
 
+logic stop_feeding_muls_en_c;
+logic stop_feeding_muls_nxt_c;
+logic stop_feeding_muls_r;
+
 logic muls_fsm_state_en_c;
 logic [MULS_FSM_LEN-1:0] muls_fsm_state_r;
 logic [MULS_FSM_LEN-1:0] muls_fsm_state_nxt_c;
@@ -63,7 +66,14 @@ logic tran_MULS_FSM_IDLE_ADAPTATION;
 //--------------------------mul 0 signals--------------------------
 logic mul_0_en_c;
 
+// adaptation coef acquisition control
+logic adaptation_coef_get_en_c;
+logic adaptation_coef_get_nxt_c;
+logic adaptation_coef_get_r;
+
 // adaptation coef
+logic adaptation_coef_en_c;
+logic [SAMPLE_WIDTH-1:0] adaptation_coef_nxt_c;
 logic [SAMPLE_WIDTH-1:0] adaptation_coef_r;
 
 // mul_0 control interface
@@ -160,6 +170,12 @@ logic [(NUM_MULS-2)-1:0] mul_n_saturation_c;
 logic [(NUM_MULS-2)-1:0] mul_n_new_product_c;
 
 //--------------------------FSM RTL--------------------------
+// auxiliary register, indicates stop of processing
+assign stop_feeding_muls_en_c = en;
+assign stop_feeding_muls_nxt_c = x_fifo_last;
+`FF_EN_NRST(stop_feeding_muls_r, stop_feeding_muls_nxt_c, clk, stop_feeding_muls_en_c, nrst, '0)
+
+// main control FSM register
 assign muls_fsm_state_en_c = en;
 always_comb begin
   case(muls_fsm_state_r)
@@ -170,14 +186,14 @@ always_comb begin
                             (start_filter_adaptation) ? MULS_FSM_ADAPTATION :
                                                         MULS_FSM_IDLE;
      MULS_FSM_FIR_FILTRATION:
-       muls_fsm_state_nxt_c = (x_fifo_last) ? MULS_FSM_IDLE : 
+       muls_fsm_state_nxt_c = (stop_feeding_muls_r) ? MULS_FSM_IDLE : 
                                               MULS_FSM_FIR_FILTRATION;
      MULS_FSM_SUM_OF_SQUARES:
        muls_fsm_state_nxt_c = MULS_FSM_IDLE;
      MULS_FSM_ADAP_COEF:
        muls_fsm_state_nxt_c = MULS_FSM_IDLE;
      MULS_FSM_ADAPTATION:
-       muls_fsm_state_nxt_c = (x_fifo_last) ? MULS_FSM_IDLE : 
+       muls_fsm_state_nxt_c = (stop_feeding_muls_r) ? MULS_FSM_IDLE : 
                                               MULS_FSM_ADAPTATION;
      default:
        muls_fsm_state_nxt_c = 'x;
@@ -192,6 +208,24 @@ assign tran_MULS_FSM_IDLE_ADAPTATION = (muls_fsm_state_r == MULS_FSM_IDLE) && (m
 
 //--------------------------mul 0 RTL--------------------------
 assign mul_0_en_c = en;
+
+// adaptation coef acquisition control 
+assign adaptation_coef_get_en_c = en;
+always_comb begin
+  if(muls_fsm_state_r == MULS_FSM_ADAP_COEF) begin
+    adaptation_coef_get_nxt_c = 1'b1;
+  end else if(mul_0_new_product_c) begin
+    adaptation_coef_get_nxt_c = 1'b0;
+  end else begin
+    adaptation_coef_get_nxt_c = adaptation_coef_get_r;
+  end
+end
+`FF_EN_NRST(adaptation_coef_get_r, adaptation_coef_get_nxt_c, clk, adaptation_coef_get_en_c, nrst, '0)
+
+// register that holds adaptation coef
+assign adaptation_coef_en_c = adaptation_coef_get_r && mul_0_new_product_c;
+assign adaptation_coef_nxt_c = mul_0_product_c;
+`FF_EN_NRST(adaptation_coef_r, adaptation_coef_nxt_c, clk, adaptation_coef_en_c, nrst, '0)
 
 // special mul, handles calculating x_sum_of_squares (together with mul_1) and adaptation coef
 // mul 0 data valid
@@ -407,7 +441,7 @@ always_comb begin
   MULS_FSM_IDLE: begin
     mul_n_a_fract_nxt_c = '0;
     mul_n_a_u2_nxt_c = '0;
-    mul_1_a_nxt_c = '0;
+    mul_n_a_nxt_c = '0;
     
     mul_n_b_fract_nxt_c = '0;
     mul_n_b_u2_nxt_c = '0;
@@ -416,7 +450,7 @@ always_comb begin
   MULS_FSM_SUM_OF_SQUARES: begin
     mul_n_a_fract_nxt_c = '0;
     mul_n_a_u2_nxt_c = '0;
-    mul_1_a_nxt_c = '0;
+    mul_n_a_nxt_c = '0;
     
     mul_n_b_fract_nxt_c = '0;
     mul_n_b_u2_nxt_c = '0;
@@ -425,7 +459,7 @@ always_comb begin
   MULS_FSM_ADAP_COEF: begin
     mul_n_a_fract_nxt_c = '0;
     mul_n_a_u2_nxt_c = '0;
-    mul_1_a_nxt_c = '0;
+    mul_n_a_nxt_c = '0;
     
     mul_n_b_fract_nxt_c = '0;
     mul_n_b_u2_nxt_c = '0;
@@ -434,16 +468,16 @@ always_comb begin
   MULS_FSM_FIR_FILTRATION: begin
     mul_n_a_fract_nxt_c = x_fract;
     mul_n_a_u2_nxt_c = x_samples_u2;
-    mul_n_a_nxt_c = x_fifo_data[NUM_MULS:2];
+    mul_n_a_nxt_c = x_fifo_data[NUM_MULS-1:2];
     
     mul_n_b_fract_nxt_c = 1'b1;
     mul_n_b_u2_nxt_c = 1'b1;
-    mul_n_b_nxt_c = h_fetched_data[NUM_MULS:2];
+    mul_n_b_nxt_c = h_fetched_data[NUM_MULS-1:2];
   end
   MULS_FSM_ADAPTATION: begin
     mul_n_a_fract_nxt_c = x_fract;
     mul_n_a_u2_nxt_c = x_samples_u2;
-    mul_n_a_nxt_c = x_fifo_data[NUM_MULS:2];
+    mul_n_a_nxt_c = x_fifo_data[NUM_MULS-1:2];
     
     mul_n_b_fract_nxt_c = 1'b1;
     mul_n_b_u2_nxt_c = 1'b1;
@@ -484,11 +518,11 @@ generate
       
       .a_fract(mul_n_a_fract_r),
       .a_u2(mul_n_a_u2_r),
-      .a(mul_n_a_r),
+      .a(mul_n_a_r[n-2]),
       
       .b_fract(mul_n_b_fract_r),
       .b_u2(mul_n_b_u2_r),
-      .b(mul_n_b_r),
+      .b(mul_n_b_r[n-2]),
       
       .product(mul_n_product_c[n-2]),
       .saturation(mul_n_saturation_c[n-2]),
@@ -500,7 +534,6 @@ endgenerate
 //--------------------------output assignments--------------------------
 assign x_fifo_ready = ((muls_fsm_state_r == MULS_FSM_FIR_FILTRATION) || 
                        (muls_fsm_state_r == MULS_FSM_ADAPTATION));
-assign h_fetched_ready = (muls_fsm_state_r == MULS_FSM_FIR_FILTRATION);
 
 assign products_new = mul_0_new_product_c && mul_1_new_product_c && |mul_n_new_product_c;
 assign products_saturation = mul_0_saturation_c || mul_1_saturation_c || |mul_n_saturation_c;

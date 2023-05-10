@@ -1,0 +1,315 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon May  8 19:37:56 2023
+# Process ID: 13916
+# Current directory: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1
+# Command line: vivado.exe -log system_top_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_top_wrapper.tcl
+# Log file: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/system_top_wrapper.vds
+# Journal file: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1\vivado.jou
+# Running On: DESKTOP-P6SHRJL, OS: Windows, CPU Frequency: 2208 MHz, CPU Physical cores: 6, Host memory: 17047 MB
+#-----------------------------------------------------------
+source system_top_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 384.234 ; gain = 42.980
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/fpga_projects/SDUP/projekt/ip_repo/axi_slave_mem_test_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/fpga_projects/SDUP/projekt/bram_ip_test'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado_2/Vivado/2022.2/data/ip'.
+Command: synth_design -top system_top_wrapper -part xc7z007sclg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z007s'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z007s'
+INFO: [Device 21-403] Loading part xc7z007sclg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 29992
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Vivado_2/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1246.406 ; gain = 407.422
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'system_top_wrapper' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/hdl/system_top_wrapper.v:12]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/hdl/system_top_wrapper.v:24]
+INFO: [Synth 8-6157] synthesizing module 'system_top' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:246]
+INFO: [Synth 8-6157] synthesizing module 'system_top_axi_bram_ctrl_0_0' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_axi_bram_ctrl_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_axi_bram_ctrl_0_0' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_axi_bram_ctrl_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_top_axi_smc_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_axi_smc_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_axi_smc_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_axi_smc_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'M00_AXI_awqos' of module 'system_top_axi_smc_1' is unconnected for instance 'axi_smc' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:408]
+WARNING: [Synth 8-7071] port 'M00_AXI_arqos' of module 'system_top_axi_smc_1' is unconnected for instance 'axi_smc' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:408]
+WARNING: [Synth 8-7023] instance 'axi_smc' of module 'system_top_axi_smc_1' has 55 connections declared, but only 53 given [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:408]
+INFO: [Synth 8-6157] synthesizing module 'system_top_bram_ip_top_0_2' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_bram_ip_top_0_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_bram_ip_top_0_2' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_bram_ip_top_0_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_top_clk_wiz_1_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_clk_wiz_1_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_clk_wiz_1_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_clk_wiz_1_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_top_mdm_1_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_mdm_1_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_mdm_1_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_mdm_1_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_top_microblaze_0_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_microblaze_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_microblaze_0_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_microblaze_0_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'system_top_microblaze_0_1' is unconnected for instance 'microblaze_0' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:496]
+WARNING: [Synth 8-7023] instance 'microblaze_0' of module 'system_top_microblaze_0_1' has 52 connections declared, but only 51 given [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:496]
+INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_EN32NK' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:12]
+INFO: [Synth 8-6157] synthesizing module 'system_top_dlmb_bram_if_cntlr_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_dlmb_bram_if_cntlr_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_dlmb_bram_if_cntlr_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_dlmb_bram_if_cntlr_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_top_dlmb_v10_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_dlmb_v10_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_dlmb_v10_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_dlmb_v10_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'system_top_dlmb_v10_1' is unconnected for instance 'dlmb_v10' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:158]
+WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'system_top_dlmb_v10_1' has 25 connections declared, but only 24 given [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:158]
+INFO: [Synth 8-6157] synthesizing module 'system_top_ilmb_bram_if_cntlr_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_ilmb_bram_if_cntlr_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_ilmb_bram_if_cntlr_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_ilmb_bram_if_cntlr_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_top_ilmb_v10_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_ilmb_v10_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_ilmb_v10_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_ilmb_v10_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'system_top_ilmb_v10_1' is unconnected for instance 'ilmb_v10' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:204]
+WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'system_top_ilmb_v10_1' has 25 connections declared, but only 24 given [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:204]
+INFO: [Synth 8-6157] synthesizing module 'system_top_lmb_bram_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_lmb_bram_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_lmb_bram_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_lmb_bram_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_top_lmb_bram_1' is unconnected for instance 'lmb_bram' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:229]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_top_lmb_bram_1' is unconnected for instance 'lmb_bram' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:229]
+WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'system_top_lmb_bram_1' has 16 connections declared, but only 14 given [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:229]
+INFO: [Synth 8-6155] done synthesizing module 'microblaze_0_local_memory_imp_EN32NK' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:12]
+INFO: [Synth 8-6157] synthesizing module 'system_top_rst_clk_wiz_1_100M_1' [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_rst_clk_wiz_1_100M_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_rst_clk_wiz_1_100M_1' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/.Xil/Vivado-13916-DESKTOP-P6SHRJL/realtime/system_top_rst_clk_wiz_1_100M_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'system_top_rst_clk_wiz_1_100M_1' is unconnected for instance 'rst_clk_wiz_1_100M' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:570]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'system_top_rst_clk_wiz_1_100M_1' is unconnected for instance 'rst_clk_wiz_1_100M' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:570]
+WARNING: [Synth 8-7023] instance 'rst_clk_wiz_1_100M' of module 'system_top_rst_clk_wiz_1_100M_1' has 10 connections declared, but only 8 given [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:570]
+INFO: [Synth 8-6155] done synthesizing module 'system_top' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/synth/system_top.v:246]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_wrapper' (0#1) [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/hdl/system_top_wrapper.v:12]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1342.898 ; gain = 503.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1342.898 ; gain = 503.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1342.898 ; gain = 503.914
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1342.898 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_axi_bram_ctrl_0_0/system_top_axi_bram_ctrl_0_0/system_top_axi_bram_ctrl_0_0_in_context.xdc] for cell 'system_top_i/axi_bram_ctrl_0'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_axi_bram_ctrl_0_0/system_top_axi_bram_ctrl_0_0/system_top_axi_bram_ctrl_0_0_in_context.xdc] for cell 'system_top_i/axi_bram_ctrl_0'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_microblaze_0_1/system_top_microblaze_0_1/system_top_microblaze_0_1_in_context.xdc] for cell 'system_top_i/microblaze_0'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_microblaze_0_1/system_top_microblaze_0_1/system_top_microblaze_0_1_in_context.xdc] for cell 'system_top_i/microblaze_0'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_dlmb_v10_1/system_top_dlmb_v10_1/system_top_ilmb_v10_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/dlmb_v10'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_dlmb_v10_1/system_top_dlmb_v10_1/system_top_ilmb_v10_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/dlmb_v10'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_ilmb_v10_1/system_top_ilmb_v10_1/system_top_ilmb_v10_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/ilmb_v10'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_ilmb_v10_1/system_top_ilmb_v10_1/system_top_ilmb_v10_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/ilmb_v10'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_dlmb_bram_if_cntlr_1/system_top_dlmb_bram_if_cntlr_1/system_top_dlmb_bram_if_cntlr_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_dlmb_bram_if_cntlr_1/system_top_dlmb_bram_if_cntlr_1/system_top_dlmb_bram_if_cntlr_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_ilmb_bram_if_cntlr_1/system_top_ilmb_bram_if_cntlr_1/system_top_ilmb_bram_if_cntlr_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_ilmb_bram_if_cntlr_1/system_top_ilmb_bram_if_cntlr_1/system_top_ilmb_bram_if_cntlr_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_lmb_bram_1/system_top_lmb_bram_1/system_top_lmb_bram_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/lmb_bram'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_lmb_bram_1/system_top_lmb_bram_1/system_top_lmb_bram_1_in_context.xdc] for cell 'system_top_i/microblaze_0_local_memory/lmb_bram'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_mdm_1_1/system_top_mdm_1_1/system_top_mdm_1_1_in_context.xdc] for cell 'system_top_i/mdm_1'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_mdm_1_1/system_top_mdm_1_1/system_top_mdm_1_1_in_context.xdc] for cell 'system_top_i/mdm_1'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1_in_context.xdc] for cell 'system_top_i/clk_wiz_1'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1_in_context.xdc] for cell 'system_top_i/clk_wiz_1'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_rst_clk_wiz_1_100M_1/system_top_rst_clk_wiz_1_100M_1/system_top_rst_clk_wiz_1_100M_1_in_context.xdc] for cell 'system_top_i/rst_clk_wiz_1_100M'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_rst_clk_wiz_1_100M_1/system_top_rst_clk_wiz_1_100M_1/system_top_rst_clk_wiz_1_100M_1_in_context.xdc] for cell 'system_top_i/rst_clk_wiz_1_100M'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_axi_smc_1/system_top_axi_smc_1/system_top_axi_smc_1_in_context.xdc] for cell 'system_top_i/axi_smc'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_axi_smc_1/system_top_axi_smc_1/system_top_axi_smc_1_in_context.xdc] for cell 'system_top_i/axi_smc'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_bram_ip_top_0_2/system_top_bram_ip_top_0_2/system_top_bram_ip_top_0_2_in_context.xdc] for cell 'system_top_i/bram_ip_top_0'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_bram_ip_top_0_2/system_top_bram_ip_top_0_2/system_top_bram_ip_top_0_2_in_context.xdc] for cell 'system_top_i/bram_ip_top_0'
+Parsing XDC File [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1364.270 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1364.270 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'system_top_i/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Vivado_2/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1364.270 ; gain = 525.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z007sclg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1364.270 ; gain = 525.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for diff_clock_rtl_clk_n. (constraint file  d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for diff_clock_rtl_clk_n. (constraint file  d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for diff_clock_rtl_clk_p. (constraint file  d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for diff_clock_rtl_clk_p. (constraint file  d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1/system_top_clk_wiz_1_1_in_context.xdc, line 6).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/axi_bram_ctrl_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/microblaze_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/microblaze_0_local_memory/dlmb_v10. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/microblaze_0_local_memory/ilmb_v10. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/microblaze_0_local_memory/dlmb_bram_if_cntlr. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/microblaze_0_local_memory/ilmb_bram_if_cntlr. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/microblaze_0_local_memory/lmb_bram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/mdm_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/clk_wiz_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/rst_clk_wiz_1_100M. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/axi_smc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_top_i/bram_ip_top_0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1364.270 ; gain = 525.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1364.270 ; gain = 525.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 66 (col length:40)
+BRAMs: 100 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1364.270 ; gain = 525.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1364.270 ; gain = 525.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1364.270 ; gain = 525.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1364.270 ; gain = 525.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1367.152 ; gain = 528.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1367.152 ; gain = 528.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1367.152 ; gain = 528.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1367.152 ; gain = 528.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1367.152 ; gain = 528.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1367.152 ; gain = 528.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------------------------+----------+
+|      |BlackBox name                   |Instances |
++------+--------------------------------+----------+
+|1     |system_top_axi_bram_ctrl_0_0    |         1|
+|2     |system_top_axi_smc_1            |         1|
+|3     |system_top_bram_ip_top_0_2      |         1|
+|4     |system_top_clk_wiz_1_1          |         1|
+|5     |system_top_mdm_1_1              |         1|
+|6     |system_top_microblaze_0_1       |         1|
+|7     |system_top_rst_clk_wiz_1_100M_1 |         1|
+|8     |system_top_dlmb_bram_if_cntlr_1 |         1|
+|9     |system_top_dlmb_v10_1           |         1|
+|10    |system_top_ilmb_bram_if_cntlr_1 |         1|
+|11    |system_top_ilmb_v10_1           |         1|
+|12    |system_top_lmb_bram_1           |         1|
++------+--------------------------------+----------+
+
+Report Cell Usage: 
++------+------------------------------+------+
+|      |Cell                          |Count |
++------+------------------------------+------+
+|1     |system_top_axi_bram_ctrl_0    |     1|
+|2     |system_top_axi_smc            |     1|
+|3     |system_top_bram_ip_top_0      |     1|
+|4     |system_top_clk_wiz_1          |     1|
+|5     |system_top_dlmb_bram_if_cntlr |     1|
+|6     |system_top_dlmb_v10           |     1|
+|7     |system_top_ilmb_bram_if_cntlr |     1|
+|8     |system_top_ilmb_v10           |     1|
+|9     |system_top_lmb_bram           |     1|
+|10    |system_top_mdm_1              |     1|
+|11    |system_top_microblaze_0       |     1|
+|12    |system_top_rst_clk_wiz_1_100M |     1|
+|13    |IBUF                          |     1|
++------+------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1367.152 ; gain = 528.168
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1367.152 ; gain = 506.797
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1367.152 ; gain = 528.168
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1379.203 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1385.066 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: d3998b85
+INFO: [Common 17-83] Releasing license: Synthesis
+48 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 1385.066 ; gain = 951.590
+INFO: [Common 17-1381] The checkpoint 'D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/synth_1/system_top_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file system_top_wrapper_utilization_synth.rpt -pb system_top_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon May  8 19:38:51 2023...

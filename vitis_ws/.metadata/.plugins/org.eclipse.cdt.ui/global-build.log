@@ -1,0 +1,28 @@
+Nothing to build in platform 'system_top_wrapper'
+
+20:55:35 **** Incremental Build of configuration Debug for project axi_to_bram_tests ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -ID:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:3:
+../src/main.c: In function 'main':
+D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/bspinclude/include/xparameters.h:496:45: warning: initialization of 'uint32_t *' {aka 'long unsigned int *'} from 'unsigned int' makes pointer from integer without a cast [-Wint-conversion]
+  496 | #define XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR 0xC0000000U
+      |                                             ^~~~~~~~~~~
+../src/main.c:9:36: note: in expansion of macro 'XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR'
+    9 |         uint32_t* bram_base_addr = XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR;
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: axi_to_bram_tests.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -LD:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "axi_to_bram_tests.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: axi_to_bram_tests.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size axi_to_bram_tests.elf  |tee "axi_to_bram_tests.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   1900	    268	   3112	   5280	   14a0	axi_to_bram_tests.elf
+'Finished building: axi_to_bram_tests.elf.size'
+' '

@@ -3,7 +3,9 @@
 module nlms_datapath #(
   parameter SAMPLE_WIDTH = 'x,
   parameter SAMPLE_Q_FORMAT = 'x,
-  parameter NUM_MULS = 'x
+  parameter LOG2_NUM_MULS = 'x,
+  
+  localparam NUM_MULS = 2**LOG2_NUM_MULS
 )(
   input logic clk,
   input logic nrst,
@@ -17,7 +19,7 @@ module nlms_datapath #(
   input logic abort_processing,
   input logic x_samples_u2,
   input logic x_fract,
-  input [$clog2(SAMPLE_WIDTH)-1:0] actual_input_bits,
+  input logic [$clog2(SAMPLE_WIDTH)-1:0] actual_input_bits,
   input logic y_output,
   
   // x_fifo_buff interface
@@ -25,13 +27,12 @@ module nlms_datapath #(
   input logic [SAMPLE_WIDTH-1:0] x_0,
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] x_fifo_data,
   input logic x_fifo_valid,
-  output logic x_fifo_ready,
   input logic x_fifo_last,
+  input logic [SAMPLE_WIDTH-1:0] d_sample,
   
   // h_fetch_manager interface
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data,
   input logic h_fetched_valid,
-  output logic h_fetched_ready,
   input logic h_fetched_last,
   
   // h_write_manager interface
@@ -76,13 +77,11 @@ nlms_multipliers #(
   .x_0(x_0),
   .x_fifo_data(x_fifo_data),
   .x_fifo_valid(x_fifo_valid),
-  .x_fifo_ready(x_fifo_ready),
   .x_fifo_last(x_fifo_last),
   
   // h_fetch_manager interface
   .h_fetched_data(h_fetched_data),
   .h_fetched_valid(h_fetched_valid),
-  .h_fetched_ready(h_fetched_ready),
   .h_fetched_last(h_fetched_last),
   
   // product_processor interface

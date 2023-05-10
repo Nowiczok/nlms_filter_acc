@@ -1,0 +1,12 @@
+vhdl xil_defaultlib  \
+"../../../bd/system_top/ip/system_top_axi_bram_ctrl_0_0/sim/system_top_axi_bram_ctrl_0_0.vhd" \
+"../../../bd/system_top/ip/system_top_microblaze_0_2/sim/system_top_microblaze_0_2.vhd" \
+"../../../bd/system_top/ip/system_top_dlmb_v10_2/sim/system_top_dlmb_v10_2.vhd" \
+"../../../bd/system_top/ip/system_top_ilmb_v10_2/sim/system_top_ilmb_v10_2.vhd" \
+"../../../bd/system_top/ip/system_top_dlmb_bram_if_cntlr_2/sim/system_top_dlmb_bram_if_cntlr_2.vhd" \
+"../../../bd/system_top/ip/system_top_ilmb_bram_if_cntlr_2/sim/system_top_ilmb_bram_if_cntlr_2.vhd" \
+"../../../bd/system_top/ip/system_top_mdm_1_2/sim/system_top_mdm_1_2.vhd" \
+"../../../bd/system_top/ip/system_top_rst_clk_wiz_1_100M_2/sim/system_top_rst_clk_wiz_1_100M_2.vhd" \
+"../../../bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_1/sim/bd_a7a5_psr_aclk_0.vhd" \
+
+nosort

@@ -98,7 +98,7 @@ logic out_type_res_stage_out_valid_r;
 //--------------------------input type resolution stage RTL--------------------------
 assign type_res_stage_en_c = en && input_data_valid;
 
-assign input_scaling_shift_c = INPUT_WIDTH - actual_input_bits - SCALING_SHIFT_WIDTH'('b1);
+assign input_scaling_shift_c = INPUT_WIDTH - actual_input_bits;
 
 assign a_fract_d_nxt_c = a_fract;
 `FF_EN_NRST(a_fract_d_r, a_fract_d_nxt_c, clk, type_res_stage_en_c, nrst, '0)

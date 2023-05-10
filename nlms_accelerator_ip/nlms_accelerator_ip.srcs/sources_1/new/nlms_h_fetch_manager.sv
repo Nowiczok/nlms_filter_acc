@@ -3,12 +3,12 @@
 `include "nlms_design_macros.vh"
 
 module nlms_h_fetch_manager #(
-  parameter LOG_2_H_BUFF_HEIGHT = 'x,
+  parameter LOG2_H_BUFF_HEIGHT = 'x,
   parameter SAMPLE_WIDTH = 'x,
-  parameter LOG_2_NUM_MULS = 'x,
+  parameter LOG2_NUM_MULS = 'x,
   
-  localparam H_BUFF_ADDR_WIDTH = LOG_2_H_BUFF_HEIGHT,
-  localparam NUM_MULS = LOG_2_NUM_MULS
+  localparam H_BUFF_ADDR_WIDTH = LOG2_H_BUFF_HEIGHT,
+  localparam NUM_MULS = 2**LOG2_NUM_MULS
 )(
   input logic clk,
   input logic nrst, 
@@ -16,7 +16,7 @@ module nlms_h_fetch_manager #(
   
   // control interface
   input logic start_fetching,
-  input logic [H_BUFF_ADDR_WIDTH-1:0] h_coefs_count,
+  input logic [(H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1):0] h_coefs_blocks,
   input logic abort_processing,
   
   // h buff interface
@@ -35,8 +35,6 @@ module nlms_h_fetch_manager #(
 logic h_fetching_en_c;
 logic h_fetching_nxt_c;
 logic h_fetching_r;
-logic h_fetching_rose_d_r;  // signal needed to assert re one cycle after h_fetching_r resets addtess register
-logic h_fetching_rose_c;
 
 // h_buff_re
 logic h_buff_re_en_c;
@@ -61,16 +59,30 @@ logic h_fetched_valid_en_c;
 logic h_fetched_valid_nxt_c;
 logic h_fetched_valid_r;
 
+// output register for reordered samples
+logic h_fetched_data_en_c;
+logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data_int_c;
+logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data_nxt_c;
+logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data_r;
+
 //--------------------------fetch RTL--------------------------
 
+// indicator that ther is ongoing fetching
+assign h_fetching_en_c = en && (h_buff_last_read_c || start_fetching);
+assign h_fetching_nxt_c = start_fetching;
+`FF_EN_NRST(h_fetching_r, h_fetching_nxt_c, clk, h_fetching_en_c, nrst, '0)
+
 // exposed data counter (equal to current address)
-assign h_buff_raddr_en_c = en && (!h_buff_last_read_c || start_fetching);
-assign h_buff_raddr_inc_c = h_buff_raddr_r + NUM_MULS[H_BUFF_ADDR_WIDTH-1:0];
+assign h_buff_raddr_en_c = en && ((!h_buff_last_read_c && h_fetching_r) || start_fetching);
+assign h_buff_raddr_inc_c = h_buff_raddr_r + H_BUFF_ADDR_WIDTH'('b1);
 assign h_buff_raddr_nxt_c = (start_fetching) ? '0 :  // reset counter at the begining of read cycle
                                                h_buff_raddr_inc_c;  // increment at every memory read
 `FF_EN_NRST(h_buff_raddr_r, h_buff_raddr_nxt_c, clk, h_buff_raddr_en_c, nrst, '0)
 
-assign h_buff_last_read_c = (h_buff_raddr_r == h_coefs_count);
+// indicator of last memory read
+assign h_buff_last_read_c = (h_buff_raddr_r == (h_coefs_blocks - H_BUFF_ADDR_WIDTH'('b1))) && h_fetching_r;
+
+// indicator of last data send
 `FF_EN_NRST(h_buff_last_read_d_r, h_buff_last_read_c, clk, en, nrst, '0)  // first delay (mem delay)
 `FF_EN_NRST(h_fetched_last_r, h_buff_last_read_d_r, clk, en, nrst, '0)  // second delay (sorting register delay)
 
@@ -84,12 +96,22 @@ assign h_buff_re_c = (start_fetching) ? 1'b1 :
 `FF_EN_NRST(h_buff_re_d_d_r, h_buff_re_d_r, clk, en, nrst, '0)  // ready first delay (mem delay)
 `FF_EN_NRST(h_fetched_valid_r, h_buff_re_d_d_r, clk, en, nrst, '0)  // ready second delay (sorting register delay, assigned to valid)
 
+// samples reordering and data delay to match x fifo buff
+assign h_fetched_data_en_c = h_buff_re_d_d_r;
+assign h_fetched_data_int_c = h_buff_rdata;
+always_comb begin
+  for(integer i = 0; i < NUM_MULS; i=i+1) begin
+    h_fetched_data_nxt_c[i] = h_fetched_data_int_c[NUM_MULS-1-i];
+  end
+end
+`FF_EN_NRST(h_fetched_data_r, h_fetched_data_nxt_c, clk, h_fetched_data_en_c, nrst, '0)
+
 //--------------------------output assignments--------------------------
-assign h_fetched_data = h_buff_rdata;
+assign h_fetched_data = h_fetched_data_r;
 assign h_fetched_valid = h_fetched_valid_r;
 assign h_fetched_last = h_fetched_last_r;
 
-assign h_buff_re = h_buff_re_c;
+assign h_buff_re = h_buff_re_d_r;
 assign h_buff_raddr = h_buff_raddr_r;
 
 endmodule

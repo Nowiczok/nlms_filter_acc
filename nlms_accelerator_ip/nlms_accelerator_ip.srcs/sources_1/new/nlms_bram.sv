@@ -50,7 +50,13 @@ module nlms_bram #(
   `endif  // BRAM_SYNTH
   
   // unaligned reads not supported, all read will be force-aligned 
-  assign raddr_aligned = {raddr[ADDR_WIDTH-1:LOG2_RD_PORT_NUM_WORDS], LOG2_RD_PORT_NUM_WORDS'('b0)};
+  generate
+  if(LOG2_RD_PORT_NUM_WORDS > 0) begin
+    assign raddr_aligned = {raddr[ADDR_WIDTH-1:LOG2_RD_PORT_NUM_WORDS], LOG2_RD_PORT_NUM_WORDS'('b0)};
+  end else begin
+    assign raddr_aligned = raddr;
+  end
+  endgenerate
   
   // read data process
   always @(posedge clk) begin

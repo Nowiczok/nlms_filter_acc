@@ -1,0 +1,38 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/7698" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/f0b6/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/66be/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/ec67/hdl" --include "D:/Vivado_2/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ipshared/f4cc/bram_ip_top.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_bram_ip_top_0_2/sim/system_top_bram_ip_top_0_2.sv" \
+
+verilog xil_defaultlib  --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/7698" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/f0b6/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/66be/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/ec67/hdl" --include "D:/Vivado_2/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/sim/system_top.v" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_lmb_bram_2/sim/system_top_lmb_bram_2.v" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_clk_wiz_1_2/system_top_clk_wiz_1_2_clk_wiz.v" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_clk_wiz_1_2/system_top_clk_wiz_1_2.v" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_0/sim/bd_a7a5_one_0.v" \
+
+sv xil_defaultlib  --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/7698" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/f0b6/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/66be/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/ec67/hdl" --include "D:/Vivado_2/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_2/sim/bd_a7a5_s00mmu_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_3/sim/bd_a7a5_s00tr_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_4/sim/bd_a7a5_s00sic_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_5/sim/bd_a7a5_s00a2s_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_6/sim/bd_a7a5_sarn_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_7/sim/bd_a7a5_srn_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_8/sim/bd_a7a5_sawn_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_9/sim/bd_a7a5_swn_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_10/sim/bd_a7a5_sbn_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_11/sim/bd_a7a5_m00s2a_0.sv" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_12/sim/bd_a7a5_m00e_0.sv" \
+
+verilog xil_defaultlib  --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/7698" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/f0b6/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/66be/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/ec67/hdl" --include "D:/Vivado_2/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/sim/bd_a7a5.v" \
+"../../../../nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/sim/system_top_axi_smc_2.v" \
+"../../../../nlms_acc.gen/sources_1/bd/system_top/hdl/system_top_wrapper.v" \
+
+sv xil_defaultlib  --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/7698" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/f0b6/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/66be/hdl/verilog" --include "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/ec67/hdl" --include "D:/Vivado_2/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../nlms_acc.srcs/sim_1/new/bram_test_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

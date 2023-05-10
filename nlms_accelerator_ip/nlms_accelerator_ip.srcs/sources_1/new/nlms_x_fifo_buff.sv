@@ -38,10 +38,18 @@ module nlms_x_fifo_buff #(
   output logic [X_D_BUFF_ADDR_WIDH-1:0] d_buff_raddr,
   input logic [SAMPLE_WIDTH-1:0] d_buff_rdata,
   
+  // x fifo buff interface
+  output logic x_fifo_buff_we,
+  output logic [H_BUFF_ADDR_WIDTH-1:0] x_fifo_buff_waddr,
+  output logic [SAMPLE_WIDTH-1:0] x_fifo_buff_wdata,
+  
+  output logic x_fifo_buff_re,
+  output logic [H_BUFF_ADDR_WIDTH-1:0] x_fifo_buff_raddr,
+  input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] x_fifo_buff_rdata,
+  
   // multipliers interface
   output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] x_fifo_data,
   output logic x_fifo_valid,
-  input logic x_fifo_ready,
   output logic x_fifo_last, 
   output logic [SAMPLE_WIDTH-1:0] x_thrown_away,
   output logic [SAMPLE_WIDTH-1:0] x_0,
@@ -120,7 +128,12 @@ logic prev_rdata_en_c;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] prev_rdata_nxt_c;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] prev_rdata_r;
 
+logic first_read_data_en_c;
+logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] first_read_data_nxt_c;
+logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] first_read_data_r;
+
 logic [NUM_MULS-1:0][NUM_MULS-1:0][SAMPLE_WIDTH-1:0] sorted_data_c;
+logic [NUM_MULS-1:0][NUM_MULS-1:0][SAMPLE_WIDTH-1:0] sorted_data_last_c;
 logic  [LOG2_NUM_MULS-1:0] addr_in_block_c;
 
 // combo signal, informs that all reads were performed
@@ -141,7 +154,7 @@ logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] fifo_rdata_c;
 
 // --------------------------fsm logic signals--------------------------
 // FSM states encoding
-localparam X_FIFO_FSM_LEN = 8;
+localparam X_FIFO_FSM_LEN = 2;
 localparam X_FIFO_FSM_IDLE = X_FIFO_FSM_LEN'('h0);
 localparam X_FIFO_FSM_FETCH_SAMPLES = X_FIFO_FSM_LEN'('h1);
 localparam X_FIFO_FSM_PUSH_TO_FIFO = X_FIFO_FSM_LEN'('h2);
@@ -244,23 +257,23 @@ assign x_0_nxt_c = x_buff_rdata;
 
 //--------------------------read RTL--------------------------
 // exposed data counter
-assign fifo_read_samples_cnt_en_c = en && (!x_fifo_last_read_c || tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES);
+assign fifo_read_samples_cnt_en_c = en && (!x_fifo_last_read_c && fifo_fsm_state_nxt_c == X_FIFO_FSM_OUTPUT_SAMPLES);
 assign fifo_read_samples_inc_c = fifo_read_samples_cnt_r + NUM_MULS[H_BUFF_ADDR_WIDTH-1:0];
 assign fifo_read_samples_cnt_nxt_c = (tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES) ? '0 :  // reset counter at the begining of read cycle
                                                                     fifo_read_samples_inc_c;  // increment at every memory read
 `FF_EN_NRST(fifo_read_samples_cnt_r, fifo_read_samples_cnt_nxt_c, clk, fifo_read_samples_cnt_en_c, nrst, '0)
 
 // generating last transaction signal
-assign x_fifo_last_read_c = (fifo_read_samples_cnt_r == h_coefs_count_c);
+assign x_fifo_last_read_c = (fifo_read_samples_cnt_r == (h_coefs_count_c-NUM_MULS[H_BUFF_ADDR_WIDTH-1:0]) && (fifo_fsm_state_r == X_FIFO_FSM_OUTPUT_SAMPLES));
 `FF_EN_NRST(x_fifo_last_read_d_r, x_fifo_last_read_c, clk, en, nrst, '0)  // first delay (mem delay)
 `FF_EN_NRST(x_fifo_last_read_d_d_r, x_fifo_last_read_d_r, clk, en, nrst, '0)  // second delay (sorting register delay)
 
 // raddr generator
-assign fifo_raddr_en_c = en && (!x_fifo_last_read_c || tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES);
-assign fifo_raddr_wrapped_c = (h_coefs_count_c-H_BUFF_ADDR_WIDTH'('h1))-(NUM_MULS[H_BUFF_ADDR_WIDTH-1:0]+fifo_raddr_r) ;
+assign fifo_raddr_en_c = en && ((!x_fifo_last_read_c && (fifo_fsm_state_nxt_c == X_FIFO_FSM_OUTPUT_SAMPLES)) || tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES);
+assign fifo_raddr_wrapped_c = h_coefs_count_c-NUM_MULS[H_BUFF_ADDR_WIDTH-1:0]+fifo_raddr_r;
 assign fifo_raddr_nxt_c = (tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES) ? x_0_addr_r :  // initialize fifo_raddr with address of last written sample
                                                                 (fifo_raddr_r < NUM_MULS[H_BUFF_ADDR_WIDTH-1:0]) ? fifo_raddr_wrapped_c : // wrapping handling
-                                                                fifo_raddr_r - NUM_MULS[H_BUFF_ADDR_WIDTH-1:0];  // decrement to sample n-1
+                                                                fifo_raddr_r - NUM_MULS[H_BUFF_ADDR_WIDTH-1:0];  // decrement to next block
 `FF_EN_NRST(fifo_raddr_r, fifo_raddr_nxt_c, clk, fifo_raddr_en_c, nrst, '0)
 
 // re signal
@@ -277,50 +290,59 @@ assign prev_rdata_en_c = x_fifo_re_d_r;
 assign prev_rdata_nxt_c = fifo_rdata_c;
 `FF_EN_NRST(prev_rdata_r, prev_rdata_nxt_c, clk, prev_rdata_en_c, nrst, '0)
 
-// data sorting 
+// first read data, required for data sorting
+assign first_read_data_en_c = fifo_read_samples_cnt_r == NUM_MULS;
+assign first_read_data_nxt_c = fifo_rdata_c;
+`FF_EN_NRST(first_read_data_r, first_read_data_nxt_c, clk, first_read_data_en_c, nrst, '0)
+
+// last bits of address, needed to locate first word of data
 assign addr_in_block_c = x_0_addr_r[LOG2_NUM_MULS-1:0];
 
-// special case, if data is aligned then only prev_rdata_r is needed
-assign sorted_data_c[0] = prev_rdata_r;
+// data sorting
+// special case, sometimes all needed data is located in one block
+assign sorted_data_c[NUM_MULS-1] = prev_rdata_r;
 
-// handling unaligned data
+// handling unaligned data in case of needed data in two blocks
 genvar i;
 generate
-  for(i = 1; i < NUM_MULS; i = i+1) begin
+  for(i = NUM_MULS-2; i >= 0; i = i-1) begin
     always_comb begin
-      sorted_data_c[i] = {prev_rdata_r[LOG2_NUM_MULS-1:i], fifo_rdata_c[i-1:0]};
+      sorted_data_c[i] = {prev_rdata_r[i:0], fifo_rdata_c[NUM_MULS-1:i+1]};
     end
   end
 endgenerate
 
-//--------------------------bram instance--------------------------
+assign sorted_data_last_c[NUM_MULS-1] = prev_rdata_r;
+
+// handling unaligned data in case of needed data in two blocks
+generate
+  for(i = NUM_MULS-2; i >= 0; i = i-1) begin
+    always_comb begin
+      sorted_data_last_c[i] = {prev_rdata_r[i:0], first_read_data_r[NUM_MULS-1:i+1]};
+    end
+  end
+endgenerate
+
+//--------------------------bram signals multiplexing--------------------------
 assign fifo_raddr_final_c = (tran_FIFO_FSM_FETCH_SAMPLES__PUSH_TO_FIFO) ? fifo_wptr_r : fifo_raddr_r;                            
 assign fifo_re_final_c = (tran_FIFO_FSM_FETCH_SAMPLES__PUSH_TO_FIFO) ? x_d_re_r : x_fifo_re_r;
-nlms_bram #(
-  .LOG2_HEIGHT(LOG2_H_BUFF_HEIGHT),
-  .WORD_WIDTH(SAMPLE_WIDTH),
-  .LOG2_RD_PORT_NUM_WORDS(LOG2_NUM_MULS)
-)fifo_buff_bram_INST(
-  .clk(clk),
-
-  .en_wport(fifo_we_r),
-  .we(fifo_we_r),
-  .waddr(fifo_wptr_r),
-  .wdata(x_buff_rdata),
-
-  .re(fifo_re_final_c),
-  .raddr(fifo_raddr_final_c),
-  .rdata(fifo_rdata_c)
-);
 
 //--------------------------output assignments--------------------------
+assign x_fifo_buff_we = fifo_we_r;
+assign x_fifo_buff_waddr = fifo_wptr_r;
+assign x_fifo_buff_wdata = x_buff_rdata;
+
+assign x_fifo_buff_re = fifo_re_final_c;
+assign x_fifo_buff_raddr = fifo_raddr_final_c;
+assign fifo_rdata_c = x_fifo_buff_rdata;
+
 assign samples_ready = samples_ready_r;
 
 assign x_0 = x_0_r;
 assign d_sample = d_sample_r;
 assign x_thrown_away = x_thrown_away_r;
 
-assign x_fifo_data = sorted_data_c[addr_in_block_c];
+assign x_fifo_data = (x_fifo_last_read_d_d_r) ? sorted_data_last_c[addr_in_block_c] : sorted_data_c[addr_in_block_c];
 assign x_fifo_valid = x_fifo_valid_r;
 assign x_fifo_last = x_fifo_last_read_d_d_r;
 

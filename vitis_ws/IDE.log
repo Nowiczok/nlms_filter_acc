@@ -1,0 +1,23 @@
+19:57:49 DEBUG : Logs will be stored at 'D:/fpga_projects/SDUP/projekt/vitis_ws/IDE.log'.
+19:57:55 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\fpga_projects\SDUP\projekt\vitis_ws\temp_xsdb_launch_script.tcl
+19:57:56 INFO  : Registering command handlers for Vitis TCF services
+19:57:57 INFO  : Platform repository initialization has completed.
+19:58:05 INFO  : XSCT server has started successfully.
+19:58:14 INFO  : Successfully done setting XSCT server connection channel  
+19:58:14 INFO  : plnx-install-location is set to ''
+19:58:14 INFO  : Successfully done query RDI_DATADIR 
+19:58:14 INFO  : Successfully done setting workspace for the tool. 
+19:59:18 INFO  : Result from executing command 'getProjects': system_top_wrapper
+19:59:18 INFO  : Result from executing command 'getPlatforms': xilinx_zcu102_base_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+19:59:18 WARN  : An unexpected exception occurred in the module 'platform project logging'
+19:59:19 INFO  : Platform 'system_top_wrapper' is added to custom repositories.
+19:59:23 INFO  : Platform 'system_top_wrapper' is added to custom repositories.
+20:06:06 INFO  : Result from executing command 'getProjects': system_top_wrapper
+20:06:06 INFO  : Result from executing command 'getPlatforms': system_top_wrapper|D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/system_top_wrapper.xpfm;xilinx_zcu102_base_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+20:06:07 INFO  : Checking for BSP changes to sync application flags for project 'axi_to_bram_tests'...
+20:06:30 INFO  : Checking for BSP changes to sync application flags for project 'axi_to_bram_tests'...
+20:06:48 INFO  : Checking for BSP changes to sync application flags for project 'axi_to_bram_tests'...
+20:44:43 INFO  : Checking for BSP changes to sync application flags for project 'axi_to_bram_tests'...
+20:46:01 INFO  : Checking for BSP changes to sync application flags for project 'axi_to_bram_tests'...
+20:47:50 INFO  : Checking for BSP changes to sync application flags for project 'axi_to_bram_tests'...
+20:55:35 INFO  : Checking for BSP changes to sync application flags for project 'axi_to_bram_tests'...

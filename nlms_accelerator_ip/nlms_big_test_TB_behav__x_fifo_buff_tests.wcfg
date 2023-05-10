@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="nlms_big_test_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="nlms_big_test_TB" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="40080000fs"></ZoomStartTime>
+      <ZoomEndTime time="64370001fs"></ZoomEndTime>
+      <Cursor1Time time="58000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="255"></NameColumnWidth>
+      <ValueColumnWidth column_width="145"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/nlms_big_test_TB/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nlms_big_test_TB/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nlms_big_test_TB/en" type="logic">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/h_coefs_blocks" type="array">
+      <obj_property name="ElementShortName">h_coefs_blocks[1:0]</obj_property>
+      <obj_property name="ObjectShortName">h_coefs_blocks[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group227" type="group">
+      <obj_property name="label">x_fifo_buff mem int</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="group308" type="group">
+         <obj_property name="label">write</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_buff_we" type="logic">
+            <obj_property name="ElementShortName">x_fifo_buff_we</obj_property>
+            <obj_property name="ObjectShortName">x_fifo_buff_we</obj_property>
+         </wvobject>
+         <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_buff_waddr" type="array">
+            <obj_property name="ElementShortName">x_fifo_buff_waddr[3:0]</obj_property>
+            <obj_property name="ObjectShortName">x_fifo_buff_waddr[3:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_buff_wdata" type="array">
+            <obj_property name="ElementShortName">x_fifo_buff_wdata[15:0]</obj_property>
+            <obj_property name="ObjectShortName">x_fifo_buff_wdata[15:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group309" type="group">
+         <obj_property name="label">read</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_buff_re" type="logic">
+            <obj_property name="ElementShortName">x_fifo_buff_re</obj_property>
+            <obj_property name="ObjectShortName">x_fifo_buff_re</obj_property>
+         </wvobject>
+         <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_buff_raddr" type="array">
+            <obj_property name="ElementShortName">x_fifo_buff_raddr[3:0]</obj_property>
+            <obj_property name="ObjectShortName">x_fifo_buff_raddr[3:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_buff_rdata" type="array">
+            <obj_property name="ElementShortName">x_fifo_buff_rdata[3:0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">x_fifo_buff_rdata[3:0][15:0]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/mem_content" type="array">
+      <obj_property name="ElementShortName">mem_content[15:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_content[15:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group234" type="group">
+      <obj_property name="label">x_fifo_buff muls int</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/fifo_fsm_state_r" type="array">
+         <obj_property name="ElementShortName">fifo_fsm_state_r[1:0]</obj_property>
+         <obj_property name="ObjectShortName">fifo_fsm_state_r[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_data" type="array">
+         <obj_property name="ElementShortName">x_fifo_data[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">x_fifo_data[3:0][15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_valid" type="logic">
+         <obj_property name="ElementShortName">x_fifo_valid</obj_property>
+         <obj_property name="ObjectShortName">x_fifo_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_last" type="logic">
+         <obj_property name="ElementShortName">x_fifo_last</obj_property>
+         <obj_property name="ObjectShortName">x_fifo_last</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group315" type="group">
+      <obj_property name="label">x_buff_read</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/fifo_fsm_state_r" type="array">
+         <obj_property name="ElementShortName">fifo_fsm_state_r[1:0]</obj_property>
+         <obj_property name="ObjectShortName">fifo_fsm_state_r[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/tran_FIFO_FSM_IDLE__FETCH_SAMPLES" type="logic">
+         <obj_property name="ElementShortName">tran_FIFO_FSM_IDLE__FETCH_SAMPLES</obj_property>
+         <obj_property name="ObjectShortName">tran_FIFO_FSM_IDLE__FETCH_SAMPLES</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/re" type="logic">
+         <obj_property name="ElementShortName">re</obj_property>
+         <obj_property name="ObjectShortName">re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_d_re_nxt_c" type="logic">
+         <obj_property name="ElementShortName">x_d_re_nxt_c</obj_property>
+         <obj_property name="ObjectShortName">x_d_re_nxt_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/raddr" type="array">
+         <obj_property name="ElementShortName">raddr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">raddr[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/rdata" type="array">
+         <obj_property name="ElementShortName">rdata[0:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[0:0][15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group342" type="group">
+      <obj_property name="label">h_fetch muls int</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_fetched_data" type="array">
+         <obj_property name="ElementShortName">h_fetched_data[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">h_fetched_data[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_fetched_valid" type="logic">
+         <obj_property name="ElementShortName">h_fetched_valid</obj_property>
+         <obj_property name="ObjectShortName">h_fetched_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_fetched_last" type="logic">
+         <obj_property name="ElementShortName">h_fetched_last</obj_property>
+         <obj_property name="ObjectShortName">h_fetched_last</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group346" type="group">
+      <obj_property name="label">h_fetch mem int</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buffers_INST/h_buff_bram_INST/mem_content" type="array">
+         <obj_property name="ElementShortName">mem_content[3:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_content[3:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_re" type="logic">
+         <obj_property name="ElementShortName">h_buff_re</obj_property>
+         <obj_property name="ObjectShortName">h_buff_re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_raddr" type="array">
+         <obj_property name="ElementShortName">h_buff_raddr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">h_buff_raddr[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_rdata" type="array">
+         <obj_property name="ElementShortName">h_buff_rdata[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">h_buff_rdata[3:0][15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

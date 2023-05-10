@@ -1,0 +1,325 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon May  8 19:35:22 2023
+# Process ID: 25576
+# Current directory: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/system_top_bram_ip_top_0_2_synth_1
+# Command line: vivado.exe -log system_top_bram_ip_top_0_2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_top_bram_ip_top_0_2.tcl
+# Log file: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/system_top_bram_ip_top_0_2_synth_1/system_top_bram_ip_top_0_2.vds
+# Journal file: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/system_top_bram_ip_top_0_2_synth_1\vivado.jou
+# Running On: DESKTOP-P6SHRJL, OS: Windows, CPU Frequency: 2208 MHz, CPU Physical cores: 6, Host memory: 17047 MB
+#-----------------------------------------------------------
+source system_top_bram_ip_top_0_2.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:12 . Memory (MB): peak = 385.219 ; gain = 65.789
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/fpga_projects/SDUP/projekt/ip_repo/axi_slave_mem_test_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/fpga_projects/SDUP/projekt/bram_ip_test'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado_2/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_top_bram_ip_top_0_2
+Command: synth_design -top system_top_bram_ip_top_0_2 -part xc7z007sclg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z007s'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z007s'
+INFO: [Device 21-403] Loading part xc7z007sclg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5360
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Vivado_2/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1215.211 ; gain = 407.078
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'system_top_bram_ip_top_0_2' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_bram_ip_top_0_2/synth/system_top_bram_ip_top_0_2.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'bram_ip_top' [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ipshared/f4cc/bram_ip_top.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'bram_ip_top' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ipshared/f4cc/bram_ip_top.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'system_top_bram_ip_top_0_2' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ip/system_top_bram_ip_top_0_2/synth/system_top_bram_ip_top_0_2.sv:53]
+WARNING: [Synth 8-3848] Net bram_rddata_a in module/entity bram_ip_top does not have driver. [d:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/ipshared/f4cc/bram_ip_top.sv:13]
+WARNING: [Synth 8-7129] Port bram_rddata_a[31] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[30] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[29] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[28] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[27] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[26] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[25] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[24] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[23] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[22] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[21] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[20] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[19] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[18] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[17] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[16] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[15] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[14] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[13] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[12] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[11] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[10] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[9] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[8] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[7] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[6] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[5] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[4] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[3] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[2] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[1] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rddata_a[0] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[31] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[30] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[29] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[28] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[27] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[26] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[25] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[24] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[23] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[22] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[21] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[20] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[19] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[18] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[17] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[16] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[15] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[14] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[13] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[12] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[11] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[10] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[9] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[8] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_en_a in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[11] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[10] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[9] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[8] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[7] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[6] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[5] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[4] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_clk_b in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[31] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[30] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[29] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[28] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[27] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[26] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[25] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[24] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[23] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[22] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[21] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[20] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[19] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[18] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[17] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[16] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[15] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[14] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[13] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[12] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[11] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[10] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[9] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[8] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[7] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[6] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[5] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[4] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[3] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[2] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[1] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[0] in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_en_b in module bram_ip_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rst_b in module bram_ip_top is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 1319.215 ; gain = 511.082
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1319.215 ; gain = 511.082
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1319.215 ; gain = 511.082
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1319.215 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1384.285 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 1384.285 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Vivado_2/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z007sclg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:29 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 64    
++---Muxes : 
+	   2 Input    8 Bit        Muxes := 64    
+	   2 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 66 (col length:40)
+BRAMs: 100 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:48 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:49 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:49 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |LUT2  |    16|
+|2     |LUT5  |    32|
+|3     |LUT6  |   265|
+|4     |MUXF7 |   128|
+|5     |MUXF8 |    32|
+|6     |FDCE  |   544|
++------+------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1384.285 ; gain = 576.152
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 105 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:55 . Memory (MB): peak = 1384.285 ; gain = 511.082
+Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:58 . Memory (MB): peak = 1384.285 ; gain = 576.152
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1384.285 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 160 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'system_top_bram_ip_top_0_2' is not ideal for floorplanning, since the cellview 'bram_ip_top' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1384.285 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 4c9412b7
+INFO: [Common 17-83] Releasing license: Synthesis
+27 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:01:10 . Memory (MB): peak = 1384.285 ; gain = 951.094
+INFO: [Common 17-1381] The checkpoint 'D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/system_top_bram_ip_top_0_2_synth_1/system_top_bram_ip_top_0_2.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_top_bram_ip_top_0_2, cache-ID = d0a780a13cfc08ca
+INFO: [Common 17-1381] The checkpoint 'D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/system_top_bram_ip_top_0_2_synth_1/system_top_bram_ip_top_0_2.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file system_top_bram_ip_top_0_2_utilization_synth.rpt -pb system_top_bram_ip_top_0_2_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon May  8 19:36:57 2023...
