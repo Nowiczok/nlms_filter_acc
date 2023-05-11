@@ -39,6 +39,8 @@ module nlms_multipliers #(
   output logic products_new,
   output logic products_saturation,
   input logic [SAMPLE_WIDTH-1:0] err,
+  
+  // mi calculator interface
   input logic [SAMPLE_WIDTH-1:0] mi_final
 );
 

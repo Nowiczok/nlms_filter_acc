@@ -91,5 +91,50 @@ nlms_multipliers #(
   .err(err),
   .mi_final(mi_final)
 );
-    
+
+nlms_product_processor #(
+  .SAMPLE_WIDTH(SAMPLE_WIDTH),
+  .SAMPLE_Q_FORMAT(SAMPLE_Q_FORMAT),
+  .LOG2_NUM_MULS(LOG2_NUM_MULS)
+)nlms_product_processor_INST(
+  .clk(clk),
+  .nrst(nrst),
+  .en(en),
+  
+  // control interface
+  .update_x_sum_of_squares(),
+  .start_fir_filtration(),
+  .start_filter_adaptation(),
+  .y_as_out(),
+  .abort_processing(),
+  .clear_x_sum_of_squares(),
+  .set_x_sum_of_squares(),
+  .x_sum_of_squares_set_val(),
+  
+  // multipliers interface
+  .products_data(),
+  .products_new(),
+  .products_saturation(),
+  .err(),
+  
+  // mi calculator interface
+  .x_sum_of_squares(),
+  
+  // h fetch manager interface
+  .h_fetched_data(),
+  .h_fetched_valid(),
+  .h_fetched_last(),
+  
+  // x fifo buff interface
+  .d_sample(),
+  
+  // output wrtie manager interface
+  .out_val_data(),
+  .out_val_valid(),
+  
+  // h coeffs write manager interface
+  .h_adapted_data(),
+  .h_adapted_valid()
+)
+
 endmodule

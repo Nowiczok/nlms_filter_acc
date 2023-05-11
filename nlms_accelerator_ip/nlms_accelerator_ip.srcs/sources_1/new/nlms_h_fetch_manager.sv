@@ -24,7 +24,7 @@ module nlms_h_fetch_manager #(
   output logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr,
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_rdata,
   
-  // multipliers interface
+  // multipliers/product processor interface
   output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data,
   output logic h_fetched_valid,
   output logic h_fetched_last

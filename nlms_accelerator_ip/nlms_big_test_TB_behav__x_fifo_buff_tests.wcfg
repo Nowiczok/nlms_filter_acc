@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="40080000fs"></ZoomStartTime>
-      <ZoomEndTime time="64370001fs"></ZoomEndTime>
-      <Cursor1Time time="58000000fs"></Cursor1Time>
+      <ZoomStartTime time="673600000fs"></ZoomStartTime>
+      <ZoomEndTime time="1108600001fs"></ZoomEndTime>
+      <Cursor1Time time="858000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="255"></NameColumnWidth>
       <ValueColumnWidth column_width="145"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="14" />
    <wvobject fp_name="/nlms_big_test_TB/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -31,6 +31,10 @@
    <wvobject fp_name="/nlms_big_test_TB/en" type="logic">
       <obj_property name="ElementShortName">en</obj_property>
       <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/start_fetching" type="logic">
+      <obj_property name="ElementShortName">start_fetching</obj_property>
+      <obj_property name="ObjectShortName">start_fetching</obj_property>
    </wvobject>
    <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/h_coefs_blocks" type="array">
       <obj_property name="ElementShortName">h_coefs_blocks[1:0]</obj_property>
@@ -73,30 +77,29 @@
          </wvobject>
       </wvobject>
    </wvobject>
+   <wvobject fp_name="group346" type="group">
+      <obj_property name="label">h_fetch mem int</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buffers_INST/h_buff_bram_INST/mem_content" type="array">
+         <obj_property name="ElementShortName">mem_content[3:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_content[3:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_re" type="logic">
+         <obj_property name="ElementShortName">h_buff_re</obj_property>
+         <obj_property name="ObjectShortName">h_buff_re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_raddr" type="array">
+         <obj_property name="ElementShortName">h_buff_raddr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">h_buff_raddr[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_rdata" type="array">
+         <obj_property name="ElementShortName">h_buff_rdata[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">h_buff_rdata[3:0][15:0]</obj_property>
+      </wvobject>
+   </wvobject>
    <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/mem_content" type="array">
       <obj_property name="ElementShortName">mem_content[15:0][15:0]</obj_property>
       <obj_property name="ObjectShortName">mem_content[15:0][15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="group234" type="group">
-      <obj_property name="label">x_fifo_buff muls int</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/fifo_fsm_state_r" type="array">
-         <obj_property name="ElementShortName">fifo_fsm_state_r[1:0]</obj_property>
-         <obj_property name="ObjectShortName">fifo_fsm_state_r[1:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_data" type="array">
-         <obj_property name="ElementShortName">x_fifo_data[3:0][15:0]</obj_property>
-         <obj_property name="ObjectShortName">x_fifo_data[3:0][15:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_valid" type="logic">
-         <obj_property name="ElementShortName">x_fifo_valid</obj_property>
-         <obj_property name="ObjectShortName">x_fifo_valid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_last" type="logic">
-         <obj_property name="ElementShortName">x_fifo_last</obj_property>
-         <obj_property name="ObjectShortName">x_fifo_last</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="group315" type="group">
       <obj_property name="label">x_buff_read</obj_property>
@@ -133,6 +136,7 @@
       <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_fetched_data" type="array">
          <obj_property name="ElementShortName">h_fetched_data[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">h_fetched_data[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_fetched_valid" type="logic">
          <obj_property name="ElementShortName">h_fetched_valid</obj_property>
@@ -143,25 +147,141 @@
          <obj_property name="ObjectShortName">h_fetched_last</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group346" type="group">
-      <obj_property name="label">h_fetch mem int</obj_property>
+   <wvobject fp_name="group234" type="group">
+      <obj_property name="label">x_fifo_buff muls int</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buffers_INST/h_buff_bram_INST/mem_content" type="array">
-         <obj_property name="ElementShortName">mem_content[3:0][63:0]</obj_property>
-         <obj_property name="ObjectShortName">mem_content[3:0][63:0]</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/fifo_fsm_state_r" type="array">
+         <obj_property name="ElementShortName">fifo_fsm_state_r[1:0]</obj_property>
+         <obj_property name="ObjectShortName">fifo_fsm_state_r[1:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_re" type="logic">
-         <obj_property name="ElementShortName">h_buff_re</obj_property>
-         <obj_property name="ObjectShortName">h_buff_re</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_data" type="array">
+         <obj_property name="ElementShortName">x_fifo_data[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">x_fifo_data[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_raddr" type="array">
-         <obj_property name="ElementShortName">h_buff_raddr[3:0]</obj_property>
-         <obj_property name="ObjectShortName">h_buff_raddr[3:0]</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_valid" type="logic">
+         <obj_property name="ElementShortName">x_fifo_valid</obj_property>
+         <obj_property name="ObjectShortName">x_fifo_valid</obj_property>
       </wvobject>
-      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/nlms_h_fetch_manager_INST/h_buff_rdata" type="array">
-         <obj_property name="ElementShortName">h_buff_rdata[3:0][15:0]</obj_property>
-         <obj_property name="ObjectShortName">h_buff_rdata[3:0][15:0]</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_fifo_last" type="logic">
+         <obj_property name="ElementShortName">x_fifo_last</obj_property>
+         <obj_property name="ObjectShortName">x_fifo_last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_thrown_away" type="array">
+         <obj_property name="ElementShortName">x_thrown_away[15:0]</obj_property>
+         <obj_property name="ObjectShortName">x_thrown_away[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/x_0" type="array">
+         <obj_property name="ElementShortName">x_0[15:0]</obj_property>
+         <obj_property name="ObjectShortName">x_0[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_int_buff_control_INST/x_fifo_buff_INST/d_sample" type="array">
+         <obj_property name="ElementShortName">d_sample[15:0]</obj_property>
+         <obj_property name="ObjectShortName">d_sample[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group352" type="group">
+      <obj_property name="label">muls out</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/products_data" type="array">
+         <obj_property name="ElementShortName">products_data[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">products_data[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/products_new" type="logic">
+         <obj_property name="ElementShortName">products_new</obj_property>
+         <obj_property name="ObjectShortName">products_new</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_1_new_product_c" type="logic">
+         <obj_property name="ElementShortName">mul_1_new_product_c</obj_property>
+         <obj_property name="ObjectShortName">mul_1_new_product_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0_new_product_c" type="logic">
+         <obj_property name="ElementShortName">mul_0_new_product_c</obj_property>
+         <obj_property name="ObjectShortName">mul_0_new_product_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_n_new_product_c" type="array">
+         <obj_property name="ElementShortName">mul_n_new_product_c[1:0]</obj_property>
+         <obj_property name="ObjectShortName">mul_n_new_product_c[1:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/products_saturation" type="logic">
+         <obj_property name="ElementShortName">products_saturation</obj_property>
+         <obj_property name="ObjectShortName">products_saturation</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group356" type="group">
+      <obj_property name="label">muls controls</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/muls_fsm_state_r" type="array">
+         <obj_property name="ElementShortName">muls_fsm_state_r[2:0]</obj_property>
+         <obj_property name="ObjectShortName">muls_fsm_state_r[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/start_fir_filtration" type="logic">
+         <obj_property name="ElementShortName">start_fir_filtration</obj_property>
+         <obj_property name="ObjectShortName">start_fir_filtration</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group363" type="group">
+      <obj_property name="label">mul0 int</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/input_data_valid" type="logic">
+         <obj_property name="ElementShortName">input_data_valid</obj_property>
+         <obj_property name="ObjectShortName">input_data_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/actual_input_bits" type="array">
+         <obj_property name="ElementShortName">actual_input_bits[3:0]</obj_property>
+         <obj_property name="ObjectShortName">actual_input_bits[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/a_fract" type="logic">
+         <obj_property name="ElementShortName">a_fract</obj_property>
+         <obj_property name="ObjectShortName">a_fract</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/a_u2" type="logic">
+         <obj_property name="ElementShortName">a_u2</obj_property>
+         <obj_property name="ObjectShortName">a_u2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/a" type="array">
+         <obj_property name="ElementShortName">a[15:0]</obj_property>
+         <obj_property name="ObjectShortName">a[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/a_sign_r" type="array">
+         <obj_property name="ElementShortName">a_sign_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">a_sign_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/b_fract" type="logic">
+         <obj_property name="ElementShortName">b_fract</obj_property>
+         <obj_property name="ObjectShortName">b_fract</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/b_u2" type="logic">
+         <obj_property name="ElementShortName">b_u2</obj_property>
+         <obj_property name="ObjectShortName">b_u2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/b" type="array">
+         <obj_property name="ElementShortName">b[15:0]</obj_property>
+         <obj_property name="ObjectShortName">b[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/b_sign_r" type="array">
+         <obj_property name="ElementShortName">b_sign_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">b_sign_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/product" type="array">
+         <obj_property name="ElementShortName">product[15:0]</obj_property>
+         <obj_property name="ObjectShortName">product[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/saturation" type="logic">
+         <obj_property name="ElementShortName">saturation</obj_property>
+         <obj_property name="ObjectShortName">saturation</obj_property>
+      </wvobject>
+      <wvobject fp_name="/nlms_big_test_TB/DUT/nlms_datapath_INST/multipliers_INST/mul_0/new_product" type="logic">
+         <obj_property name="ElementShortName">new_product</obj_property>
+         <obj_property name="ObjectShortName">new_product</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
