@@ -135,6 +135,6 @@ nlms_product_processor #(
   // h coeffs write manager interface
   .h_adapted_data(),
   .h_adapted_valid()
-)
+);
 
 endmodule
