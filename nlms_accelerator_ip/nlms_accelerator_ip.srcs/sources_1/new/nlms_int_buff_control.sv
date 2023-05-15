@@ -22,9 +22,13 @@ module nlms_int_buff_control #(
   input logic abort_processing,
   input logic [(H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1):0] h_coefs_blocks,
   input logic x_fifo_reset_x_d_ptr,
+  input logic reset_out_ptr,
+  output logic out_written,
   output logic x_fifo_samples_ready,
   
-  // x fifo buff interface
+  //-------------------------- memory interfaces --------------------------
+  
+  // x_fifo_buff_bram interface
   output logic x_fifo_buff_we,
   output logic [H_BUFF_ADDR_WIDTH-1:0] x_fifo_buff_waddr,
   output logic [SAMPLE_WIDTH-1:0] x_fifo_buff_wdata,
@@ -33,20 +37,27 @@ module nlms_int_buff_control #(
   output logic [H_BUFF_ADDR_WIDTH-1:0] x_fifo_buff_raddr,
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] x_fifo_buff_rdata,
   
-  // x_buff-x_fifo_buff interface
+  // x_buff interface
   output logic x_buff_re,
   output logic [X_D_BUFF_ADDR_WIDH-1:0] x_buff_raddr,
   input logic [SAMPLE_WIDTH-1:0] x_buff_rdata,
   
-  // d_buff-x_fifo_buff interface
+  // d_buff interface
   output logic d_buff_re,
   output logic [X_D_BUFF_ADDR_WIDH-1:0] d_buff_raddr,
   input logic [SAMPLE_WIDTH-1:0] d_buff_rdata, 
   
-  // h_buff-h_fetch_manager interface
+  // h_buff interface
   output logic h_buff_re,
   output logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr,
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_rdata,
+  
+  // out_buff interface
+  output logic out_buff_we,
+  output logic [X_D_BUFF_ADDR_WIDH-1:0] out_buff_waddr,
+  output logic [SAMPLE_WIDTH-1:0] out_buff_wdata,
+  
+  //-------------------------- datapath interfaces --------------------------
   
   // x_fifo_buff-datapath interface
   output logic [SAMPLE_WIDTH-1:0] x_thrown_away,
@@ -66,8 +77,8 @@ module nlms_int_buff_control #(
   input logic h_adapted_new,
   
   // filter_output_write_manager interface
-  input logic [SAMPLE_WIDTH-1:0] filter_output_new,
-  input logic filter_output 
+  input logic filter_output_valid,
+  input logic [SAMPLE_WIDTH-1:0] filter_output_data
 );
 
 nlms_x_fifo_buff #(
@@ -142,6 +153,28 @@ nlms_h_fetch_manager #(
   .h_fetched_data(h_fetched_data),
   .h_fetched_valid(h_fetched_valid),
   .h_fetched_last(h_fetched_last)
+);
+
+nlms_out_buff_write_manager #(
+  .SAMPLE_WIDTH(SAMPLE_WIDTH),
+  .LOG2_X_D_BUFF_HEIGHT(LOG2_X_D_BUFF_HEIGHT)
+) out_buff_manager_INST(
+  .clk(clk),
+  .nrst(nrst),
+  .en(en),
+  
+  // contorl and status interface
+  .reset_out_ptr(reset_out_ptr),
+  .out_written(out_written),
+  
+  // product processor interface
+  .filter_output_data(filter_output_data),
+  .filter_output_valid(filter_output_valid),
+  
+  // out buffer write interface
+  .out_buff_we(out_buff_we),
+  .out_buff_waddr(out_buff_waddr),
+  .out_buff_wdata(out_buff_wdata)
 );
 
 endmodule

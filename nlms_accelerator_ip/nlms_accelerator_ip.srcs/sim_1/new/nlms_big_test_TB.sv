@@ -23,6 +23,7 @@ logic en;
 logic [2**LOG2_H_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] h_buff_reset_val;
 logic [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] x_buff_ping_reset_val;
 logic [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] d_buff_ping_reset_val;
+logic [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] out_buff_reset_val;
 //--------------------------stimulus--------------------------
 
 // one time assigned
@@ -32,6 +33,8 @@ initial begin
   DUT.x_samples_u2 = 1'b1;
   DUT.x_fract = 1'b0;
   DUT.actual_input_bits = 16;
+  DUT.y_as_out = 1'b1;
+  DUT.reset_out_ptr = '0;
   
   for(integer i = 0; i < 2**LOG2_H_BUFF_HEIGHT; i=i+1) begin
     h_buff_reset_val[i] = i + 1;
@@ -75,7 +78,8 @@ nlms_top #(
   .h_buff_reset_val(h_buff_reset_val),
   .x_fifo_buff_reset_val('0),
   .x_buff_ping_reset_val(x_buff_ping_reset_val),
-  .d_buff_ping_reset_val(d_buff_ping_reset_val)
+  .d_buff_ping_reset_val(d_buff_ping_reset_val),
+  .out_buff_reset_val('0)
 );
 
 // control signals generation 

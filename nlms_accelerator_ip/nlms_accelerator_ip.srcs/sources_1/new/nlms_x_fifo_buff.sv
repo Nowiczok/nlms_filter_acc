@@ -245,7 +245,7 @@ assign x_0_addr_nxt_c = fifo_wptr_r;
 
 // fifo_wptr_r
 assign fifo_wptr_en_c = en && (tran_FIFO_FSM_PUSH_TO_FIFO__IDLE || reset_x_vals);
-assign fifo_wptr_nxt_c = (reset_x_vals) ? '0 :  // in case of soft reset return to brgining of buff
+assign fifo_wptr_nxt_c = (reset_x_vals) ? '0 :  // in case of soft reset return to begining of buff
                          ((fifo_wptr_r) == (h_coefs_count_c-1)) ? '0 :  // at the end of buffer wrap to begining
                          fifo_wptr_r + 1;  // in other case icrement normally
 `FF_EN_NRST(fifo_wptr_r, fifo_wptr_nxt_c, clk, fifo_wptr_en_c, nrst, '0)

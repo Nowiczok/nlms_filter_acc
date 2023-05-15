@@ -30,6 +30,7 @@ module nlms_product_processor #(
   
   // mi calculator interface
   output logic [SAMPLE_WIDTH-1:0] x_sum_of_squares,
+  output logic x_sum_of_squares_valid,
   
   // h fetch manager interface
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data,
@@ -40,8 +41,8 @@ module nlms_product_processor #(
   input logic [SAMPLE_WIDTH-1:0] d_sample,
   
   // output wrtie manager interface
-  output logic [SAMPLE_WIDTH-1:0] out_val_data,
-  output logic out_val_valid,
+  output logic [SAMPLE_WIDTH-1:0] filter_output_data,
+  output logic filter_output_valid,
   
   // h coeffs write manager interface
   output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_adapted_data,
@@ -54,6 +55,11 @@ module nlms_product_processor #(
 logic fir_processing_en_c;
 logic fir_processing_nxt_c;
 logic fir_processing_r;
+
+// signals needed to detect end of processing
+logic prev_products_new_nxt_c;
+logic prev_products_new_r;
+logic products_new_fell;
 
 // combo signal, indicates that there is ongoing fir processing
 logic fir_processing_stop_c;
@@ -92,6 +98,10 @@ logic [SAMPLE_WIDTH-1:0] sum_of_squres_update_c;
 logic [SAMPLE_WIDTH-1:0] sum_of_squres_nxt_c;
 logic [SAMPLE_WIDTH-1:0] sum_of_squres_r; 
 
+logic x_sum_of_squares_valid_en_c;
+logic x_sum_of_squares_valid_nxt_c;
+logic x_sum_of_squares_valid_r;
+
 //--------------------------adaptation prcessing signals--------------------------
 
 logic adaptation_processing_en_c;
@@ -108,24 +118,30 @@ logic h_adapted_valid_r;
 
 //--------------------------FIR prcessing RTL--------------------------
 
+// previous state of products_new
+assign prev_products_new_nxt_c = products_new;
+`FF_EN_NRST(prev_products_new_r, prev_products_new_nxt_c, clk, fir_processing_en_c, nrst, '0)
+assign products_new_fell = !products_new & prev_products_new_r;
+
 // ongoing fir filtration indication logic
 assign fir_processing_en_c = en;
 always_comb begin
   if(start_fir_filtration) begin
     fir_processing_nxt_c = 1'b1;
-  end else if(!products_new) begin
+  end else if(products_new_fell) begin
     fir_processing_nxt_c = 1'b0;
   end else begin
     fir_processing_nxt_c = fir_processing_r;
   end
 end
 `FF_EN_NRST(fir_processing_r, fir_processing_nxt_c, clk, fir_processing_en_c, nrst, '0);
-assign fir_processing_stop_c = fir_processing_r & !products_new;
+assign fir_processing_stop_c = fir_processing_r & products_new_fell;
 
 // fir output computation
 assign fir_y_en_c = fir_processing_nxt_c;
 always_comb begin
-  for(integer i = 0; i < NUM_MULS; i = i+1) begin
+  fir_curr_prod_sum_c = products_data[0];
+  for(integer i = 1; i < NUM_MULS; i = i+1) begin
     fir_curr_prod_sum_c += products_data[i];
   end
 end
@@ -154,7 +170,7 @@ assign sum_of_squares_processing_en_c = en;
 always_comb begin
   if(update_x_sum_of_squares) begin
     sum_of_squares_processing_nxt_c = 1'b1;
-  end else if(!products_new) begin
+  end else if(products_new_fell) begin
     sum_of_squares_processing_nxt_c = 1'b0;
   end else begin
     sum_of_squares_processing_nxt_c = sum_of_squares_processing_r;
@@ -169,6 +185,11 @@ assign sum_of_squres_nxt_c = (clear_x_sum_of_squares) ? '0 :
                                                         (set_x_sum_of_squares) ? x_sum_of_squares_set_val : 
                                                                                  sum_of_squres_update_c;
 `FF_EN_NRST(sum_of_squres_r, sum_of_squres_nxt_c, clk, sum_of_squres_en_c, nrst, '0)
+
+// register, valid signal generation
+assign x_sum_of_squares_valid_en_c = sum_of_squares_processing_r;
+assign x_sum_of_squares_valid_nxt_c = products_new;
+`FF_EN_NRST(x_sum_of_squares_valid_r, x_sum_of_squares_valid_nxt_c, clk, x_sum_of_squares_valid_en_c, nrst, '0)
 
 //--------------------------adaptation prcessing RTL--------------------------
 
@@ -200,10 +221,11 @@ assign h_adapted_valid_nxt_c =products_new;
 
 //--------------------------output assignments--------------------------
 
-assign out_val_data = out_val_data_r;
-assign out_val_valid = out_val_valid_r;
+assign filter_output_data = out_val_data_r;
+assign filter_output_valid = out_val_valid_r;
 
 assign x_sum_of_squares = sum_of_squres_r;
+assign x_sum_of_squares_valid = x_sum_of_squares_valid_r;
 
 assign h_adapted_data = h_adapted_data_r;
 assign h_adapted_valid = h_adapted_valid_r;

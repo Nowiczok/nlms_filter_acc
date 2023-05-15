@@ -106,6 +106,7 @@ Interface:
 - x_sum_of_squares_valid - control signal that indicates new value of x_sum_of_squares, triggers calculation of mi_final
 - abort processing - stops ongoing processing sequence.
 - mi_final - final mi coeff, can be normalized version or not, according to normalized_mi.
+- mi_final_valid - hoes high when mi_final has valid value
 
 ## h_fetch_manager
 

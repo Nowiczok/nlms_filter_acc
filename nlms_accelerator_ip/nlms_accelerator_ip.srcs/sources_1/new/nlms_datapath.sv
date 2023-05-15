@@ -20,7 +20,12 @@ module nlms_datapath #(
   input logic x_samples_u2,
   input logic x_fract,
   input logic [$clog2(SAMPLE_WIDTH)-1:0] actual_input_bits,
-  input logic y_output,
+  input logic y_as_out,
+  input logic clear_x_sum_of_squares,
+  input logic set_x_sum_of_squares,
+  input logic [SAMPLE_WIDTH-1:0] x_sum_of_squares_set_val,
+  output logic [SAMPLE_WIDTH-1:0] x_sum_of_squares_curr,
+  output logic x_sum_of_squares_valid,
   
   // x_fifo_buff interface
   input logic [SAMPLE_WIDTH-1:0] x_thrown_away,
@@ -40,8 +45,8 @@ module nlms_datapath #(
   output logic h_adapted,
   
   // filter_output_write_manager interface
-  output logic [SAMPLE_WIDTH-1:0] filter_output_new,
-  output logic filter_output
+  output logic filter_output_valid,
+  output logic [SAMPLE_WIDTH-1:0] filter_output_data
   
 );
     
@@ -52,7 +57,15 @@ logic products_saturation;
 logic [SAMPLE_WIDTH-1:0] err;
 logic [SAMPLE_WIDTH-1:0] mi_final;
 
-//     
+//  product processor-mi_calculator interface
+logic [SAMPLE_WIDTH-1:0] x_sum_of_squares;
+
+logic [SAMPLE_WIDTH-1:0] out_val_data;
+logic out_val_valid;
+
+logic [SAMPLE_WIDTH-1:0] h_adapted_data;
+logic h_adapted_valid;
+
 nlms_multipliers #(
   .SAMPLE_WIDTH(SAMPLE_WIDTH),
   .SAMPLE_Q_FORMAT(SAMPLE_Q_FORMAT),
@@ -102,39 +115,43 @@ nlms_product_processor #(
   .en(en),
   
   // control interface
-  .update_x_sum_of_squares(),
-  .start_fir_filtration(),
-  .start_filter_adaptation(),
-  .y_as_out(),
-  .abort_processing(),
-  .clear_x_sum_of_squares(),
-  .set_x_sum_of_squares(),
-  .x_sum_of_squares_set_val(),
+  .update_x_sum_of_squares(update_x_sum_of_squares),
+  .start_fir_filtration(start_fir_filtration),
+  .start_filter_adaptation(start_filter_adaptation),
+  .y_as_out(y_as_out),
+  .abort_processing(abort_processing),
+  .clear_x_sum_of_squares(clear_x_sum_of_squares),
+  .set_x_sum_of_squares(set_x_sum_of_squares),
+  .x_sum_of_squares_set_val(x_sum_of_squares_set_val),
   
   // multipliers interface
-  .products_data(),
-  .products_new(),
-  .products_saturation(),
-  .err(),
+  .products_data(products_data),
+  .products_new(products_new),
+  .products_saturation(products_saturation),
+  .err(err),
   
   // mi calculator interface
-  .x_sum_of_squares(),
+  .x_sum_of_squares(x_sum_of_squares),
+  .x_sum_of_squares_valid(x_sum_of_squares_valid),
   
   // h fetch manager interface
-  .h_fetched_data(),
-  .h_fetched_valid(),
-  .h_fetched_last(),
+  .h_fetched_data(h_fetched_data),
+  .h_fetched_valid(h_fetched_valid),
+  .h_fetched_last(h_fetched_last),
   
   // x fifo buff interface
-  .d_sample(),
+  .d_sample(d_sample),
   
   // output wrtie manager interface
-  .out_val_data(),
-  .out_val_valid(),
+  .filter_output_data(filter_output_data),
+  .filter_output_valid(filter_output_valid),
   
   // h coeffs write manager interface
-  .h_adapted_data(),
-  .h_adapted_valid()
+  .h_adapted_data(h_adapted_data),
+  .h_adapted_valid(h_adapted_valid)
 );
+
+// output assignments
+assign x_sum_of_squares_curr = x_sum_of_squares;
 
 endmodule

@@ -19,7 +19,8 @@ module nlms_top #(
   input logic [2**LOG2_H_BUFF_HEIGHT*SAMPLE_WIDTH-1:0] h_buff_reset_val,
   input logic [2**LOG2_H_BUFF_HEIGHT*SAMPLE_WIDTH-1:0] x_fifo_buff_reset_val,
   input logic [2**LOG2_X_D_BUFF_HEIGHT*SAMPLE_WIDTH-1:0] x_buff_ping_reset_val,
-  input logic [2**LOG2_X_D_BUFF_HEIGHT*SAMPLE_WIDTH-1:0] d_buff_ping_reset_val
+  input logic [2**LOG2_X_D_BUFF_HEIGHT*SAMPLE_WIDTH-1:0] d_buff_ping_reset_val,
+  input logic [2**LOG2_X_D_BUFF_HEIGHT*SAMPLE_WIDTH-1:0] out_buff_reset_val
   `endif  // BRAM_SYNTH
 );
 
@@ -32,7 +33,8 @@ logic abort_processing;
 logic x_samples_u2;
 logic x_fract;
 logic [$clog2(SAMPLE_WIDTH)-1:0] actual_input_bits;
-logic y_output;
+logic y_as_out;
+logic x_sum_of_squares_valid;
 
 //-------------------------flow_control-int_buffer_control signals-------------------------
 
@@ -42,6 +44,7 @@ logic x_fifo_reset_x_vals;
 logic [(H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1):0] h_coefs_blocks;
 logic x_fifo_reset_x_d_ptr;
 logic x_fifo_samples_ready;
+logic reset_out_ptr;
 
 //-------------------------int_buffer-int_buffer_control signals-------------------------
 
@@ -69,6 +72,15 @@ logic h_buff_re;
 logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_rdata;
 
+// out_buffer interface
+logic out_buff_we;
+logic [X_D_BUFF_ADDR_WIDH-1:0] out_buff_waddr;
+logic [SAMPLE_WIDTH-1:0] out_buff_wdata;
+
+logic out_buff_re;
+logic [X_D_BUFF_ADDR_WIDH-1:0] out_buff_raddr;
+logic [SAMPLE_WIDTH-1:0] out_buff_rdata;
+
 //-------------------------int_buffer_control-datapath signals-------------------------
 
 // x_fifo_buff interface
@@ -84,8 +96,11 @@ logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data;
 logic h_fetched_valid;
 logic h_fetched_last;
 
-//
+// product processor output interface
+logic filter_output_valid;
+logic [SAMPLE_WIDTH-1:0] filter_output_data;
 
+//-------------------------instances-------------------------
 nlms_int_buffers #(
   .LOG2_H_BUFF_HEIGHT(LOG2_H_BUFF_HEIGHT),
   .LOG2_X_D_BUFF_HEIGHT(LOG2_X_D_BUFF_HEIGHT),
@@ -132,11 +147,21 @@ nlms_int_buffers #(
   .h_buff_waddr('0),
   .h_buff_wdata('0),
   
+  // out_buff interface
+  .out_buff_re(out_buff_re),
+  .out_buff_raddr(out_buff_raddr),
+  .out_buff_rdata(out_buff_rdata),
+  
+  .out_buff_we(out_buff_we),
+  .out_buff_waddr(out_buff_waddr),
+  .out_buff_wdata(out_buff_wdata),
+  
   `ifndef BRAM_SYNTH
   .h_buff_reset_val(h_buff_reset_val),
   .x_fifo_buff_reset_val(x_fifo_buff_reset_val),
   .x_buff_ping_reset_val(x_buff_ping_reset_val),
-  .d_buff_ping_reset_val(d_buff_ping_reset_val)
+  .d_buff_ping_reset_val(d_buff_ping_reset_val),
+  .out_buff_reset_val(out_buff_reset_val)
   `endif
 );
 
@@ -158,8 +183,9 @@ nlms_int_buff_control #(
   .h_coefs_blocks(h_coefs_blocks),
   .x_fifo_reset_x_d_ptr('0),
   .x_fifo_samples_ready(x_fifo_samples_ready),
+  .reset_out_ptr(reset_out_ptr),
   
-  // x_fifo_buff-x_fifo_buff_bram interface
+  // x_fifo_buff interface
   .x_fifo_buff_we(x_fifo_buff_we),
   .x_fifo_buff_waddr(x_fifo_buff_waddr),
   .x_fifo_buff_wdata(x_fifo_buff_wdata),
@@ -168,20 +194,25 @@ nlms_int_buff_control #(
   .x_fifo_buff_raddr(x_fifo_buff_raddr),
   .x_fifo_buff_rdata(x_fifo_buff_rdata),
   
-  // x_buff-x_fifo_buff interface
+  // x_buff interface
   .x_buff_re(x_buff_re),
   .x_buff_raddr(x_buff_raddr),
   .x_buff_rdata(x_buff_rdata),
   
-  // d_buff-x_fifo_buff interface
+  // d_buff interface
   .d_buff_re(d_buff_re),
   .d_buff_raddr(d_buff_raddr),
   .d_buff_rdata(d_buff_rdata), 
   
-  // h_buff-h_fetch_manager interface
+  // h_buff interface
   .h_buff_re(h_buff_re),
   .h_buff_raddr(h_buff_raddr),
   .h_buff_rdata(h_buff_rdata),
+  
+  // output buff interface
+  .out_buff_we(out_buff_we),
+  .out_buff_waddr(out_buff_waddr),
+  .out_buff_wdata(out_buff_wdata),
   
   // x_fifo_buff-datapath interface
   .x_thrown_away(x_thrown_away),
@@ -201,8 +232,8 @@ nlms_int_buff_control #(
   .h_adapted_new(),
   
   // filter_output_write_manager interface
-  .filter_output_new(),
-  .filter_output() 
+  .filter_output_valid(filter_output_valid),
+  .filter_output_data(filter_output_data) 
 );
 
 nlms_datapath #(
@@ -223,7 +254,8 @@ nlms_datapath #(
   .x_samples_u2(x_samples_u2),
   .x_fract(x_fract),
   .actual_input_bits(actual_input_bits),
-  .y_output(y_output),
+  .y_as_out(y_as_out),
+  .x_sum_of_squares_valid(x_sum_of_squares_valid),
   
 // x_fifo_buff-datapath interface
   .x_thrown_away(x_thrown_away),
@@ -243,8 +275,8 @@ nlms_datapath #(
   .h_adapted(),
   
   // filter_output_write_manager interface
-  .filter_output_new(),
-  .filter_output()
+  .filter_output_valid(filter_output_valid),
+  .filter_output_data(filter_output_data)
   
 );
 
