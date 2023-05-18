@@ -20,6 +20,7 @@ module nlms_multipliers #(
   input logic x_samples_u2,
   input logic x_fract,
   input [$clog2(SAMPLE_WIDTH)-1:0] actual_input_bits,
+  output logic adaptation_coef_valid,
   
   // x_fifo_buff interface
   input logic [SAMPLE_WIDTH-1:0] x_thrown_away,
@@ -41,7 +42,8 @@ module nlms_multipliers #(
   input logic [SAMPLE_WIDTH-1:0] err,
   
   // mi calculator interface
-  input logic [SAMPLE_WIDTH-1:0] mi_final
+  input logic [SAMPLE_WIDTH-1:0] mi_final,
+  input logic mi_final_valid
 );
 
 //--------------------------FSM signals--------------------------
@@ -77,6 +79,11 @@ logic adaptation_coef_get_r;
 logic adaptation_coef_en_c;
 logic [SAMPLE_WIDTH-1:0] adaptation_coef_nxt_c;
 logic [SAMPLE_WIDTH-1:0] adaptation_coef_r;
+
+// adaptaion coef valid
+logic adaptation_coef_valid_en_c;
+logic adaptation_coef_valid_nxt_c;
+logic adaptation_coef_valid_r;
 
 // mul_0 control interface
 logic mul_0_input_data_valid_nxt_c;
@@ -225,9 +232,14 @@ end
 `FF_EN_NRST(adaptation_coef_get_r, adaptation_coef_get_nxt_c, clk, adaptation_coef_get_en_c, nrst, '0)
 
 // register that holds adaptation coef
-assign adaptation_coef_en_c = adaptation_coef_get_r && mul_0_new_product_c;
+assign adaptation_coef_en_c = en && (adaptation_coef_get_r && mul_0_new_product_c);
 assign adaptation_coef_nxt_c = mul_0_product_c;
 `FF_EN_NRST(adaptation_coef_r, adaptation_coef_nxt_c, clk, adaptation_coef_en_c, nrst, '0)
+
+// adaptation coef valid
+assign adaptation_coef_valid_en_c = en && (adaptation_coef_get_r | start_filter_adaptation);
+assign adaptation_coef_valid_nxt_c = mul_0_new_product_c;
+`FF_EN_NRST(adaptation_coef_valid_r, adaptation_coef_valid_nxt_c, clk, adaptation_coef_valid_en_c, nrst, '0)
 
 // special mul, handles calculating x_sum_of_squares (together with mul_1) and adaptation coef
 // mul 0 data valid
@@ -483,7 +495,7 @@ always_comb begin
     
     mul_n_b_fract_nxt_c = 1'b1;
     mul_n_b_u2_nxt_c = 1'b1;
-    mul_n_b_nxt_c = adaptation_coef_r;
+    mul_n_b_nxt_c = {(NUM_MULS-2){adaptation_coef_r}};
   end
   default: begin
     mul_n_a_fract_nxt_c = 'x;
@@ -534,6 +546,8 @@ generate
 endgenerate
 
 //--------------------------output assignments--------------------------
+assign adaptation_coef_valid = adaptation_coef_valid_r;
+
 assign x_fifo_ready = ((muls_fsm_state_r == MULS_FSM_FIR_FILTRATION) || 
                        (muls_fsm_state_r == MULS_FSM_ADAPTATION));
 

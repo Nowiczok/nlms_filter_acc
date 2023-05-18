@@ -19,12 +19,14 @@ module nlms_int_buff_control #(
   input logic x_fifo_get_new_x_d_samples,
   input logic x_fifo_start_outputting_data,
   input logic x_fifo_reset_x_vals,
+  input logic start_filter_adaptation,
   input logic abort_processing,
   input logic [(H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1):0] h_coefs_blocks,
   input logic x_fifo_reset_x_d_ptr,
   input logic reset_out_ptr,
   output logic out_written,
   output logic x_fifo_samples_ready,
+  output logic adaptation_finished,
   
   //-------------------------- memory interfaces --------------------------
   
@@ -52,6 +54,10 @@ module nlms_int_buff_control #(
   output logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr,
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_rdata,
   
+  output logic h_buff_we,
+  output logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_waddr,
+  output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_wdata,
+  
   // out_buff interface
   output logic out_buff_we,
   output logic [X_D_BUFF_ADDR_WIDH-1:0] out_buff_waddr,
@@ -70,11 +76,12 @@ module nlms_int_buff_control #(
   // h_fetch_manager-datapath interface
   output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data,
   output logic h_fetched_valid,
+  input logic h_fetched_ready,
   output logic h_fetched_last,
   
   // datapath-h_write_manager interface
-  input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_adapted,
-  input logic h_adapted_new,
+  input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_adapted_data,
+  input logic h_adapted_valid, 
   
   // filter_output_write_manager interface
   input logic filter_output_valid,
@@ -142,6 +149,7 @@ nlms_h_fetch_manager #(
   // control interface
   .start_fetching(x_fifo_start_outputting_data),
   .h_coefs_blocks(h_coefs_blocks),
+  .start_filter_adaptation(start_filter_adaptation),
   .abort_processing(abort_processing),
   
   // h buff interface
@@ -152,7 +160,32 @@ nlms_h_fetch_manager #(
   // multipliers interface
   .h_fetched_data(h_fetched_data),
   .h_fetched_valid(h_fetched_valid),
+  .h_fetched_ready(h_fetched_ready),
   .h_fetched_last(h_fetched_last)
+);
+
+nlms_h_write_manager #(
+  .LOG2_H_BUFF_HEIGHT(LOG2_H_BUFF_HEIGHT),
+  .SAMPLE_WIDTH(SAMPLE_WIDTH),
+  .LOG2_NUM_MULS(LOG2_NUM_MULS)
+)nlms_h_write_manager_INST(
+  .clk(clk),
+  .nrst(nrst), 
+  .en(en),
+  
+  // control interface
+  .start_filter_adaptation(start_filter_adaptation),
+  .h_coefs_blocks(h_coefs_blocks),
+  .adaptation_finished(adaptation_finished),
+  
+  // product processor interface
+  .h_adapted_data(h_adapted_data),
+  .h_adapted_valid(h_adapted_valid),
+  
+  // h buff write interface
+  .h_buff_we(h_buff_we),
+  .h_buff_waddr(h_buff_waddr),
+  .h_buff_wdata(h_buff_wdata)
 );
 
 nlms_out_buff_write_manager #(

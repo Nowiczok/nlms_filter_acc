@@ -227,9 +227,7 @@ assign x_thrown_away_nxt_c = fifo_rdata_c[fifo_wptr_r[LOG2_NUM_MULS-1:0]];
 `FF_EN_NRST(x_thrown_away_r, x_thrown_away_nxt_c, clk, x_thrown_away_en_c, nrst, '0)
 
 // samples ready
-assign samples_ready_en_c = en && (tran_FIFO_FSM_IDLE__FETCH_SAMPLES ||  // resetting
-                                  tran_FIFO_FSM_FETCH_SAMPLES__PUSH_TO_FIFO ||  // resetting
-                                  tran_FIFO_FSM_PUSH_TO_FIFO__IDLE);  // setting
+assign samples_ready_en_c = en;
 assign samples_ready_nxt_c = (tran_FIFO_FSM_PUSH_TO_FIFO__IDLE) ? 1'b1 : '0;
 `FF_EN_NRST(samples_ready_r, samples_ready_nxt_c, clk, samples_ready_en_c, nrst, '0)
 

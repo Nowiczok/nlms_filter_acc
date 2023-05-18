@@ -2,11 +2,15 @@
 sv xil_defaultlib  --include "../../../../nlms_accelerator_ip.srcs/sources_1/new" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_bram.sv" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_datapath.sv" \
+"../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_flow_control.sv" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_h_fetch_manager.sv" \
+"../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_h_write_manager.sv" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_int_buff_control.sv" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_int_buffers.sv" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_mul.sv" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_multipliers.sv" \
+"../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_out_buff_write_manager.sv" \
+"../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_product_processor.sv" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_top.sv" \
 "../../../../nlms_accelerator_ip.srcs/sources_1/new/nlms_x_fifo_buff.sv" \
 "../../../../nlms_accelerator_ip.srcs/sim_1/new/nlms_big_test_TB.sv" \
