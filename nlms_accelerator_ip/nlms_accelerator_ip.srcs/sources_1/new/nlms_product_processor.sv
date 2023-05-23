@@ -197,7 +197,7 @@ assign adaptation_processing_en_c = en;
 always_comb begin
   if(start_filter_adaptation) begin
     adaptation_processing_nxt_c = 1'b1;
-  end else if(!(products_new && h_fetched_valid)) begin
+  end else if(products_new_fell) begin
     adaptation_processing_nxt_c = 1'b0;
   end else begin
     adaptation_processing_nxt_c = adaptation_processing_r;
@@ -215,8 +215,8 @@ end
 `FF_EN_NRST(h_adapted_data_r, h_adapted_data_nxt_c, clk, h_adapted_data_en_c, nrst, '0)
 
 // generating valid signal for updated coeffs
-assign h_adapted_valid_en_c = adaptation_processing_nxt_c && products_new;
-assign h_adapted_valid_nxt_c =products_new;
+assign h_adapted_valid_en_c = en;
+assign h_adapted_valid_nxt_c = products_new & adaptation_processing_nxt_c;
 `FF_EN_NRST(h_adapted_valid_r, h_adapted_valid_nxt_c, clk, h_adapted_valid_en_c, nrst, '0)
 
 //--------------------------output assignments--------------------------
@@ -229,5 +229,7 @@ assign x_sum_of_squares_valid = x_sum_of_squares_valid_r;
 
 assign h_adapted_data = h_adapted_data_r;
 assign h_adapted_valid = h_adapted_valid_r;
+
+assign err = err_r;
 
 endmodule

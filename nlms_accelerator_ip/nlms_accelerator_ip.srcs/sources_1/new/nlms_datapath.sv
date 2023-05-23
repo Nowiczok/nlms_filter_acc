@@ -26,6 +26,7 @@ module nlms_datapath #(
   input logic [SAMPLE_WIDTH-1:0] x_sum_of_squares_set_val,
   output logic [SAMPLE_WIDTH-1:0] x_sum_of_squares_curr,
   output logic x_sum_of_squares_valid,
+  output logic adaptation_coef_valid,
   
   // x_fifo_buff interface
   input logic [SAMPLE_WIDTH-1:0] x_thrown_away,
@@ -38,11 +39,12 @@ module nlms_datapath #(
   // h_fetch_manager interface
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data,
   input logic h_fetched_valid,
+  output logic h_fetched_ready,
   input logic h_fetched_last,
   
   // h_write_manager interface
-  output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_adapted_new,
-  output logic h_adapted,
+  output logic h_adapted_valid,
+  output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_adapted_data,
   
   // filter_output_write_manager interface
   output logic filter_output_valid,
@@ -59,12 +61,6 @@ logic [SAMPLE_WIDTH-1:0] mi_final;
 
 //  product processor-mi_calculator interface
 logic [SAMPLE_WIDTH-1:0] x_sum_of_squares;
-
-logic [SAMPLE_WIDTH-1:0] out_val_data;
-logic out_val_valid;
-
-logic [SAMPLE_WIDTH-1:0] h_adapted_data;
-logic h_adapted_valid;
 
 nlms_multipliers #(
   .SAMPLE_WIDTH(SAMPLE_WIDTH),
@@ -84,6 +80,7 @@ nlms_multipliers #(
   .x_samples_u2(x_samples_u2),
   .x_fract(x_fract),
   .actual_input_bits(actual_input_bits),
+  .adaptation_coef_valid(adaptation_coef_valid),
   
   // x_fifo_buff interface
   .x_thrown_away(x_thrown_away),
@@ -153,5 +150,6 @@ nlms_product_processor #(
 
 // output assignments
 assign x_sum_of_squares_curr = x_sum_of_squares;
+assign h_fetched_ready = products_new;
 
 endmodule

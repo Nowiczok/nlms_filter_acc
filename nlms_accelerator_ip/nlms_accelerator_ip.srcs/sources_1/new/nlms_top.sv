@@ -35,6 +35,15 @@ logic x_fract;
 logic [$clog2(SAMPLE_WIDTH)-1:0] actual_input_bits;
 logic y_as_out;
 logic x_sum_of_squares_valid;
+logic adaptation_coef_valid;
+logic adaptation_finished;
+
+//-------------------------flow_control-register file signals-------------------------
+
+logic start;
+logic [1:0] operation;
+logic [X_D_BUFF_ADDR_WIDH-1:0] x_count;
+logic busy;
 
 //-------------------------flow_control-int_buffer_control signals-------------------------
 
@@ -44,6 +53,7 @@ logic x_fifo_reset_x_vals;
 logic [(H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1):0] h_coefs_blocks;
 logic x_fifo_reset_x_d_ptr;
 logic x_fifo_samples_ready;
+logic out_written;
 logic reset_out_ptr;
 
 //-------------------------int_buffer-int_buffer_control signals-------------------------
@@ -72,6 +82,10 @@ logic h_buff_re;
 logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_rdata;
 
+logic h_buff_we;
+logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_waddr;
+logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_wdata;
+
 // out_buffer interface
 logic out_buff_we;
 logic [X_D_BUFF_ADDR_WIDH-1:0] out_buff_waddr;
@@ -94,13 +108,51 @@ logic [SAMPLE_WIDTH-1:0] d_sample;
 // h_fetch_manager interface
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_fetched_data;
 logic h_fetched_valid;
+logic h_fetched_ready;
 logic h_fetched_last;
+
+logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_adapted_data;
+logic h_adapted_valid;
 
 // product processor output interface
 logic filter_output_valid;
 logic [SAMPLE_WIDTH-1:0] filter_output_data;
 
 //-------------------------instances-------------------------
+nlms_flow_control #(
+  .LOG2_X_D_BUFF_HEIGHT(LOG2_X_D_BUFF_HEIGHT)
+)nlms_flow_control_INST(
+  .clk(clk),
+  .nrst(nrst),
+  .en(en),
+  
+  // register file interface
+  .start(start),
+  .operation(operation),
+  .x_count(x_count),
+  .busy(busy),
+  
+  // datapath and buff status interface
+  .samples_ready(x_fifo_samples_ready),
+  .out_written(out_written),
+  .x_sum_of_squares_valid(x_sum_of_squares_valid),
+  .mi_final_valid(1'b1),
+  .adaptation_coef_valid(adaptation_coef_valid),
+  .adaptation_finished(adaptation_finished),
+  
+  // int_buff_control control interface
+  .get_new_x_d_samples(x_fifo_get_new_x_d_samples),
+  .start_outputting_data(x_fifo_start_outputting_data),
+  .reset_x_vals(x_fifo_reset_x_vals),
+  .reset_x_d_ptr(x_fifo_reset_x_d_ptr),
+  
+  // datapath control interface
+  .update_x_sum_of_squares(update_x_sum_of_squares),
+  .calculate_adaptation_coef(calculate_adaptation_coef),
+  .start_fir_filtration(start_fir_filtration),
+  .start_filter_adaptation(start_filter_adaptation)
+);
+
 nlms_int_buffers #(
   .LOG2_H_BUFF_HEIGHT(LOG2_H_BUFF_HEIGHT),
   .LOG2_X_D_BUFF_HEIGHT(LOG2_X_D_BUFF_HEIGHT),
@@ -143,9 +195,9 @@ nlms_int_buffers #(
   .h_buff_raddr(h_buff_raddr),
   .h_buff_rdata(h_buff_rdata),
   
-  .h_buff_we('0),
-  .h_buff_waddr('0),
-  .h_buff_wdata('0),
+  .h_buff_we(h_buff_we),
+  .h_buff_waddr(h_buff_waddr),
+  .h_buff_wdata(h_buff_wdata),
   
   // out_buff interface
   .out_buff_re(out_buff_re),
@@ -178,12 +230,15 @@ nlms_int_buff_control #(
   // control interface
   .x_fifo_get_new_x_d_samples(x_fifo_get_new_x_d_samples),
   .x_fifo_start_outputting_data(x_fifo_start_outputting_data),
-  .x_fifo_reset_x_vals('0),
-  .abort_processing('0),
+  .x_fifo_reset_x_vals(x_fifo_reset_x_vals),
+  .start_filter_adaptation(start_filter_adaptation),
+  .abort_processing(abort_processing),
   .h_coefs_blocks(h_coefs_blocks),
-  .x_fifo_reset_x_d_ptr('0),
+  .x_fifo_reset_x_d_ptr(x_fifo_reset_x_d_ptr),
   .x_fifo_samples_ready(x_fifo_samples_ready),
+  .out_written(out_written),
   .reset_out_ptr(reset_out_ptr),
+  .adaptation_finished(adaptation_finished),
   
   // x_fifo_buff interface
   .x_fifo_buff_we(x_fifo_buff_we),
@@ -209,6 +264,10 @@ nlms_int_buff_control #(
   .h_buff_raddr(h_buff_raddr),
   .h_buff_rdata(h_buff_rdata),
   
+  .h_buff_we(h_buff_we),
+  .h_buff_waddr(h_buff_waddr),
+  .h_buff_wdata(h_buff_wdata),
+  
   // output buff interface
   .out_buff_we(out_buff_we),
   .out_buff_waddr(out_buff_waddr),
@@ -225,11 +284,12 @@ nlms_int_buff_control #(
   // h_fetch_manager-datapath interface
   .h_fetched_data(h_fetched_data),
   .h_fetched_valid(h_fetched_valid),
+  .h_fetched_ready(h_fetched_ready),
   .h_fetched_last(h_fetched_last),
   
   // datapath-h_write_manager interface
-  .h_adapted(),
-  .h_adapted_new(),
+  .h_adapted_valid(h_adapted_valid),
+  .h_adapted_data(h_adapted_data),
   
   // filter_output_write_manager interface
   .filter_output_valid(filter_output_valid),
@@ -256,6 +316,7 @@ nlms_datapath #(
   .actual_input_bits(actual_input_bits),
   .y_as_out(y_as_out),
   .x_sum_of_squares_valid(x_sum_of_squares_valid),
+  .adaptation_coef_valid(adaptation_coef_valid),
   
 // x_fifo_buff-datapath interface
   .x_thrown_away(x_thrown_away),
@@ -268,11 +329,12 @@ nlms_datapath #(
   // h_fetch_manager-datapath interface
   .h_fetched_data(h_fetched_data),
   .h_fetched_valid(h_fetched_valid),
+  .h_fetched_ready(h_fetched_ready),
   .h_fetched_last(h_fetched_last),
   
   // h_write_manager interface
-  .h_adapted_new(),
-  .h_adapted(),
+  .h_adapted_valid(h_adapted_valid),
+  .h_adapted_data(h_adapted_data),
   
   // filter_output_write_manager interface
   .filter_output_valid(filter_output_valid),

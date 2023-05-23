@@ -2,8 +2,8 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed May 10 22:59:30 2023
-# Process ID: 4064
+# Start of session at: Thu May 18 23:31:18 2023
+# Process ID: 24384
 # Current directory: D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.sim/sim_1/behav/xsim/xsim.dir/nlms_big_test_TB_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/fpga_projects/SDUP/projekt/nlms_accelerator_ip/nlms_accelerator_ip.sim/sim_1/behav/xsim/webtalk.log
