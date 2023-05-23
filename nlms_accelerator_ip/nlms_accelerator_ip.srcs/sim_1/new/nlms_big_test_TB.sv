@@ -30,6 +30,9 @@ logic [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] out_buff_reset_val;
 logic [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] out_buff_ref;
 logic [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] out_buff_imp;
 
+logic [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] h_buff_ref;
+logic [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] h_buff_imp;
+
 logic busy_prev;
 logic busy_fell;
 
@@ -137,6 +140,7 @@ task lms_calculate_fix(
   input logic signed [2**LOG2_H_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] h_buff,
   input logic signed [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] x_buff,
   input logic signed [2**LOG2_X_D_BUFF_HEIGHT-1:0][SAMPLE_WIDTH-1:0] d_buff,
+  input logic [SAMPLE_WIDTH-1:0] mi,
   input integer num_h_coefs, 
   input integer num_x_samples,
   input logic y_as_out,
@@ -146,32 +150,64 @@ task lms_calculate_fix(
   logic signed [SAMPLE_WIDTH-1:0] y;
   logic signed [SAMPLE_WIDTH-1:0] x_fifo [];
   logic signed [SAMPLE_WIDTH-1:0] err;
+  logic signed [SAMPLE_WIDTH-1:0] adaptation_coef;
   string strvar;
   x_fifo = new[num_h_coefs];
   x_fifo = '{default:0};
   out_buff = '{default:0};
   
   for(integer i = 0; i < num_x_samples; i+=1) begin
+  
+    // fir filtration
     x_fifo = {x_fifo[1 +: ($size(x_fifo)-1)], x_buff[i]};
     y = '0;
     for(integer j = 0; j < num_h_coefs; j+=1) begin
-      y += x_fifo[num_h_coefs-1-j] * h_buff[j];
+      y += (x_fifo[num_h_coefs-1-j] * h_buff[j]) >>> SAMPLE_Q_FORMAT;
+      $display("fir: %0d * %0d", x_fifo[num_h_coefs-1-j], h_buff[j]);
     end
     
-    out_buff[i] = y;
+    // error calculation
+    err = d_buff[i] - y;
+    
+    // output assignment
+    if(y_as_out) begin
+      out_buff[i] = y;
+    end else begin
+      out_buff[i] = err;
+    end
+    
+    // adapation coef calculation
+    adaptation_coef = (err * mi) >>> SAMPLE_Q_FORMAT;
+    
+    // adaptation
+    for(integer j = 0; j < num_h_coefs; j+=1) begin
+      h_buff[i] += (x_fifo[num_h_coefs-1-j] * adaptation_coef) >> SAMPLE_Q_FORMAT;
+    end
   end
+  h_buff_new = h_buff;
 endtask
 //--------------------------checking--------------------------
 
 // reference generation
 initial begin
 #(CLK_PERIOD*10);
-fir_calculate_int(
+/*fir_calculate_int(
   .h_buff(h_buff_reset_val),
   .x_buff(x_buff_ping_reset_val),
   .num_h_coefs(12),
   .num_x_samples(8),
   .out_buff(out_buff_ref)
+);*/
+lms_calculate_fix(
+  .h_buff(h_buff_reset_val),
+  .x_buff(x_buff_ping_reset_val),
+  .d_buff(d_buff_ping_reset_val),
+  .mi((0.5)*FIX_SCALE),
+  .num_h_coefs(12),
+  .num_x_samples(8),
+  .y_as_out(1),
+  .out_buff(out_buff_ref),
+  .h_buff_new(h_buff_ref)
 );
 end
 
@@ -181,6 +217,7 @@ end
 assign busy_fell = !DUT.busy & busy_prev;
 
 assign out_buff_imp = DUT.nlms_int_buffers_INST.out_buff_bram_ping_INST.mem_content;
+assign h_buff_imp = DUT.nlms_int_buffers_INST.h_buff_bram_INST.mem_content;
 always @(posedge clk) begin
   if(busy_fell) begin
     if(out_buff_ref == out_buff_imp) begin
