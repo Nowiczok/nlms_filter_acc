@@ -1,49 +1,83 @@
 `timescale 1ns / 1ps
 
 module mi_calculator#(
-
-parameter WIDTH = 'x
-
+  parameter SAMPLE_WIDTH = 'x,
+  parameter SAMPLE_Q_FORMAT = 'x
 )(
 input logic clk,
 input logic en,
 input logic nrst,
 
 input logic normalized_mi,
-input logic [WIDTH-1:0] mi,
-input logic [WIDTH-1:0] gamma,
-input real x_sum_of_squares,
+input logic [SAMPLE_WIDTH-1:0] mi,
+input logic [SAMPLE_WIDTH-1:0] gamma,
+input logic [SAMPLE_WIDTH-1:0] x_sum_of_squares,
 input logic x_sum_of_squares_valid,
 input logic abort_processing,
-output real mi_final,
+output logic [SAMPLE_WIDTH-1:0] mi_final,
 output logic mi_final_valid
 
 );
-reg [WIDTH-1:0] mi_final_reg;
-reg mi_final_valid_reg;
+logic [SAMPLE_WIDTH-1:0] mi_final_c;
 
-reg [WIDTH-1:0] sum_of_squares_reg;
-reg [WIDTH-1:0] mi_normalized_reg;
+logic mi_norm_en_c;
+logic [SAMPLE_WIDTH-1:0] mi_norm_nxt_c;
+logic [SAMPLE_WIDTH-1:0] mi_norm_r;
 
+logic mi_final_valid_en_c;
+logic mi_final_valid_nxt_c;
+logic mi_final_valid_r;
 
-always @(posedge clk or posedge nrst) begin
-    if (nrst) begin
-      sum_of_squares_reg <= 0;
-      mi_normalized_reg <= 0;
-      mi_final_reg <= 0;
-      mi_final_valid_reg <= 0;
-    end else if (normalized_mi && x_sum_of_squares_valid) begin
-      sum_of_squares_reg <= sum_of_squares_reg + x_sum_of_squares;
-      mi_normalized_reg <= mi / (sum_of_squares_reg + gamma);
-      mi_final_reg <= normalized_mi ? mi_normalized_reg : mi;
-      mi_final_valid_reg <= 1;
-    end else begin
-      mi_final_reg <= mi;
-      mi_final_valid_reg <= 0;
-    end
+logic [SAMPLE_WIDTH-1:0] sum_of_squares_reg;
+logic [SAMPLE_WIDTH-1:0] mi_normalized_reg;
+
+// full_reciprocal signals
+logic [SAMPLE_WIDTH-1:0] sum_gamma_x_sum_sq_c;
+logic full_reciprocal_ready_c;
+logic [SAMPLE_WIDTH-1:0] full_reciprocal_out_c;
+
+assign sum_gamma_x_sum_sq_c = gamma + x_sum_of_squares;
+
+full_reciprocal #(
+  .SAMPLE_WIDTH(SAMPLE_WIDTH),
+  .SAMPLE_Q_FORMAT(SAMPLE_Q_FORMAT)
+)full_reciprocal_INST(
+  .clk(clk),
+  .nrst(nrst),
+  .start(x_sum_of_squares_valid),
+  .input0(sum_gamma_x_sum_sq_c), // fix
+  .ready(full_reciprocal_ready_c),
+  .output0(full_reciprocal_out_c) // fix
+);
+
+// mi norm register
+assign mi_norm_en_c = en && full_reciprocal_ready_c;
+assign mi_norm_nxt_c = full_reciprocal_out_c * mi;
+always_ff @(posedge clk, negedge nrst) begin
+  if(!nrst) begin
+    mi_norm_r <= '0;
+  end else if(mi_norm_en_c) begin
+    mi_norm_r <= mi_norm_nxt_c;
+  end
 end
 
-assign mi_final = mi_final_reg;
-assign mi_final_valid = mi_final_valid_reg;
+// mi valid register
+assign mi_final_valid_en_c = en;
+assign mi_final_valid_nxt_c = (normalized_mi) ? full_reciprocal_ready_c : 
+                                                1'b1;
+always_ff @(posedge clk, negedge nrst) begin
+  if(!nrst) begin
+    mi_final_valid_r <= '0;
+  end else if(mi_final_valid_en_c) begin
+    mi_final_valid_r <= mi_final_valid_nxt_c;
+  end
+end
+
+// final mi comb signal
+assign mi_final_c = (normalized_mi) ? mi_norm_r : mi;
+
+// output assignments
+assign mi_final = mi_final_c;
+assign mi_final_valid = mi_final_valid_r;
 
 endmodule

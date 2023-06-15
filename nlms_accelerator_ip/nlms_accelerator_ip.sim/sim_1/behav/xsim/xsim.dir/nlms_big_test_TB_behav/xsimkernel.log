@@ -1,4 +1,7 @@
-Running: xsim.dir/nlms_big_test_TB_behav/xsimk.exe -simmode gui -wdb nlms_big_test_TB_behav.wdb -simrunnum 0 -socket 64934
+Running: xsim.dir/nlms_big_test_TB_behav/xsimk.exe -simmode gui -wdb nlms_big_test_TB_behav.wdb -simrunnum 0 -socket 63811
 Design successfully loaded
-Design Loading Memory Usage: 7880 KB (Peak: 7880 KB)
-Design Loading CPU Usage: 0 ms
+Design Loading Memory Usage: 7900 KB (Peak: 7900 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 17016 KB (Peak: 17016 KB)
+Simulation CPU Usage: 374 ms
