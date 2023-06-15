@@ -215,7 +215,7 @@ nlms_bram #(
   .rdata(h_buff_rdata)
 );
 
-//-------------------------d_buff ping-pong buffer RTL-------------------------
+//-------------------------out_buff ping-pong buffer RTL-------------------------
 
 assign out_buff_ping_we = out_buff_we;
 assign out_buff_ping_waddr = out_buff_waddr;

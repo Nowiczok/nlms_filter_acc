@@ -1,3 +1,30 @@
+# Memory map
+- x buff 0:(X_BUFF_HEIGHT-1)
+- d buff X_BUFF_HEIGHT:
+- h buff
+- x fifo buff
+- out buff
+
+# Register file
+config reg:
+ACTUAL_INPUT_BITS[8:5]
+X_FRACT[4:4]
+X_SAMPLES_U2[3:3]
+Y_AS_OUT[2:2]
+OP[1:0]
+
+x samples count:
+X_COUNT_SAMPLES[15:0]
+
+h coefs blocks count:
+H_COUNT_BLOCKS[15:0]
+
+control reg:
+START[0:0]
+
+status reg:
+FINISHED[0:0]
+
 # Control logic
 
 ## NLMS operation steps

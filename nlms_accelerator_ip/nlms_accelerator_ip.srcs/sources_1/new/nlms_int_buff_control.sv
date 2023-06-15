@@ -44,10 +44,18 @@ module nlms_int_buff_control #(
   output logic [X_D_BUFF_ADDR_WIDH-1:0] x_buff_raddr,
   input logic [SAMPLE_WIDTH-1:0] x_buff_rdata,
   
+  output logic x_buff_we,
+  output logic [X_D_BUFF_ADDR_WIDH-1:0] x_buff_waddr,
+  output logic [SAMPLE_WIDTH-1:0] x_buff_wdata,
+  
   // d_buff interface
   output logic d_buff_re,
   output logic [X_D_BUFF_ADDR_WIDH-1:0] d_buff_raddr,
   input logic [SAMPLE_WIDTH-1:0] d_buff_rdata, 
+  
+  output logic d_buff_we,
+  output logic [X_D_BUFF_ADDR_WIDH-1:0] d_buff_waddr,
+  output logic [SAMPLE_WIDTH-1:0] d_buff_wdata, 
   
   // h_buff interface
   output logic h_buff_re,
@@ -59,6 +67,10 @@ module nlms_int_buff_control #(
   output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_wdata,
   
   // out_buff interface
+  output logic out_buff_re,
+  output logic [X_D_BUFF_ADDR_WIDH-1:0] out_buff_raddr,
+  input logic [SAMPLE_WIDTH-1:0] out_buff_rdata,
+  
   output logic out_buff_we,
   output logic [X_D_BUFF_ADDR_WIDH-1:0] out_buff_waddr,
   output logic [SAMPLE_WIDTH-1:0] out_buff_wdata,
