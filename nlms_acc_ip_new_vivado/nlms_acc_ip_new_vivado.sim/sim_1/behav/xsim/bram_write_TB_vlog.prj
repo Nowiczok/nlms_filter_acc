@@ -1,0 +1,23 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_bram.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_datapath.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_flow_control.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_h_fetch_manager.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_h_write_manager.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_int_buff_control.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_int_buffers.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_mul.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_multipliers.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_out_buff_write_manager.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_product_processor.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_system_write.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_top.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_x_fifo_buff.sv" \
+"../../../../nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
