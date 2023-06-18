@@ -11,7 +11,7 @@
 #define BIG_BUFF_SAMPLES_CNT 512
 
 #define X_SAMPLES_COUNT 64
-#define H_BLOCKS_COUNT 16
+#define H_BLOCKS_COUNT 8
 #define NUM_MULS 4
 #define H_COEFS_COUNT (H_BLOCKS_COUNT*NUM_MULS)
 #define Q_FORMAT 8
@@ -47,7 +47,94 @@ int main(){
 	//int16_t out_buff[X_SAMPLES_COUNT];
 	uint32_t config_reg;
 	uint32_t nlms_busy;
-	int32_t mi_reg = 5;
+	int32_t mi_reg = 0.02f * FIX_SCALE;
+
+	/*//===============================================
+	// preparing big buffs
+	//===============================================
+
+	// generate x and d samples
+	for(int i = 0; i < BIG_BUFF_SAMPLES_CNT; i++){
+		float sample_x_f;
+		float sample_d_f;
+		float t = ((float)i)/512.0f;
+
+		sample_x_f = 2.0f * sin(2.0f * PI * (t + 10.0f) * 50.0f);
+		x_samples_big_buff[i] = (int16_t)(sample_x_f * FIX_SCALE);
+
+		sample_d_f = 2.0f * sin(2.0f * PI * t * 10.0f) + sin(2.0f * PI * t * 50.0f);
+		d_samples_big_buff[i] = (int16_t)(sample_d_f * FIX_SCALE);
+	}
+
+	//===============================================
+	// preconfig
+	//===============================================
+
+	// generate initial y coefs
+	h_coefs[0] = 1 * FIX_SCALE;
+	for(int i = 1; i < H_COEFS_COUNT; i++){
+		h_coefs[i] = 0;
+	}
+
+	// prepare config reg
+	//config_reg = 0x01fd;
+	config_reg = 0x01f9;
+
+	// zero x fifo buff
+	for(int i = 0; i < H_COEFS_COUNT; i++){
+		*(nlms_base_addr+X_FIFO_BUFF_OFFSET+i) = 0;
+	}
+
+	// write to h buff
+	for(int i = 0; i < H_COEFS_COUNT; i++){
+		*(nlms_base_addr+H_BUFF_OFFSET+i) = h_coefs[i];
+	}
+
+	// write config register
+	*(nlms_base_addr + CONFIG_REG_OFFSET) = config_reg;
+
+	// write x samples count reg
+	*(nlms_base_addr + X_SAMPLES_CNT_REG_OFFSET) = X_SAMPLES_COUNT;
+
+	// write h coefs blocks reg
+	*(nlms_base_addr + H_COEFS_BLOCKS_CNT_REG_OFFSET) = H_BLOCKS_COUNT;
+
+	// write mi reg
+	*(nlms_base_addr + MI_REG_OFFSET) = mi_reg;
+
+	//===============================================
+	// processing
+	//===============================================
+
+	for(int iter_cnt = 0; iter_cnt < BIG_BUFF_SAMPLES_CNT; iter_cnt += X_SAMPLES_COUNT){
+
+		// write to x buff
+		for(int i = 0; i < X_SAMPLES_COUNT; i++){
+			*(nlms_base_addr+X_BUFF_OFFSET+i) = x_samples_big_buff[iter_cnt + i];
+		}
+
+		// write to d buff
+		for(int i = 0; i < X_SAMPLES_COUNT; i++){
+			*(nlms_base_addr+D_BUFF_OFFSET+i) = d_samples_big_buff[iter_cnt + i];
+		}
+
+		// start processing
+		*(nlms_base_addr + CNTRL_REG_OFFSET) = 0x01;
+
+		// poll for end of processing
+		nlms_busy = 1;
+		while(nlms_busy){
+			nlms_busy = *(nlms_base_addr + STAT_REG_OFFSET);
+		}
+
+		for(int i = 0; i < X_SAMPLES_COUNT; i++){
+			out_samples_big_buff[iter_cnt +i] = *(nlms_base_addr + OUT_BUFF_ADDR+i);
+		}
+	}
+
+//	for(int i = 0; i < BIG_BUFF_SAMPLES_CNT; i++){
+//		xil_printf("%d\r\n", out_samples_big_buff[i]);
+//	}*/
 
 	//===============================================
 	// nlms preconfig
@@ -89,7 +176,6 @@ int main(){
 	uint8_t preamble1, preamble2, len1, len2, LSB, MSB;
 	int16_t sample;
 	uint16_t x_samples_count;
-	uint8_t h_reset_counter = 0;
 	while(1){
 		preamble1 = inbyte();
 		preamble2 = inbyte();
@@ -110,17 +196,6 @@ int main(){
 				d_samples_big_buff[i] = sample;
 			}
 			// process received data
-			if(h_reset_counter > 4){
-				// write to h buff
-				for(int i = 0; i < H_COEFS_COUNT; i++){
-					*(nlms_base_addr+H_BUFF_OFFSET+i) = h_coefs[i];
-				}
-				// zero x fifo buff
-				for(int i = 0; i < H_COEFS_COUNT; i++){
-					*(nlms_base_addr+X_FIFO_BUFF_OFFSET+i) = 0;
-				}
-				h_reset_counter = 0;
-			}
 
 			// write x samples count reg
 			x_samples_count = len1;
@@ -160,7 +235,6 @@ int main(){
 				outbyte(c[0]);
 				outbyte(c[1]);
 			}
-			h_reset_counter++;
 		}
 	}
 }

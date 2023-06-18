@@ -2,6 +2,7 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
     <instance id="xilinx.gnu.armv7.exe.debug.372156542;xilinx.gnu.armv7.exe.debug.372156542.">
         <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+            <includePath path="#undef __ARM_FEATURE_FP16_SCALAR_ARITHMETIC" removed="true"/>
             <includePath path="#undef __ARM_FEATURE_FP16_VECTOR_ARITHMETIC" removed="true"/>
             <includePath path="#undef __ARM_FEATURE_FP16_FML" removed="true"/>
             <includePath path="#undef __ARM_FEATURE_FMA" removed="true"/>
@@ -20,6 +21,7 @@
             <includePath path="#undef __ARM_FP16_FORMAT_ALTERNATIVE" removed="true"/>
             <includePath path="#undef __THUMBEL__" removed="true"/>
             <includePath path="D:\Vivado_2\Vitis\2022.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\\..\aarch32-xilinx-eabi/usr/include"/>
+            <includePath path="#undef __ARM_ARCH_PROFILE" removed="true"/>
             <includePath path="#undef __ARM_NEON_FP" removed="true"/>
             <includePath path="#undef __ARM_FEATURE_CLZ" removed="true"/>
             <includePath path="#undef __ARM_FEATURE_NUMERIC_MAXMIN" removed="true"/>

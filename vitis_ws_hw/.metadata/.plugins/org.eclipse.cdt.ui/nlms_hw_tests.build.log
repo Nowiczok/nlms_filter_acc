@@ -1,4 +1,4 @@
-22:12:24 **** Incremental Build of configuration Debug for project nlms_hw_tests ****
+00:32:08 **** Incremental Build of configuration Debug for project nlms_hw_tests ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
@@ -25,9 +25,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size nlms_hw_tests.elf  |tee "nlms_hw_tests.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  26925	   1144	  22568	  50637	   c5cd	nlms_hw_tests.elf
+  20412	   1144	  22568	  44124	   ac5c	nlms_hw_tests.elf
 'Finished building: nlms_hw_tests.elf.size'
 ' '
 
-22:12:25 Build Finished (took 1s.194ms)
+00:32:09 Build Finished (took 1s.352ms)
 
