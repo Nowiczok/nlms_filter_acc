@@ -3,7 +3,151 @@
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>nlms_top</spirit:name>
-  <spirit:version>1.0</spirit:version>
+  <spirit:version>1.61</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>BRAM_A</spirit:name>
+      <spirit:displayName>BRAM_A</spirit:displayName>
+      <spirit:description>write port</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="bram" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="bram_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_rst_a</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_clk_a</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DIN</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_wrdata_a</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>EN</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_en_a</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DOUT</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_rddata_a</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_we_a</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_addr_a</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>BRAM_B</spirit:name>
+      <spirit:displayName>BRAM_B</spirit:displayName>
+      <spirit:description>read port</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="bram" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="bram_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_rst_b</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_clk_b</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DIN</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_wrdata_b</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>EN</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_en_b</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DOUT</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_rddata_b</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_we_b</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_addr_b</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.BRAM_B.NUM_READ_OUTSTANDING"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.BRAM_B.NUM_WRITE_OUTSTANDING"/>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
       <spirit:view>
@@ -11,14 +155,14 @@
         <spirit:displayName>Synthesis</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
         <spirit:language>SystemVerilog</spirit:language>
-        <spirit:modelName>nlms_top</spirit:modelName>
+        <spirit:modelName>nlms_ip_packager_wrapper</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dc856d79</spirit:value>
+            <spirit:value>61fea42a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -27,14 +171,14 @@
         <spirit:displayName>Simulation</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
         <spirit:language>SystemVerilog</spirit:language>
-        <spirit:modelName>nlms_top</spirit:modelName>
+        <spirit:modelName>nlms_ip_packager_wrapper</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dc856d79</spirit:value>
+            <spirit:value>c6d42ee1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -42,14 +186,14 @@
         <spirit:name>xilinx_testbench</spirit:name>
         <spirit:displayName>Test Bench</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:simulation.testbench</spirit:envIdentifier>
-        <spirit:modelName>nlms_big_test_TB</spirit:modelName>
+        <spirit:modelName>bram_write_TB</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_testbench_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e4729245</spirit:value>
+            <spirit:value>c309a11a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -63,7 +207,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>6e577ec6</spirit:value>
+            <spirit:value>f64a5dae</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -75,7 +219,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -88,7 +232,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -101,7 +245,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -113,12 +257,12 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_DATA_WIDTH&apos;)) / 8) - 1)">3</spirit:left>
+            <spirit:left spirit:format="long">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -130,12 +274,12 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_ADDR_WIDTH&apos;)) - 1)">11</spirit:left>
+            <spirit:left spirit:format="long">11</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -147,12 +291,12 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -164,12 +308,12 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -182,7 +326,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -195,7 +339,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -208,7 +352,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -220,12 +364,12 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_DATA_WIDTH&apos;)) / 8) - 1)">3</spirit:left>
+            <spirit:left spirit:format="long">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -237,12 +381,12 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_ADDR_WIDTH&apos;)) - 1)">11</spirit:left>
+            <spirit:left spirit:format="long">11</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -254,12 +398,12 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -271,97 +415,12 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>h_buff_reset_val</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(((2 ** spirit:decode(id(&apos;MODELPARAM_VALUE.LOG2_H_BUFF_HEIGHT&apos;))) * spirit:decode(id(&apos;MODELPARAM_VALUE.SAMPLE_WIDTH&apos;))) - 1)">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>x_fifo_buff_reset_val</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(((2 ** spirit:decode(id(&apos;MODELPARAM_VALUE.LOG2_H_BUFF_HEIGHT&apos;))) * spirit:decode(id(&apos;MODELPARAM_VALUE.SAMPLE_WIDTH&apos;))) - 1)">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>x_buff_ping_reset_val</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(((2 ** spirit:decode(id(&apos;MODELPARAM_VALUE.LOG2_X_D_BUFF_HEIGHT&apos;))) * spirit:decode(id(&apos;MODELPARAM_VALUE.SAMPLE_WIDTH&apos;))) - 1)">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>d_buff_ping_reset_val</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(((2 ** spirit:decode(id(&apos;MODELPARAM_VALUE.LOG2_X_D_BUFF_HEIGHT&apos;))) * spirit:decode(id(&apos;MODELPARAM_VALUE.SAMPLE_WIDTH&apos;))) - 1)">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_buff_reset_val</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(((2 ** spirit:decode(id(&apos;MODELPARAM_VALUE.LOG2_X_D_BUFF_HEIGHT&apos;))) * spirit:decode(id(&apos;MODELPARAM_VALUE.SAMPLE_WIDTH&apos;))) - 1)">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>logic</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -369,48 +428,22 @@
         </spirit:wire>
       </spirit:port>
     </spirit:ports>
-    <spirit:modelParameters>
-      <spirit:modelParameter xsi:type="spirit:nameValueTypeType">
-        <spirit:name>LOG2_H_BUFF_HEIGHT</spirit:name>
-        <spirit:displayName>Log2 H Buff Height</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.LOG2_H_BUFF_HEIGHT" spirit:dependency="spirit:ceil(spirit:log(2,64))">6</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter>
-        <spirit:name>LOG2_X_D_BUFF_HEIGHT</spirit:name>
-        <spirit:displayName>Log2 X D Buff Height</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.LOG2_X_D_BUFF_HEIGHT" spirit:dependency="spirit:ceil(spirit:log(2,64))">6</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>SAMPLE_WIDTH</spirit:name>
-        <spirit:displayName>Sample Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SAMPLE_WIDTH">16</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter>
-        <spirit:name>LOG2_NUM_MULS</spirit:name>
-        <spirit:displayName>Log2 Num Muls</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.LOG2_NUM_MULS" spirit:dependency="spirit:ceil(spirit:log(2,4))">2</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>SAMPLE_Q_FORMAT</spirit:name>
-        <spirit:displayName>Sample Q Format</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SAMPLE_Q_FORMAT">8</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>BRAM_ADDR_WIDTH</spirit:name>
-        <spirit:displayName>Bram Addr Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.BRAM_ADDR_WIDTH">12</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>BRAM_DATA_WIDTH</spirit:name>
-        <spirit:displayName>Bram Data Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.BRAM_DATA_WIDTH">32</spirit:value>
-      </spirit:modelParameter>
-    </spirit:modelParameters>
   </spirit:model>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
+        <spirit:name>src/nlms_constraints.xdc</spirit:name>
+        <spirit:userFileType>xdc</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/nlms_design_macros.vh</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:isIncludeFile>true</spirit:isIncludeFile>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/nlms_bram.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
@@ -419,12 +452,6 @@
         <spirit:name>src/nlms_datapath.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/nlms_design_macros.vh</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:isIncludeFile>true</spirit:isIncludeFile>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/nlms_flow_control.sv</spirit:name>
@@ -477,20 +504,99 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>src/nlms_top.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/nlms_x_fifo_buff.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/nlms_top.sv</spirit:name>
-        <spirit:fileType>systemVerilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_8e37acd6</spirit:userFileType>
+        <spirit:name>src/nlms_ip_packager_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/constrs_1/new/nlms_constraints.xdc</spirit:name>
+        <spirit:userFileType>xdc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_design_macros.vh</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:isIncludeFile>true</spirit:isIncludeFile>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_bram.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_datapath.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_flow_control.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_h_fetch_manager.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_h_write_manager.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_int_buff_control.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_int_buffers.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_mul.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_multipliers.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_out_buff_write_manager.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_product_processor.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_system_write.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_top.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_x_fifo_buff.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/new/nlms_ip_packager_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_2fc20833</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
+        <spirit:name>src/nlms_design_macros.vh</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/nlms_bram.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
@@ -499,12 +605,6 @@
         <spirit:name>src/nlms_datapath.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/nlms_design_macros.vh</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:isIncludeFile>true</spirit:isIncludeFile>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/nlms_flow_control.sv</spirit:name>
@@ -557,80 +657,127 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>src/nlms_top.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/nlms_x_fifo_buff.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/nlms_top.sv</spirit:name>
-        <spirit:fileType>systemVerilogSource</spirit:fileType>
+        <spirit:name>src/nlms_ip_packager_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_design_macros.vh</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:isIncludeFile>true</spirit:isIncludeFile>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_bram.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_datapath.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_flow_control.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_h_fetch_manager.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_h_write_manager.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_int_buff_control.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_int_buffers.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_mul.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_multipliers.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_out_buff_write_manager.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_product_processor.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_system_write.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_top.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_x_fifo_buff.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/new/nlms_ip_packager_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_testbench_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>src/nlms_big_test_TB.sv</spirit:name>
-        <spirit:fileType>systemVerilogSource</spirit:fileType>
+        <spirit:name>src/bram_write_TB.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/nlms_big_test_TB_behav__x_fifo_buff_tests.wcfg</spirit:name>
+        <spirit:name>src/nlms_big_test_TB_behav.wcfg</spirit:name>
         <spirit:fileType>unknown</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../nlms_acc_ip_new_vivado/nlms_big_test_TB_behav.wcfg</spirit:name>
+        <spirit:fileType>unknown</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/nlms_top_v1_0.tcl</spirit:name>
+        <spirit:name>xgui/nlms_top_v1_61.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_6e577ec6</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_f64a5dae</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>nlms_top_v1_0</spirit:description>
+  <spirit:description>nlms_top_v1_61</spirit:description>
   <spirit:parameters>
-    <spirit:parameter>
-      <spirit:name>LOG2_H_BUFF_HEIGHT</spirit:name>
-      <spirit:displayName>Log2 H Buff Height</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOG2_H_BUFF_HEIGHT">6</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>LOG2_X_D_BUFF_HEIGHT</spirit:name>
-      <spirit:displayName>Log2 X D Buff Height</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOG2_X_D_BUFF_HEIGHT">6</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>SAMPLE_WIDTH</spirit:name>
-      <spirit:displayName>Sample Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SAMPLE_WIDTH">16</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>LOG2_NUM_MULS</spirit:name>
-      <spirit:displayName>Log2 Num Muls</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOG2_NUM_MULS">2</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>SAMPLE_Q_FORMAT</spirit:name>
-      <spirit:displayName>Sample Q Format</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SAMPLE_Q_FORMAT">8</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>BRAM_ADDR_WIDTH</spirit:name>
-      <spirit:displayName>Bram Addr Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.BRAM_ADDR_WIDTH">12</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>BRAM_DATA_WIDTH</spirit:name>
-      <spirit:displayName>Bram Data Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.BRAM_DATA_WIDTH">32</spirit:value>
-    </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">nlms_top_v1_0</spirit:value>
@@ -640,23 +787,24 @@
     <xilinx:coreExtensions>
       <xilinx:supportedFamilies>
         <xilinx:family xilinx:lifeCycle="Production">zynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qzynq</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">azynq</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">zynquplus</xilinx:family>
       </xilinx:supportedFamilies>
       <xilinx:taxonomies>
         <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>nlms_top_v1_0</xilinx:displayName>
+      <xilinx:displayName>nlms_top_v1_61</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-06-15T22:51:36Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>14</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2023-06-18T11:53:00Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2f0568ec"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="d4e178b7"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="ce2aed24"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="cfcb92ad"/>
+      <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="fdb22c1b"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b340416a"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="75cd2108"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="b75cc4a4"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

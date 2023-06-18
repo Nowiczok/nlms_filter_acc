@@ -1,0 +1,1383 @@
+14:45:11 DEBUG : Logs will be stored at 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/IDE.log'.
+14:45:17 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\fpga_projects\SDUP\projekt\vitis_ws_hw\temp_xsdb_launch_script.tcl
+14:45:17 INFO  : Registering command handlers for Vitis TCF services
+14:45:19 INFO  : Platform repository initialization has completed.
+14:45:23 INFO  : XSCT server has started successfully.
+14:45:23 INFO  : plnx-install-location is set to ''
+14:45:31 INFO  : Successfully done setting XSCT server connection channel  
+14:45:31 INFO  : Successfully done query RDI_DATADIR 
+14:45:31 INFO  : Successfully done setting workspace for the tool. 
+14:47:28 INFO  : Result from executing command 'getProjects': nlms_hw_system_wrapper
+14:47:28 INFO  : Result from executing command 'getPlatforms': xilinx_zcu102_base_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+14:47:29 WARN  : An unexpected exception occurred in the module 'platform project logging'
+14:47:29 INFO  : Platform 'nlms_hw_system_wrapper' is added to custom repositories.
+14:47:42 INFO  : Platform 'nlms_hw_system_wrapper' is added to custom repositories.
+14:55:51 INFO  : Result from executing command 'getProjects': nlms_hw_system_wrapper
+14:55:51 INFO  : Result from executing command 'getPlatforms': nlms_hw_system_wrapper|D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/nlms_hw_system_wrapper.xpfm;xilinx_zcu102_base_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|D:/Vivado_2/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+15:00:55 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+15:03:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:03:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:04:18 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+15:09:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:09:22 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+15:09:22 INFO  : 'jtag frequency' command is executed.
+15:09:22 INFO  : Context for 'APU' is selected.
+15:09:23 INFO  : System reset is completed.
+15:09:26 INFO  : 'after 3000' command is executed.
+15:09:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+15:09:27 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+15:09:27 INFO  : Context for 'APU' is selected.
+15:09:27 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+15:09:27 INFO  : 'configparams force-mem-access 1' command is executed.
+15:09:27 INFO  : Context for 'APU' is selected.
+15:09:27 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+15:09:28 INFO  : 'ps7_init' command is executed.
+15:09:28 INFO  : 'ps7_post_config' command is executed.
+15:09:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:09:28 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:09:28 INFO  : 'configparams force-mem-access 0' command is executed.
+15:09:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:09:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:09:28 INFO  : 'con' command is executed.
+15:09:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+15:09:28 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+15:09:38 INFO  : Disconnected from the channel tcfchan#2.
+15:09:40 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+15:10:39 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+15:10:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:10:42 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+15:10:42 INFO  : 'jtag frequency' command is executed.
+15:10:42 INFO  : Context for 'APU' is selected.
+15:10:42 INFO  : System reset is completed.
+15:10:45 INFO  : 'after 3000' command is executed.
+15:10:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+15:10:46 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+15:10:47 INFO  : Context for 'APU' is selected.
+15:10:47 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+15:10:47 INFO  : 'configparams force-mem-access 1' command is executed.
+15:10:47 INFO  : Context for 'APU' is selected.
+15:10:47 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+15:10:47 INFO  : 'ps7_init' command is executed.
+15:10:47 INFO  : 'ps7_post_config' command is executed.
+15:10:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:10:47 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:10:47 INFO  : 'configparams force-mem-access 0' command is executed.
+15:10:47 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:10:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:10:48 INFO  : 'con' command is executed.
+15:10:48 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+15:10:48 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+18:19:49 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+18:20:25 INFO  : Disconnected from the channel tcfchan#3.
+18:20:27 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+18:21:26 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+18:21:28 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:21:29 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+18:21:29 INFO  : 'jtag frequency' command is executed.
+18:21:29 INFO  : Context for 'APU' is selected.
+18:21:29 INFO  : System reset is completed.
+18:21:32 INFO  : 'after 3000' command is executed.
+18:21:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+18:21:33 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+18:21:33 INFO  : Context for 'APU' is selected.
+18:21:33 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+18:21:33 INFO  : 'configparams force-mem-access 1' command is executed.
+18:21:33 INFO  : Context for 'APU' is selected.
+18:21:33 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+18:21:34 INFO  : 'ps7_init' command is executed.
+18:21:34 INFO  : 'ps7_post_config' command is executed.
+18:21:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:21:34 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:21:34 INFO  : 'configparams force-mem-access 0' command is executed.
+18:21:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:21:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:21:35 INFO  : 'con' command is executed.
+18:21:35 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+18:21:35 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+18:25:22 INFO  : Disconnected from the channel tcfchan#4.
+18:25:24 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+18:26:23 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+18:26:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:26:25 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+18:26:25 INFO  : 'jtag frequency' command is executed.
+18:26:25 INFO  : Context for 'APU' is selected.
+18:26:26 INFO  : System reset is completed.
+18:26:29 INFO  : 'after 3000' command is executed.
+18:26:29 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+18:26:30 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+18:26:30 INFO  : Context for 'APU' is selected.
+18:26:30 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+18:26:30 INFO  : 'configparams force-mem-access 1' command is executed.
+18:26:30 INFO  : Context for 'APU' is selected.
+18:26:30 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+18:26:31 INFO  : 'ps7_init' command is executed.
+18:26:31 INFO  : 'ps7_post_config' command is executed.
+18:26:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:26:31 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:26:31 INFO  : 'configparams force-mem-access 0' command is executed.
+18:26:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:26:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:26:31 INFO  : 'con' command is executed.
+18:26:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+18:26:31 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+18:27:13 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+18:27:17 INFO  : Disconnected from the channel tcfchan#5.
+18:27:19 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+18:28:18 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+18:28:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:28:20 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+18:28:20 INFO  : 'jtag frequency' command is executed.
+18:28:20 INFO  : Context for 'APU' is selected.
+18:28:20 INFO  : System reset is completed.
+18:28:24 INFO  : 'after 3000' command is executed.
+18:28:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+18:28:25 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+18:28:25 INFO  : Context for 'APU' is selected.
+18:28:25 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+18:28:25 INFO  : 'configparams force-mem-access 1' command is executed.
+18:28:25 INFO  : Context for 'APU' is selected.
+18:28:25 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+18:28:26 INFO  : 'ps7_init' command is executed.
+18:28:26 INFO  : 'ps7_post_config' command is executed.
+18:28:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:28:26 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:28:26 INFO  : 'configparams force-mem-access 0' command is executed.
+18:28:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:28:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:28:26 INFO  : 'con' command is executed.
+18:28:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+18:28:26 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+19:53:09 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+19:54:15 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+20:00:12 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+20:01:39 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+20:01:42 INFO  : Disconnected from the channel tcfchan#6.
+20:01:44 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+20:02:43 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+20:02:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:02:45 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+20:02:45 INFO  : 'jtag frequency' command is executed.
+20:02:45 INFO  : Context for 'APU' is selected.
+20:02:46 INFO  : System reset is completed.
+20:02:49 INFO  : 'after 3000' command is executed.
+20:02:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+20:02:50 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+20:02:50 INFO  : Context for 'APU' is selected.
+20:02:50 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+20:02:50 INFO  : 'configparams force-mem-access 1' command is executed.
+20:02:50 INFO  : Context for 'APU' is selected.
+20:02:50 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+20:02:51 INFO  : 'ps7_init' command is executed.
+20:02:51 INFO  : 'ps7_post_config' command is executed.
+20:02:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:02:51 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:02:51 INFO  : 'configparams force-mem-access 0' command is executed.
+20:02:51 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:02:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:02:51 INFO  : 'con' command is executed.
+20:02:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:02:51 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+20:07:58 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+20:08:02 INFO  : Disconnected from the channel tcfchan#7.
+20:08:04 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+20:09:03 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+20:09:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:09:05 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+20:09:05 INFO  : 'jtag frequency' command is executed.
+20:09:05 INFO  : Context for 'APU' is selected.
+20:09:05 INFO  : System reset is completed.
+20:09:08 INFO  : 'after 3000' command is executed.
+20:09:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+20:09:10 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+20:09:10 INFO  : Context for 'APU' is selected.
+20:09:10 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+20:09:10 INFO  : 'configparams force-mem-access 1' command is executed.
+20:09:10 INFO  : Context for 'APU' is selected.
+20:09:10 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+20:09:11 INFO  : 'ps7_init' command is executed.
+20:09:11 INFO  : 'ps7_post_config' command is executed.
+20:09:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:09:11 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:09:11 INFO  : 'configparams force-mem-access 0' command is executed.
+20:09:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:09:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:09:11 INFO  : 'con' command is executed.
+20:09:11 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:09:11 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+20:13:43 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+20:14:00 INFO  : Disconnected from the channel tcfchan#8.
+20:14:02 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+20:15:01 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+20:15:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:15:03 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+20:15:03 INFO  : 'jtag frequency' command is executed.
+20:15:03 INFO  : Context for 'APU' is selected.
+20:15:03 INFO  : System reset is completed.
+20:15:06 INFO  : 'after 3000' command is executed.
+20:15:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+20:15:08 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+20:15:08 INFO  : Context for 'APU' is selected.
+20:15:08 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+20:15:08 INFO  : 'configparams force-mem-access 1' command is executed.
+20:15:08 INFO  : Context for 'APU' is selected.
+20:15:08 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+20:15:09 INFO  : 'ps7_init' command is executed.
+20:15:09 INFO  : 'ps7_post_config' command is executed.
+20:15:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:15:09 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:15:09 INFO  : 'configparams force-mem-access 0' command is executed.
+20:15:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:15:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:15:09 INFO  : 'con' command is executed.
+20:15:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:15:09 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+20:28:27 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+20:28:33 INFO  : Disconnected from the channel tcfchan#9.
+20:28:35 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+20:29:34 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+20:29:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:29:37 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+20:29:37 INFO  : 'jtag frequency' command is executed.
+20:29:37 INFO  : Context for 'APU' is selected.
+20:29:37 INFO  : System reset is completed.
+20:29:40 INFO  : 'after 3000' command is executed.
+20:29:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+20:29:42 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+20:29:42 INFO  : Context for 'APU' is selected.
+20:29:42 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+20:29:42 INFO  : 'configparams force-mem-access 1' command is executed.
+20:29:42 INFO  : Context for 'APU' is selected.
+20:29:42 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+20:29:42 INFO  : 'ps7_init' command is executed.
+20:29:42 INFO  : 'ps7_post_config' command is executed.
+20:29:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:29:43 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:29:43 INFO  : 'configparams force-mem-access 0' command is executed.
+20:29:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:29:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:29:43 INFO  : 'con' command is executed.
+20:29:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+20:29:43 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+20:58:55 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+20:59:30 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+20:59:37 INFO  : Disconnected from the channel tcfchan#10.
+20:59:39 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+21:00:38 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+21:00:40 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:00:40 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+21:00:40 INFO  : 'jtag frequency' command is executed.
+21:00:41 INFO  : Context for 'APU' is selected.
+21:00:41 INFO  : System reset is completed.
+21:00:44 INFO  : 'after 3000' command is executed.
+21:00:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+21:00:45 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+21:00:45 INFO  : Context for 'APU' is selected.
+21:00:45 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+21:00:45 INFO  : 'configparams force-mem-access 1' command is executed.
+21:00:45 INFO  : Context for 'APU' is selected.
+21:00:45 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+21:00:46 INFO  : 'ps7_init' command is executed.
+21:00:46 INFO  : 'ps7_post_config' command is executed.
+21:00:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:00:46 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:00:46 INFO  : 'configparams force-mem-access 0' command is executed.
+21:00:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:00:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:00:46 INFO  : 'con' command is executed.
+21:00:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:00:46 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+21:02:48 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+21:02:54 INFO  : Disconnected from the channel tcfchan#11.
+21:02:56 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+21:03:54 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+21:03:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:03:57 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+21:03:57 INFO  : 'jtag frequency' command is executed.
+21:03:57 INFO  : Context for 'APU' is selected.
+21:03:57 INFO  : System reset is completed.
+21:04:00 INFO  : 'after 3000' command is executed.
+21:04:00 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+21:04:02 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+21:04:02 INFO  : Context for 'APU' is selected.
+21:04:02 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+21:04:02 INFO  : 'configparams force-mem-access 1' command is executed.
+21:04:02 INFO  : Context for 'APU' is selected.
+21:04:02 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+21:04:02 INFO  : 'ps7_init' command is executed.
+21:04:02 INFO  : 'ps7_post_config' command is executed.
+21:04:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:04:03 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:04:03 INFO  : 'configparams force-mem-access 0' command is executed.
+21:04:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:04:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:04:03 INFO  : 'con' command is executed.
+21:04:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:04:03 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+21:05:27 INFO  : Disconnected from the channel tcfchan#12.
+21:05:29 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+21:06:27 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+21:06:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:06:30 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+21:06:30 INFO  : 'jtag frequency' command is executed.
+21:06:30 INFO  : Context for 'APU' is selected.
+21:06:30 INFO  : System reset is completed.
+21:06:33 INFO  : 'after 3000' command is executed.
+21:06:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+21:06:35 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+21:06:35 INFO  : Context for 'APU' is selected.
+21:06:35 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+21:06:35 INFO  : 'configparams force-mem-access 1' command is executed.
+21:06:35 INFO  : Context for 'APU' is selected.
+21:06:35 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+21:06:35 INFO  : 'ps7_init' command is executed.
+21:06:35 INFO  : 'ps7_post_config' command is executed.
+21:06:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:06:36 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:06:36 INFO  : 'configparams force-mem-access 0' command is executed.
+21:06:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:06:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:06:36 INFO  : 'con' command is executed.
+21:06:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:06:36 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+21:11:16 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+21:11:23 INFO  : Disconnected from the channel tcfchan#13.
+21:11:25 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+21:12:24 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+21:12:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:12:27 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+21:12:27 INFO  : 'jtag frequency' command is executed.
+21:12:27 INFO  : Context for 'APU' is selected.
+21:12:27 INFO  : System reset is completed.
+21:12:30 INFO  : 'after 3000' command is executed.
+21:12:30 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+21:12:31 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+21:12:31 INFO  : Context for 'APU' is selected.
+21:12:31 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+21:12:31 INFO  : 'configparams force-mem-access 1' command is executed.
+21:12:31 INFO  : Context for 'APU' is selected.
+21:12:31 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+21:12:32 INFO  : 'ps7_init' command is executed.
+21:12:32 INFO  : 'ps7_post_config' command is executed.
+21:12:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:12:32 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:12:32 INFO  : 'configparams force-mem-access 0' command is executed.
+21:12:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:12:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:12:32 INFO  : 'con' command is executed.
+21:12:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:12:32 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+21:17:38 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+21:17:43 INFO  : Disconnected from the channel tcfchan#14.
+21:17:45 ERROR : (XRT Server)d:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xrt_server.exe: error: illegal option '-'
+Usage: agent [OPTION]...
+Start Target Communication Framework agent.
+  -d               run in daemon mode (output is sent to system logger)
+  -i               run in interactive mode
+  -L<file>         enable logging, use -L- to send log to stderr
+  -l<level>        set log level, the level is comma separated list of:
+      alloc        memory allocation and deallocation (0x1)
+      eventcore    main event queue (0x2)
+      waitpid      waitpid() events (0x4)
+      events       low-level debugger events (0x8)
+      protocol     communication protocol (0x20)
+      context      debug context actions (0x40)
+      children     debug context children (0x10)
+      discovery    discovery (0x80)
+      asyncreq     async I/O (0x100)
+      proxy        proxy state (0x200)
+      tcflog       proxy traffic (0x400)
+      elf          ELF reader (0x800)
+      stack        stack trace service (0x2000)
+      plugin       plugins (0x4000)
+      shutdown     shutdown of subsystems (0x8000)
+      disasm       disassembly service (0x10000)
+  -s<url>          set agent listening port and protocol, default is tcp::0
+  -S               print server properties in Json format to stdout
+  -g<port>         start GDB Remote Serial Protocol server at the specified TCP port
+  -I<idle-seconds> exit if there are no connections for the specified time
+
+21:18:43 ERROR : Timed out. 60 seconds have elapsed while waiting for the XRT server to launch.
+21:18:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:18:46 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+21:18:46 INFO  : 'jtag frequency' command is executed.
+21:18:46 INFO  : Context for 'APU' is selected.
+21:18:46 INFO  : System reset is completed.
+21:18:49 INFO  : 'after 3000' command is executed.
+21:18:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+21:18:51 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+21:18:51 INFO  : Context for 'APU' is selected.
+21:18:51 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+21:18:51 INFO  : 'configparams force-mem-access 1' command is executed.
+21:18:51 INFO  : Context for 'APU' is selected.
+21:18:51 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+21:18:51 INFO  : 'ps7_init' command is executed.
+21:18:51 INFO  : 'ps7_post_config' command is executed.
+21:18:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:18:52 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:18:52 INFO  : 'configparams force-mem-access 0' command is executed.
+21:18:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:18:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:18:52 INFO  : 'con' command is executed.
+21:18:52 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:18:52 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+21:54:40 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+21:54:44 INFO  : Disconnected from the channel tcfchan#15.
+21:54:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:54:45 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+21:54:45 INFO  : 'jtag frequency' command is executed.
+21:54:45 INFO  : Context for 'APU' is selected.
+21:54:45 INFO  : System reset is completed.
+21:54:48 INFO  : 'after 3000' command is executed.
+21:54:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+21:54:49 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+21:54:49 INFO  : Context for 'APU' is selected.
+21:54:49 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+21:54:49 INFO  : 'configparams force-mem-access 1' command is executed.
+21:54:49 INFO  : Context for 'APU' is selected.
+21:54:49 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+21:54:50 INFO  : 'ps7_init' command is executed.
+21:54:50 INFO  : 'ps7_post_config' command is executed.
+21:54:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:54:50 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:54:50 INFO  : 'configparams force-mem-access 0' command is executed.
+21:54:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:54:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:54:50 INFO  : 'con' command is executed.
+21:54:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:54:50 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+21:55:46 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+21:55:51 INFO  : Disconnected from the channel tcfchan#16.
+21:55:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:55:51 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+21:55:51 INFO  : 'jtag frequency' command is executed.
+21:55:51 INFO  : Context for 'APU' is selected.
+21:55:51 INFO  : System reset is completed.
+21:55:54 INFO  : 'after 3000' command is executed.
+21:55:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+21:55:56 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+21:55:56 INFO  : Context for 'APU' is selected.
+21:55:56 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+21:55:56 INFO  : 'configparams force-mem-access 1' command is executed.
+21:55:56 INFO  : Context for 'APU' is selected.
+21:55:56 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+21:55:56 INFO  : 'ps7_init' command is executed.
+21:55:56 INFO  : 'ps7_post_config' command is executed.
+21:55:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:55:56 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:55:56 INFO  : 'configparams force-mem-access 0' command is executed.
+21:55:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:55:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:55:57 INFO  : 'con' command is executed.
+21:55:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:55:57 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+22:08:31 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+22:08:35 INFO  : Disconnected from the channel tcfchan#17.
+22:08:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:08:36 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+22:08:36 INFO  : 'jtag frequency' command is executed.
+22:08:36 INFO  : Context for 'APU' is selected.
+22:08:36 INFO  : System reset is completed.
+22:08:39 INFO  : 'after 3000' command is executed.
+22:08:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+22:08:40 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+22:08:40 INFO  : Context for 'APU' is selected.
+22:08:40 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+22:08:40 INFO  : 'configparams force-mem-access 1' command is executed.
+22:08:40 INFO  : Context for 'APU' is selected.
+22:08:40 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+22:08:41 INFO  : 'ps7_init' command is executed.
+22:08:41 INFO  : 'ps7_post_config' command is executed.
+22:08:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:08:41 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:08:41 INFO  : 'configparams force-mem-access 0' command is executed.
+22:08:41 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:08:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:08:41 INFO  : 'con' command is executed.
+22:08:41 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:08:41 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+22:08:51 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+22:08:59 INFO  : Disconnected from the channel tcfchan#18.
+22:08:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:08:59 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+22:08:59 INFO  : 'jtag frequency' command is executed.
+22:08:59 INFO  : Context for 'APU' is selected.
+22:08:59 INFO  : System reset is completed.
+22:09:02 INFO  : 'after 3000' command is executed.
+22:09:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+22:09:04 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+22:09:04 INFO  : Context for 'APU' is selected.
+22:09:04 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+22:09:04 INFO  : 'configparams force-mem-access 1' command is executed.
+22:09:04 INFO  : Context for 'APU' is selected.
+22:09:04 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+22:09:04 INFO  : 'ps7_init' command is executed.
+22:09:04 INFO  : 'ps7_post_config' command is executed.
+22:09:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:09:05 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:09:05 INFO  : 'configparams force-mem-access 0' command is executed.
+22:09:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:09:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:09:05 INFO  : 'con' command is executed.
+22:09:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:09:05 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+22:09:26 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+22:09:30 INFO  : Disconnected from the channel tcfchan#19.
+22:09:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:09:30 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+22:09:30 INFO  : 'jtag frequency' command is executed.
+22:09:30 INFO  : Context for 'APU' is selected.
+22:09:30 INFO  : System reset is completed.
+22:09:33 INFO  : 'after 3000' command is executed.
+22:09:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+22:09:35 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+22:09:35 INFO  : Context for 'APU' is selected.
+22:09:35 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+22:09:35 INFO  : 'configparams force-mem-access 1' command is executed.
+22:09:35 INFO  : Context for 'APU' is selected.
+22:09:35 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+22:09:35 INFO  : 'ps7_init' command is executed.
+22:09:35 INFO  : 'ps7_post_config' command is executed.
+22:09:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:09:36 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:09:36 INFO  : 'configparams force-mem-access 0' command is executed.
+22:09:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:09:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:09:36 INFO  : 'con' command is executed.
+22:09:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:09:36 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+22:09:46 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+22:09:50 INFO  : Disconnected from the channel tcfchan#20.
+22:09:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:09:50 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+22:09:50 INFO  : 'jtag frequency' command is executed.
+22:09:50 INFO  : Context for 'APU' is selected.
+22:09:50 INFO  : System reset is completed.
+22:09:53 INFO  : 'after 3000' command is executed.
+22:09:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+22:09:55 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+22:09:55 INFO  : Context for 'APU' is selected.
+22:09:55 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+22:09:55 INFO  : 'configparams force-mem-access 1' command is executed.
+22:09:55 INFO  : Context for 'APU' is selected.
+22:09:55 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+22:09:56 INFO  : 'ps7_init' command is executed.
+22:09:56 INFO  : 'ps7_post_config' command is executed.
+22:09:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:09:56 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:09:56 INFO  : 'configparams force-mem-access 0' command is executed.
+22:09:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:09:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:09:56 INFO  : 'con' command is executed.
+22:09:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:09:56 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'
+22:12:24 INFO  : Checking for BSP changes to sync application flags for project 'nlms_hw_tests'...
+22:12:30 INFO  : Disconnected from the channel tcfchan#21.
+22:12:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:12:31 INFO  : Jtag cable 'Digilent Cora Z7 - 7007S 210370AD7939A' is selected.
+22:12:31 INFO  : 'jtag frequency' command is executed.
+22:12:31 INFO  : Context for 'APU' is selected.
+22:12:31 INFO  : System reset is completed.
+22:12:34 INFO  : 'after 3000' command is executed.
+22:12:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}' command is executed.
+22:12:35 INFO  : Device configured successfully with "D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit"
+22:12:35 INFO  : Context for 'APU' is selected.
+22:12:35 INFO  : Hardware design and registers information is loaded from 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa'.
+22:12:35 INFO  : 'configparams force-mem-access 1' command is executed.
+22:12:35 INFO  : Context for 'APU' is selected.
+22:12:36 INFO  : Sourcing of 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl' is done.
+22:12:36 INFO  : 'ps7_init' command is executed.
+22:12:36 INFO  : 'ps7_post_config' command is executed.
+22:12:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:12:36 INFO  : The application 'D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:12:36 INFO  : 'configparams force-mem-access 0' command is executed.
+22:12:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}
+fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:12:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:12:36 INFO  : 'con' command is executed.
+22:12:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:12:36 INFO  : Launch script is exported to file 'D:\fpga_projects\SDUP\projekt\vitis_ws_hw\nlms_hw_tests_system\_ide\scripts\systemdebugger_nlms_hw_tests_system_standalone.tcl'

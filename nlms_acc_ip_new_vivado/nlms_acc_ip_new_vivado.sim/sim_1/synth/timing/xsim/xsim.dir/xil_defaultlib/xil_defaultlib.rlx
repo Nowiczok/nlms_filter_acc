@@ -1,0 +1,7 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.sim/sim_1/synth/timing/xsim/bram_write_TB_time_synth.v,1687013589,verilog,,,,glbl;nlms_bram;nlms_bram__parameterized0;nlms_bram__parameterized0_0;nlms_bram__parameterized0_1;nlms_bram__parameterized1;nlms_datapath;nlms_flow_control;nlms_h_fetch_manager;nlms_h_write_manager;nlms_int_buff_control;nlms_int_buffers;nlms_mul;nlms_mul_2;nlms_mul_3;nlms_mul_4;nlms_multipliers;nlms_out_buff_write_manager;nlms_product_processor;nlms_system_write;nlms_top;nlms_x_fifo_buff,,uvm,../../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new,,,,,
+D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v,1687020009,systemVerilog,,,D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_design_macros.vh,bram_write_TB,,uvm,../../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new,,,,,
+D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_design_macros.vh,1680806772,verilog,,,,,,,,,,,,

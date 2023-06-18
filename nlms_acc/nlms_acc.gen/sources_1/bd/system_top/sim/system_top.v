@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Mon May  8 19:53:59 2023
+//Date        : Sun Jun 18 13:54:07 2023
 //Host        : DESKTOP-P6SHRJL running 64-bit major release  (build 9200)
 //Command     : generate_target system_top.bd
 //Design      : system_top
@@ -458,21 +458,6 @@ module system_top
         .S00_AXI_wvalid(microblaze_0_M_AXI_DP_WVALID),
         .aclk(microblaze_0_Clk),
         .aresetn(rst_clk_wiz_1_100M_peripheral_aresetn));
-  system_top_bram_ip_top_0_2 bram_ip_top_0
-       (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR[11:0]),
-        .bram_addr_b(axi_bram_ctrl_0_BRAM_PORTB_ADDR[11:0]),
-        .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
-        .bram_clk_b(axi_bram_ctrl_0_BRAM_PORTB_CLK),
-        .bram_en_a(axi_bram_ctrl_0_BRAM_PORTA_EN),
-        .bram_en_b(axi_bram_ctrl_0_BRAM_PORTB_EN),
-        .bram_rddata_a(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
-        .bram_rddata_b(axi_bram_ctrl_0_BRAM_PORTB_DOUT),
-        .bram_rst_a(axi_bram_ctrl_0_BRAM_PORTA_RST),
-        .bram_rst_b(axi_bram_ctrl_0_BRAM_PORTB_RST),
-        .bram_we_a(axi_bram_ctrl_0_BRAM_PORTA_WE),
-        .bram_we_b(axi_bram_ctrl_0_BRAM_PORTB_WE),
-        .bram_wrdata_a(axi_bram_ctrl_0_BRAM_PORTA_DIN),
-        .bram_wrdata_b(axi_bram_ctrl_0_BRAM_PORTB_DIN));
   system_top_clk_wiz_1_2 clk_wiz_1
        (.clk_in1_n(diff_clock_rtl_1_CLK_N),
         .clk_in1_p(diff_clock_rtl_1_CLK_P),
@@ -566,6 +551,21 @@ module system_top
         .ILMB_wait(microblaze_0_ilmb_1_WAIT),
         .LMB_Clk(microblaze_0_Clk),
         .SYS_Rst(rst_clk_wiz_1_100M_bus_struct_reset));
+  system_top_nlms_top_0_1 nlms_top_0
+       (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR[11:0]),
+        .bram_addr_b(axi_bram_ctrl_0_BRAM_PORTB_ADDR[11:0]),
+        .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
+        .bram_clk_b(axi_bram_ctrl_0_BRAM_PORTB_CLK),
+        .bram_en_a(axi_bram_ctrl_0_BRAM_PORTA_EN),
+        .bram_en_b(axi_bram_ctrl_0_BRAM_PORTB_EN),
+        .bram_rddata_a(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
+        .bram_rddata_b(axi_bram_ctrl_0_BRAM_PORTB_DOUT),
+        .bram_rst_a(axi_bram_ctrl_0_BRAM_PORTA_RST),
+        .bram_rst_b(axi_bram_ctrl_0_BRAM_PORTB_RST),
+        .bram_we_a(axi_bram_ctrl_0_BRAM_PORTA_WE),
+        .bram_we_b(axi_bram_ctrl_0_BRAM_PORTB_WE),
+        .bram_wrdata_a(axi_bram_ctrl_0_BRAM_PORTA_DIN),
+        .bram_wrdata_b(axi_bram_ctrl_0_BRAM_PORTB_DIN));
   system_top_rst_clk_wiz_1_100M_2 rst_clk_wiz_1_100M
        (.aux_reset_in(1'b1),
         .bus_struct_reset(rst_clk_wiz_1_100M_bus_struct_reset),

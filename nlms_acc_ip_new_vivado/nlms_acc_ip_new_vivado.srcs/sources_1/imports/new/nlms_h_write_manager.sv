@@ -26,7 +26,7 @@ module nlms_h_write_manager #(
   
   // h buff write interface
   output logic h_buff_we,
-  output logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_waddr,
+  output logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_waddr,
   output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_wdata
 );
 

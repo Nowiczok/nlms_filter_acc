@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="nlms_hw_tests" location="D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests" platform="D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/nlms_hw_system_wrapper.xpfm" platformUID="xilinx:cora-z7-07s::0.0(custom)" systemProject="nlms_hw_tests_system" sysConfig="nlms_hw_system_wrapper" runtime="cpp" cpu="standalone_ps7_cortexa9_0" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="557d60111fc179e0d44d4bc0e69607c5">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.372156542">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.1365862982" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>

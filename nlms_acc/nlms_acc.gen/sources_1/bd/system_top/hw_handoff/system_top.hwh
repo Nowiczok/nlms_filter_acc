@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May  8 19:54:05 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Jun 18 13:54:14 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:cora-z7-07s:part0:1.1" DEVICE="7z007s" NAME="system_top" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="diff_clock_rtl_clk_n" SIGIS="clk" SIGNAME="clk_wiz_1_clk_in1_n">
+    <PORT DIR="I" NAME="diff_clock_rtl_clk_n" SIGIS="undef" SIGNAME="clk_wiz_1_clk_in1_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz_1" PORT="clk_in1_n"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="diff_clock_rtl_clk_p" SIGIS="clk" SIGNAME="clk_wiz_1_clk_in1_p">
+    <PORT DIR="I" NAME="diff_clock_rtl_clk_p" SIGIS="undef" SIGNAME="clk_wiz_1_clk_in1_p">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz_1" PORT="clk_in1_p"/>
       </CONNECTIONS>
@@ -549,72 +549,72 @@
         </PORT>
         <PORT DIR="O" NAME="bram_rst_a" SIGIS="rst" SIGNAME="axi_bram_ctrl_0_bram_rst_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_rst_a"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_rst_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="bram_clk_a" SIGIS="clk" SIGNAME="axi_bram_ctrl_0_bram_clk_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_clk_a"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_clk_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="bram_en_a" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_en_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_en_a"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_en_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="bram_we_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_we_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_we_a"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_we_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="12" NAME="bram_addr_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_addr_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_addr_a"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_addr_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="bram_wrdata_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_wrdata_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_wrdata_a"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_wrdata_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="bram_rddata_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_rddata_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_rddata_a"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_rddata_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="bram_rst_b" SIGIS="rst" SIGNAME="axi_bram_ctrl_0_bram_rst_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_rst_b"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_rst_b"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="bram_clk_b" SIGIS="clk" SIGNAME="axi_bram_ctrl_0_bram_clk_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_clk_b"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_clk_b"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="bram_en_b" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_en_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_en_b"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_en_b"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="bram_we_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_we_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_we_b"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_we_b"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="12" NAME="bram_addr_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_addr_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_addr_b"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_addr_b"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="bram_wrdata_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_wrdata_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_wrdata_b"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_wrdata_b"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="bram_rddata_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_rddata_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_ip_top_0" PORT="bram_rddata_b"/>
+            <CONNECTION INSTANCE="nlms_top_0" PORT="bram_rddata_b"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1121,126 +1121,6 @@
             <PORTMAP LOGICAL="RLAST" PHYSICAL="M00_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M00_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M00_AXI_rready"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-      </BUSINTERFACES>
-    </MODULE>
-    <MODULE COREREVISION="3" FULLNAME="/bram_ip_top_0" HWVERSION="1.0" INSTANCE="bram_ip_top_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="bram_ip_top" VLNV="xilinx.com:user:bram_ip_top:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="ADDR_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="MEM_HEIGHT" VALUE="16"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_top_bram_ip_top_0_2"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" LEFT="11" NAME="bram_addr_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_addr_a">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_addr_a"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="bram_clk_a" SIGIS="clk" SIGNAME="axi_bram_ctrl_0_bram_clk_a">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_clk_a"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="bram_wrdata_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_wrdata_a">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_wrdata_a"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="bram_rddata_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_rddata_a">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_rddata_a"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="bram_en_a" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_en_a">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_en_a"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="bram_rst_a" SIGIS="rst" SIGNAME="axi_bram_ctrl_0_bram_rst_a">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_rst_a"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="3" NAME="bram_we_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_we_a">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_we_a"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="11" NAME="bram_addr_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_addr_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_addr_b"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="bram_clk_b" SIGIS="clk" SIGNAME="axi_bram_ctrl_0_bram_clk_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_clk_b"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="bram_wrdata_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_wrdata_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_wrdata_b"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="bram_rddata_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_rddata_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_rddata_b"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="bram_en_b" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_en_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_en_b"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="bram_rst_b" SIGIS="rst" SIGNAME="axi_bram_ctrl_0_bram_rst_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_rst_b"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="3" NAME="bram_we_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_we_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_we_b"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="axi_bram_ctrl_0_BRAM_PORTA" NAME="PORT_A" TYPE="TARGET" VLNV="xilinx.com:interface:bram:1.0">
-          <PARAMETER NAME="NUM_READ_OUTSTANDING"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING"/>
-          <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
-          <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
-          <PARAMETER NAME="READ_WRITE_MODE"/>
-          <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="RST" PHYSICAL="bram_rst_a"/>
-            <PORTMAP LOGICAL="CLK" PHYSICAL="bram_clk_a"/>
-            <PORTMAP LOGICAL="DIN" PHYSICAL="bram_wrdata_a"/>
-            <PORTMAP LOGICAL="EN" PHYSICAL="bram_en_a"/>
-            <PORTMAP LOGICAL="DOUT" PHYSICAL="bram_rddata_a"/>
-            <PORTMAP LOGICAL="WE" PHYSICAL="bram_we_a"/>
-            <PORTMAP LOGICAL="ADDR" PHYSICAL="bram_addr_a"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_bram_ctrl_0_BRAM_PORTB" NAME="PORT_B" TYPE="TARGET" VLNV="xilinx.com:interface:bram:1.0">
-          <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
-          <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
-          <PARAMETER NAME="READ_WRITE_MODE"/>
-          <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="RST" PHYSICAL="bram_rst_b"/>
-            <PORTMAP LOGICAL="CLK" PHYSICAL="bram_clk_b"/>
-            <PORTMAP LOGICAL="DIN" PHYSICAL="bram_wrdata_b"/>
-            <PORTMAP LOGICAL="EN" PHYSICAL="bram_en_b"/>
-            <PORTMAP LOGICAL="DOUT" PHYSICAL="bram_rddata_b"/>
-            <PORTMAP LOGICAL="WE" PHYSICAL="bram_we_b"/>
-            <PORTMAP LOGICAL="ADDR" PHYSICAL="bram_addr_b"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -3554,6 +3434,123 @@
             <PORTMAP LOGICAL="EN" PHYSICAL="enb"/>
             <PORTMAP LOGICAL="RST" PHYSICAL="rstb"/>
             <PORTMAP LOGICAL="WE" PHYSICAL="web"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="14" FULLNAME="/nlms_top_0" HWVERSION="1.61" INSTANCE="nlms_top_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="nlms_top" VLNV="xilinx.com:user:nlms_top:1.61">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="system_top_nlms_top_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="bram_rst_a" SIGIS="rst" SIGNAME="axi_bram_ctrl_0_bram_rst_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_rst_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="bram_clk_a" SIGIS="clk" SIGNAME="axi_bram_ctrl_0_bram_clk_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_clk_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="bram_en_a" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_en_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_en_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="bram_we_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_we_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_we_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="bram_addr_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_addr_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_addr_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="bram_wrdata_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_wrdata_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_wrdata_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="bram_rddata_a" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_rddata_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_rddata_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="bram_rst_b" SIGIS="rst" SIGNAME="axi_bram_ctrl_0_bram_rst_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_rst_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="bram_clk_b" SIGIS="clk" SIGNAME="axi_bram_ctrl_0_bram_clk_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_clk_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="bram_en_b" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_en_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_en_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="bram_we_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_we_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_we_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="bram_addr_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_addr_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_addr_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="bram_rddata_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_rddata_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_rddata_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="bram_wrdata_b" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_0_bram_wrdata_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="bram_wrdata_b"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="axi_bram_ctrl_0_BRAM_PORTA" NAME="BRAM_A" TYPE="TARGET" VLNV="xilinx.com:interface:bram:1.0">
+          <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
+          <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
+          <PARAMETER NAME="READ_WRITE_MODE"/>
+          <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="RST" PHYSICAL="bram_rst_a"/>
+            <PORTMAP LOGICAL="CLK" PHYSICAL="bram_clk_a"/>
+            <PORTMAP LOGICAL="DIN" PHYSICAL="bram_wrdata_a"/>
+            <PORTMAP LOGICAL="EN" PHYSICAL="bram_en_a"/>
+            <PORTMAP LOGICAL="DOUT" PHYSICAL="bram_rddata_a"/>
+            <PORTMAP LOGICAL="WE" PHYSICAL="bram_we_a"/>
+            <PORTMAP LOGICAL="ADDR" PHYSICAL="bram_addr_a"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axi_bram_ctrl_0_BRAM_PORTB" NAME="BRAM_B" TYPE="TARGET" VLNV="xilinx.com:interface:bram:1.0">
+          <PARAMETER NAME="NUM_READ_OUTSTANDING"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING"/>
+          <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
+          <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
+          <PARAMETER NAME="READ_WRITE_MODE"/>
+          <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="RST" PHYSICAL="bram_rst_b"/>
+            <PORTMAP LOGICAL="CLK" PHYSICAL="bram_clk_b"/>
+            <PORTMAP LOGICAL="DIN" PHYSICAL="bram_wrdata_b"/>
+            <PORTMAP LOGICAL="EN" PHYSICAL="bram_en_b"/>
+            <PORTMAP LOGICAL="DOUT" PHYSICAL="bram_rddata_b"/>
+            <PORTMAP LOGICAL="WE" PHYSICAL="bram_we_b"/>
+            <PORTMAP LOGICAL="ADDR" PHYSICAL="bram_addr_b"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>

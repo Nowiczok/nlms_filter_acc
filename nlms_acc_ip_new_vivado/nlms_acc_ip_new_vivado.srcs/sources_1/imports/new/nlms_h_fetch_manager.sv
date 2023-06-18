@@ -22,7 +22,7 @@ module nlms_h_fetch_manager #(
   
   // h buff interface
   output logic h_buff_re,
-  output logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr,
+  output logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_raddr,
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_rdata,
   
   // multipliers/product processor interface
@@ -47,9 +47,9 @@ logic h_buff_re_final_c;
 
 // h_buff_raddr
 logic h_buff_raddr_en_c;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr_inc_c;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr_nxt_c;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr_r;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_raddr_inc_c;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_raddr_nxt_c;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_raddr_r;
 
 // last h sample
 logic h_buff_last_read_en_c;

@@ -102,9 +102,9 @@ assign lms_op_c = (operation == LMS_OP);
 assign nlms_op_c = (operation == NLMS_OP);
 
 // register that keeps track of interations
-assign performed_iters_en_c = en && ((main_flow_fsm_sate_nxt_c == MAIN_FLOW_GET_X_SAMPLE) && 
-                                     (main_flow_fsm_sate_r != MAIN_FLOW_IDLE && main_flow_fsm_sate_r != MAIN_FLOW_GET_X_SAMPLE));
-assign performed_iters_nxt_c = performed_iters_r + X_COUNT_WIDTH'('h1);
+assign performed_iters_en_c = en && (start || ((main_flow_fsm_sate_nxt_c == MAIN_FLOW_GET_X_SAMPLE) && 
+                                     (main_flow_fsm_sate_r != MAIN_FLOW_IDLE && main_flow_fsm_sate_r != MAIN_FLOW_GET_X_SAMPLE)));
+assign performed_iters_nxt_c = (start) ? '0 : performed_iters_r + X_COUNT_WIDTH'('h1);
 `FF_EN_NRST(performed_iters_r, performed_iters_nxt_c, clk, performed_iters_en_c, nrst, '0)
 
 assign perform_next_iter_c = !(performed_iters_r == (x_count - X_COUNT_WIDTH'('h1)));
@@ -147,6 +147,9 @@ always_comb begin
       main_flow_fsm_sate_nxt_c = (!adaptation_finished) ? MAIN_FLOW_START_ADAPTATION :
                                                           (perform_next_iter_c) ? MAIN_FLOW_GET_X_SAMPLE :
                                                                                   MAIN_FLOW_IDLE;
+    end
+    default: begin
+      main_flow_fsm_sate_nxt_c = MAIN_FLOW_IDLE;  // TODO I dont like it, can be changed to something better
     end
   endcase
 end
@@ -216,6 +219,16 @@ always_comb begin
       calculate_adaptation_coef_nxt_c = '0;
       start_fir_filtration_nxt_c = '0;
       start_filter_adaptation_nxt_c = (main_flow_fsm_sate_r != MAIN_FLOW_START_ADAPTATION);
+    end
+    default: begin  // TODO I dont like it, can be changed to something better
+      get_new_x_d_samples_nxt_c = '0;
+      start_outputting_data_nxt_c = '0;
+      reset_x_vals_nxt_c = '0;
+      reset_x_d_ptr_nxt_c = '0;
+      update_x_sum_of_squares_nxt_c = '0;
+      calculate_adaptation_coef_nxt_c = '0;
+      start_fir_filtration_nxt_c = '0;
+      start_filter_adaptation_nxt_c = '0;
     end
   endcase
 end

@@ -1215,3 +1215,360 @@ java.lang.NullPointerException
 
 !ENTRY com.xilinx.sdk.utils 0 0 2023-05-08 20:55:35.015
 !MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-20: Build Project
+!SESSION 2023-06-18 00:50:30.333 -----------------------------------------------
+eclipse.buildId=2022.2
+java.version=11.0.11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2023-06-18 00:51:22.116
+!MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:42.297
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-1: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:42.297
+!MESSAGE XSCT Command: [plnx-install-path  ; ::scw::scw_mode gui], Thread: Thread-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:42.297
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-32
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:56.370
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-1: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:56.370
+!MESSAGE XSCT command with result: [plnx-install-path  ; ::scw::scw_mode gui], Result: [null, ]. Thread: Thread-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:56.370
+!MESSAGE XSCT Command: [set query_var1 $::env(RDI_DATADIR)], Thread: Worker-1: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:56.371
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-32
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:56.381
+!MESSAGE XSCT Command: [setws D:/fpga_projects/SDUP/projekt/vitis_ws], Thread: Thread-32
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:56.381
+!MESSAGE XSCT command with result: [set query_var1 $::env(RDI_DATADIR)], Result: [null, D:/Vivado_2/Vitis/2022.2/data]. Thread: Worker-1: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 00:51:56.397
+!MESSAGE XSCT command with result: [setws D:/fpga_projects/SDUP/projekt/vitis_ws], Result: [null, ]. Thread: Thread-32
+
+!ENTRY org.eclipse.cdt.ui 4 0 2023-06-18 00:58:06.441
+!MESSAGE Error in CDT UI during reconcile
+!STACK 1
+C Model Exception: C Model Status [Element main.c does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:484)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.makeConsistent(TranslationUnit.java:580)
+	at org.eclipse.cdt.internal.core.model.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:62)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:341)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:607)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:635)
+	at org.eclipse.cdt.internal.core.model.WorkingCopy.reconcile(WorkingCopy.java:362)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:63)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:87)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:349)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2023-06-18 00:58:06.444
+!MESSAGE Element main.c does not exist.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2023-06-18 00:58:07.109
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2023-06-18 00:58:07.110
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2023-06-18 00:58:07.110
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:26.224
+!MESSAGE XSCT Command: [::hsi::utils::openhw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa], Thread: Worker-9: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:26.532
+!MESSAGE XSCT command with result: [::hsi::utils::openhw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa], Result: [null, ]. Thread: Worker-9: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:26.537
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-9: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:26.549
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-9: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:26.550
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-9: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:26.561
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-9: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 01:20:26.580
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:26.599
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-9: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:26.603
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-9: Build Project
+
+!ENTRY com.xilinx.sdx.core 1 0 2023-06-18 01:20:28.987
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:45.315
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-3: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:45.319
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-3: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:45.320
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-3: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:45.334
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-3: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 01:20:45.335
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:45.337
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-3: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:20:45.339
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-3: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:29:54.252
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-5: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:29:54.255
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-5: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:29:54.256
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-5: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:29:54.259
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-5: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 01:29:54.259
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:29:54.276
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-5: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:29:54.278
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-5: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:46:46.493
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-17: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:46:46.496
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-17: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:46:46.496
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-17: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:46:46.515
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-17: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 01:46:46.516
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:46:46.517
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-17: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 01:46:46.519
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-17: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:39:33.915
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-19: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:39:33.972
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-19: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:39:33.987
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-19: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:39:34.034
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-19: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 11:39:34.035
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:39:34.035
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-19: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:39:34.037
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-19: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:57:12.539
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-23: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:57:12.542
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-23: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:57:12.543
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-23: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:57:12.560
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-23: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 11:57:12.561
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:57:12.561
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-23: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 11:57:12.564
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-23: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:16:23.481
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-33: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:16:23.501
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-33: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:16:23.501
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-33: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:16:23.504
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-33: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 12:16:23.505
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:16:23.505
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-33: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:16:23.515
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-33: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:18:45.615
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-34: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:18:45.618
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-34: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:18:45.619
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-34: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:18:45.626
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-34: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 12:18:45.628
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:18:45.629
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-34: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:18:45.630
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-34: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:20:15.014
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:20:15.017
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:20:15.021
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:20:15.024
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 12:20:15.024
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:20:15.025
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:20:15.027
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:37:14.561
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:37:14.566
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss ], Result: [null, ]. Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:37:14.566
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:37:14.569
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/hw/system_top_wrapper.xsa D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-18 12:37:14.569
+!MESSAGE Generating MD5 hash for file: D:\fpga_projects\SDUP\projekt\vitis_ws\system_top_wrapper\export\system_top_wrapper\sw\system_top_wrapper\standalone_microblaze_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:37:14.570
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Thread: Worker-36: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 12:37:14.575
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/system.mss], Result: [null, ]. Thread: Worker-36: Build Project
+!SESSION 2023-06-18 14:56:39.990 -----------------------------------------------
+eclipse.buildId=2022.2
+java.version=11.0.11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2023-06-18 14:56:59.898
+!MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:06.235
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-26
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:06.236
+!MESSAGE XSCT Command: [plnx-install-path  ; ::scw::scw_mode gui], Thread: Thread-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:06.239
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-26
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:06.240
+!MESSAGE XSCT command with result: [plnx-install-path  ; ::scw::scw_mode gui], Result: [null, ]. Thread: Thread-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:06.250
+!MESSAGE XSCT Command: [setws D:/fpga_projects/SDUP/projekt/vitis_ws], Thread: Thread-26
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:06.252
+!MESSAGE XSCT command with result: [setws D:/fpga_projects/SDUP/projekt/vitis_ws], Result: [null, ]. Thread: Thread-26
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:07.039
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-4: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:07.459
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-4: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:07.460
+!MESSAGE XSCT Command: [set query_var1 $::env(RDI_DATADIR)], Thread: Worker-4: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-18 14:57:07.461
+!MESSAGE XSCT command with result: [set query_var1 $::env(RDI_DATADIR)], Result: [null, D:/Vivado_2/Vitis/2022.2/data]. Thread: Worker-4: Initializing s/w repositories

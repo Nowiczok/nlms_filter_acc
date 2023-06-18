@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" --maxdelay -L "xil_defaultlib" -L "uvm" -L "simprims_ver" -L "secureip" --snapshot "bram_write_TB_time_synth" -transport_int_delays -pulse_r "0" -pulse_int_r "0" -pulse_e "0" -pulse_int_e "0" "xil_defaultlib.bram_write_TB" "xil_defaultlib.glbl" -log "elaborate.log" 

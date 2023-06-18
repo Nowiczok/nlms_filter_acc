@@ -1,0 +1,9 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new" \
+"bram_write_TB_func_synth.v" \
+
+sv xil_defaultlib  --include "../../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new" \
+"../../../../../nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v" \
+
+# Do not sort compile order
+nosort

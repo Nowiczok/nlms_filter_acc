@@ -23,13 +23,6 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system_top/ip/system_top_axi_bram_ctrl_0_0/sim/system_top_axi_bram_ctrl_0_0.vhd" \
 -endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/system_top/ipshared/f4cc/bram_ip_top.sv" \
-  "../../../bd/system_top/ip/system_top_bram_ip_top_0_2/sim/system_top_bram_ip_top_0_2.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system_top/sim/system_top.v" \
--endlib
 -makelib xcelium_lib/microblaze_v11_0_10 \
   "../../../../nlms_acc.gen/sources_1/bd/system_top/ipshared/1f7b/hdl/microblaze_v11_0_vh_rfs.vhd" \
 -endlib
@@ -151,6 +144,27 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system_top/ip/system_top_axi_smc_2/sim/system_top_axi_smc_2.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib -sv \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_bram.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_datapath.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_flow_control.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_h_fetch_manager.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_h_write_manager.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_int_buff_control.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_int_buffers.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_mul.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_multipliers.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_out_buff_write_manager.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_product_processor.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_system_write.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_top.sv" \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_x_fifo_buff.sv" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system_top/ipshared/b8d9/src/nlms_ip_packager_wrapper.v" \
+  "../../../bd/system_top/ip/system_top_nlms_top_0_1/sim/system_top_nlms_top_0_1.v" \
+  "../../../bd/system_top/sim/system_top.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

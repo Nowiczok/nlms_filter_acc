@@ -48,6 +48,7 @@
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/axi_slave_mem_test_1_0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../nlms_ip_repo"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../bram_ip_test"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
@@ -61,20 +62,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="cora-z7-07s"/>
-    <Option Name="WTXSimLaunchSim" Val="20"/>
+    <Option Name="WTXSimLaunchSim" Val="68"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="1"/>
-    <Option Name="WTModelSimExportSim" Val="1"/>
-    <Option Name="WTQuestaExportSim" Val="1"/>
+    <Option Name="WTXSimExportSim" Val="9"/>
+    <Option Name="WTModelSimExportSim" Val="9"/>
+    <Option Name="WTQuestaExportSim" Val="9"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="1"/>
-    <Option Name="WTRivieraExportSim" Val="1"/>
-    <Option Name="WTActivehdlExportSim" Val="1"/>
+    <Option Name="WTVcsExportSim" Val="9"/>
+    <Option Name="WTRivieraExportSim" Val="9"/>
+    <Option Name="WTActivehdlExportSim" Val="9"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -98,20 +99,17 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="system_top.bd" FileRelPathName="ip/system_top_bram_ip_top_0_2/system_top_bram_ip_top_0_2.xci">
-          <Proxy FileSetName="system_top_bram_ip_top_0_2"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system_top.bd" FileRelPathName="ip/system_top_axi_bram_ctrl_0_0/system_top_axi_bram_ctrl_0_0.xci">
-          <Proxy FileSetName="system_top_axi_bram_ctrl_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system_top.bd" FileRelPathName="ip/system_top_axi_smc_2/system_top_axi_smc_2.xci">
-          <Proxy FileSetName="system_top_axi_smc_2"/>
+        <CompFileExtendedInfo CompFileName="system_top.bd" FileRelPathName="ip/system_top_nlms_top_0_1/system_top_nlms_top_0_1.xci">
+          <Proxy FileSetName="system_top_nlms_top_0_1"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system_top.bd" FileRelPathName="ip/system_top_lmb_bram_2/system_top_lmb_bram_2.xci">
           <Proxy FileSetName="system_top_lmb_bram_2"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system_top.bd" FileRelPathName="ip/system_top_clk_wiz_1_2/system_top_clk_wiz_1_2.xci">
           <Proxy FileSetName="system_top_clk_wiz_1_2"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system_top.bd" FileRelPathName="ip/system_top_axi_bram_ctrl_0_0/system_top_axi_bram_ctrl_0_0.xci">
+          <Proxy FileSetName="system_top_axi_bram_ctrl_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/system_top/hdl/system_top_wrapper.v">
@@ -159,6 +157,11 @@
           <Attr Name="IsVisible" Val="1"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/bram_test_tb_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="bram_test_tb"/>
@@ -172,19 +175,13 @@
         <Option Name="PamSignalDriverFile" Val="xil_bypass_driver"/>
         <Option Name="PamPseudoTop" Val="pseudo_tb"/>
         <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/bram_test_tb_behav.wcfg"/>
       </Config>
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
       <Filter Type="Utils"/>
       <Config>
         <Option Name="TopAutoSet" Val="TRUE"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="system_top_bram_ip_top_0_2" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_top_bram_ip_top_0_2" RelGenDir="$PGENDIR/system_top_bram_ip_top_0_2">
-      <Config>
-        <Option Name="TopModule" Val="system_top_bram_ip_top_0_2"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
     <FileSet Name="system_top_axi_bram_ctrl_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_top_axi_bram_ctrl_0_0" RelGenDir="$PGENDIR/system_top_axi_bram_ctrl_0_0">
@@ -208,9 +205,9 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="system_top_axi_smc_2" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_top_axi_smc_2" RelGenDir="$PGENDIR/system_top_axi_smc_2">
+    <FileSet Name="system_top_nlms_top_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_top_nlms_top_0_1" RelGenDir="$PGENDIR/system_top_nlms_top_0_1">
       <Config>
-        <Option Name="TopModule" Val="system_top_axi_smc_2"/>
+        <Option Name="TopModule" Val="system_top_nlms_top_0_1"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
@@ -236,16 +233,6 @@
   </Simulators>
   <Runs Version="1" Minor="19">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z007sclg400-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_top_bram_ip_top_0_2_synth_1" Type="Ft3:Synth" SrcSet="system_top_bram_ip_top_0_2" Part="xc7z007sclg400-1" ConstrsSet="system_top_bram_ip_top_0_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_top_bram_ip_top_0_2_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_top_bram_ip_top_0_2_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_top_bram_ip_top_0_2_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
@@ -285,9 +272,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="system_top_axi_smc_2_synth_1" Type="Ft3:Synth" SrcSet="system_top_axi_smc_2" Part="xc7z007sclg400-1" ConstrsSet="system_top_axi_smc_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_top_axi_smc_2_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_top_axi_smc_2_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_top_axi_smc_2_synth_1">
+    <Run Id="system_top_nlms_top_0_1_synth_1" Type="Ft3:Synth" SrcSet="system_top_nlms_top_0_1" Part="xc7z007sclg400-1" ConstrsSet="system_top_nlms_top_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_top_nlms_top_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_top_nlms_top_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_top_nlms_top_0_1_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -309,23 +298,6 @@
         <Step Id="write_bitstream"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_top_bram_ip_top_0_2_impl_1" Type="Ft2:EntireDesign" Part="xc7z007sclg400-1" ConstrsSet="system_top_bram_ip_top_0_2" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_top_bram_ip_top_0_2_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_top_bram_ip_top_0_2_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_top_bram_ip_top_0_2_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -381,9 +353,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="system_top_axi_smc_2_impl_1" Type="Ft2:EntireDesign" Part="xc7z007sclg400-1" ConstrsSet="system_top_axi_smc_2" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_top_axi_smc_2_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_top_axi_smc_2_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_top_axi_smc_2_impl_1">
+    <Run Id="system_top_nlms_top_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z007sclg400-1" ConstrsSet="system_top_nlms_top_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_top_nlms_top_0_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_top_nlms_top_0_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_top_nlms_top_0_1_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

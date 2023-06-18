@@ -1,0 +1,79 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_lmb_bram_2/sim/system_top_lmb_bram_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_top_lmb_bram_2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_clk_wiz_1_2/system_top_clk_wiz_1_2_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_top_clk_wiz_1_2_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_clk_wiz_1_2/system_top_clk_wiz_1_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_top_clk_wiz_1_2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_0/sim/bd_a7a5_one_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_one_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_2/sim/bd_a7a5_s00mmu_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_s00mmu_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_3/sim/bd_a7a5_s00tr_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_s00tr_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_4/sim/bd_a7a5_s00sic_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_s00sic_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_5/sim/bd_a7a5_s00a2s_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_s00a2s_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_6/sim/bd_a7a5_sarn_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_sarn_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_7/sim/bd_a7a5_srn_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_srn_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_8/sim/bd_a7a5_sawn_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_sawn_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_9/sim/bd_a7a5_swn_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_swn_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_10/sim/bd_a7a5_sbn_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_sbn_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_11/sim/bd_a7a5_m00s2a_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_m00s2a_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/ip/ip_12/sim/bd_a7a5_m00e_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5_m00e_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/sim/bd_a7a5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bd_a7a5
+INFO: [VRFC 10-311] analyzing module clk_map_imp_19BMPCC
+INFO: [VRFC 10-311] analyzing module m00_exit_pipeline_imp_PIN2MV
+INFO: [VRFC 10-311] analyzing module s00_entry_pipeline_imp_1O68BO4
+INFO: [VRFC 10-311] analyzing module s00_nodes_imp_1KZQ1OU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/sim/system_top_axi_smc_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_top_axi_smc_2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_bram.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_bram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_datapath.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_datapath
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_flow_control.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_flow_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_h_fetch_manager.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_h_fetch_manager
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_h_write_manager.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_h_write_manager
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_int_buff_control.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_int_buff_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_int_buffers.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_int_buffers
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_mul.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_mul
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_multipliers.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_multipliers
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_out_buff_write_manager.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_out_buff_write_manager
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_product_processor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_product_processor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_system_write.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_system_write
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_x_fifo_buff.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_x_fifo_buff
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_ip_packager_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nlms_ip_packager_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_nlms_top_0_1/sim/system_top_nlms_top_0_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_top_nlms_top_0_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/sim/system_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module microblaze_0_local_memory_imp_EN32NK
+INFO: [VRFC 10-311] analyzing module system_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.gen/sources_1/bd/system_top/hdl/system_top_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_top_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.srcs/sim_1/new/bram_test_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bram_test_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

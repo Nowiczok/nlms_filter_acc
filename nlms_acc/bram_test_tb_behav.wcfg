@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="bram_test_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="bram_test_tb" />
+            <top_module name="glbl" />
+            <top_module name="ipif_pkg" />
+            <top_module name="lmb_bram_if_funcs" />
+            <top_module name="mdm_funcs" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.014000 us"></ZoomStartTime>
+      <ZoomEndTime time="45.014001 us"></ZoomEndTime>
+      <Cursor1Time time="11.974000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="340"></NameColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/bram_test_tb/clk_n" type="logic">
+      <obj_property name="ElementShortName">clk_n</obj_property>
+      <obj_property name="ObjectShortName">clk_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_test_tb/clk_p" type="logic">
+      <obj_property name="ElementShortName">clk_p</obj_property>
+      <obj_property name="ObjectShortName">clk_p</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_test_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="group11" type="group">
+      <obj_property name="label">nlms ip</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_rst_a" type="logic">
+         <obj_property name="ElementShortName">bram_rst_a</obj_property>
+         <obj_property name="ObjectShortName">bram_rst_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_clk_a" type="logic">
+         <obj_property name="ElementShortName">bram_clk_a</obj_property>
+         <obj_property name="ObjectShortName">bram_clk_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_en_a" type="logic">
+         <obj_property name="ElementShortName">bram_en_a</obj_property>
+         <obj_property name="ObjectShortName">bram_en_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_we_a" type="array">
+         <obj_property name="ElementShortName">bram_we_a[3:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_we_a[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_addr_a" type="array">
+         <obj_property name="ElementShortName">bram_addr_a[11:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_addr_a[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_wrdata_a" type="array">
+         <obj_property name="ElementShortName">bram_wrdata_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_wrdata_a[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_rddata_a" type="array">
+         <obj_property name="ElementShortName">bram_rddata_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_rddata_a[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_rst_b" type="logic">
+         <obj_property name="ElementShortName">bram_rst_b</obj_property>
+         <obj_property name="ObjectShortName">bram_rst_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_clk_b" type="logic">
+         <obj_property name="ElementShortName">bram_clk_b</obj_property>
+         <obj_property name="ObjectShortName">bram_clk_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_en_b" type="logic">
+         <obj_property name="ElementShortName">bram_en_b</obj_property>
+         <obj_property name="ObjectShortName">bram_en_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_we_b" type="array">
+         <obj_property name="ElementShortName">bram_we_b[3:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_we_b[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_addr_b" type="array">
+         <obj_property name="ElementShortName">bram_addr_b[11:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_addr_b[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_rddata_b" type="array">
+         <obj_property name="ElementShortName">bram_rddata_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_rddata_b[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_wrdata_b" type="array">
+         <obj_property name="ElementShortName">bram_wrdata_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_wrdata_b[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group26" type="group">
+      <obj_property name="label">nlms system write</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/x_buff_we" type="logic">
+         <obj_property name="ElementShortName">x_buff_we</obj_property>
+         <obj_property name="ObjectShortName">x_buff_we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/x_buff_waddr" type="array">
+         <obj_property name="ElementShortName">x_buff_waddr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">x_buff_waddr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/x_buff_wdata" type="array">
+         <obj_property name="ElementShortName">x_buff_wdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">x_buff_wdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/mem_content" type="array">
+         <obj_property name="ElementShortName">mem_content[0:127][15:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_content[0:127][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/config_reg_r" type="array">
+         <obj_property name="ElementShortName">config_reg_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">config_reg_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/start" type="logic">
+         <obj_property name="ElementShortName">start</obj_property>
+         <obj_property name="ObjectShortName">start</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group92" type="group">
+      <obj_property name="label">d buff</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/d_buff_bram_ping_INST/we" type="logic">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/d_buff_bram_ping_INST/waddr" type="array">
+         <obj_property name="ElementShortName">waddr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">waddr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/d_buff_bram_ping_INST/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/d_buff_bram_ping_INST/mem_content" type="array">
+         <obj_property name="ElementShortName">mem_content[0:127][15:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_content[0:127][15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group93" type="group">
+      <obj_property name="label">h buff</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/h_buff_bram_INST/we" type="logic">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/h_buff_bram_INST/waddr" type="array">
+         <obj_property name="ElementShortName">waddr[4:0]</obj_property>
+         <obj_property name="ObjectShortName">waddr[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/h_buff_bram_INST/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/h_buff_bram_INST/mem_content" type="array">
+         <obj_property name="ElementShortName">mem_content[0:31][63:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_content[0:31][63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/h_buff_bram_INST/re" type="logic">
+         <obj_property name="ElementShortName">re</obj_property>
+         <obj_property name="ObjectShortName">re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/h_buff_bram_INST/raddr" type="array">
+         <obj_property name="ElementShortName">raddr[4:0]</obj_property>
+         <obj_property name="ObjectShortName">raddr[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/h_buff_bram_INST/rdata" type="array">
+         <obj_property name="ElementShortName">rdata[0:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[0:0][63:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group101" type="group">
+      <obj_property name="label">x buff</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/we" type="logic">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/waddr" type="array">
+         <obj_property name="ElementShortName">waddr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">waddr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/mem_content" type="array">
+         <obj_property name="ElementShortName">mem_content[0:127][15:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_content[0:127][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/re" type="logic">
+         <obj_property name="ElementShortName">re</obj_property>
+         <obj_property name="ObjectShortName">re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/raddr" type="array">
+         <obj_property name="ElementShortName">raddr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">raddr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/rdata" type="array">
+         <obj_property name="ElementShortName">rdata[0:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[0:0][15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group109" type="group">
+      <obj_property name="label">system write accesses</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_x_buff_c" type="logic">
+         <obj_property name="ElementShortName">access_to_x_buff_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_x_buff_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_d_buff_c" type="logic">
+         <obj_property name="ElementShortName">access_to_d_buff_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_d_buff_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_h_buff_c" type="logic">
+         <obj_property name="ElementShortName">access_to_h_buff_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_h_buff_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_x_fifo_buff_c" type="logic">
+         <obj_property name="ElementShortName">access_to_x_fifo_buff_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_x_fifo_buff_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_out_buff_c" type="logic">
+         <obj_property name="ElementShortName">access_to_out_buff_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_out_buff_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_config_reg_c" type="logic">
+         <obj_property name="ElementShortName">access_to_config_reg_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_config_reg_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_x_samples_count_reg_c" type="logic">
+         <obj_property name="ElementShortName">access_to_x_samples_count_reg_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_x_samples_count_reg_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_h_coef_blocks_count_reg_c" type="logic">
+         <obj_property name="ElementShortName">access_to_h_coef_blocks_count_reg_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_h_coef_blocks_count_reg_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_control_reg_c" type="logic">
+         <obj_property name="ElementShortName">access_to_control_reg_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_control_reg_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_control_reg_prev_r" type="logic">
+         <obj_property name="ElementShortName">access_to_control_reg_prev_r</obj_property>
+         <obj_property name="ObjectShortName">access_to_control_reg_prev_r</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_status_reg_c" type="logic">
+         <obj_property name="ElementShortName">access_to_status_reg_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_status_reg_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_mi_reg_c" type="logic">
+         <obj_property name="ElementShortName">access_to_mi_reg_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_mi_reg_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/access_to_gamma_reg_c" type="logic">
+         <obj_property name="ElementShortName">access_to_gamma_reg_c</obj_property>
+         <obj_property name="ObjectShortName">access_to_gamma_reg_c</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_system_write_INST/prev_access_to_out_buff_r" type="logic">
+         <obj_property name="ElementShortName">prev_access_to_out_buff_r</obj_property>
+         <obj_property name="ObjectShortName">prev_access_to_out_buff_r</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group125" type="group">
+      <obj_property name="label">flow control</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_flow_control_INST/busy" type="logic">
+         <obj_property name="ElementShortName">busy</obj_property>
+         <obj_property name="ObjectShortName">busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_flow_control_INST/main_flow_fsm_sate_r" type="array">
+         <obj_property name="ElementShortName">main_flow_fsm_sate_r[3:0]</obj_property>
+         <obj_property name="ObjectShortName">main_flow_fsm_sate_r[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_flow_control_INST/performed_iters_r" type="array">
+         <obj_property name="ElementShortName">performed_iters_r[6:0]</obj_property>
+         <obj_property name="ObjectShortName">performed_iters_r[6:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group128" type="group">
+      <obj_property name="label">muls</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_datapath_INST/x_fifo_data" type="array">
+         <obj_property name="ElementShortName">x_fifo_data[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">x_fifo_data[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_datapath_INST/x_fifo_valid" type="logic">
+         <obj_property name="ElementShortName">x_fifo_valid</obj_property>
+         <obj_property name="ObjectShortName">x_fifo_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_datapath_INST/h_fetched_data" type="array">
+         <obj_property name="ElementShortName">h_fetched_data[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">h_fetched_data[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_datapath_INST/h_fetched_valid" type="logic">
+         <obj_property name="ElementShortName">h_fetched_valid</obj_property>
+         <obj_property name="ObjectShortName">h_fetched_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_datapath_INST/multipliers_INST/products_data" type="array">
+         <obj_property name="ElementShortName">products_data[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">products_data[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_datapath_INST/multipliers_INST/products_new" type="logic">
+         <obj_property name="ElementShortName">products_new</obj_property>
+         <obj_property name="ObjectShortName">products_new</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group133" type="group">
+      <obj_property name="label">x fifo buff</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/we" type="logic">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/waddr" type="array">
+         <obj_property name="ElementShortName">waddr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">waddr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/mem_content" type="array">
+         <obj_property name="ElementShortName">mem_content[0:127][15:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_content[0:127][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/re" type="logic">
+         <obj_property name="ElementShortName">re</obj_property>
+         <obj_property name="ObjectShortName">re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/raddr" type="array">
+         <obj_property name="ElementShortName">raddr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">raddr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/rdata" type="array">
+         <obj_property name="ElementShortName">rdata[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[3:0][15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group146" type="group">
+      <obj_property name="label">out buff</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/out_buff_bram_ping_INST/we" type="logic">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/out_buff_bram_ping_INST/waddr" type="array">
+         <obj_property name="ElementShortName">waddr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">waddr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/out_buff_bram_ping_INST/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/out_buff_bram_ping_INST/mem_content" type="array">
+         <obj_property name="ElementShortName">mem_content[0:127][15:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_content[0:127][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/out_buff_bram_ping_INST/re" type="logic">
+         <obj_property name="ElementShortName">re</obj_property>
+         <obj_property name="ObjectShortName">re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/out_buff_bram_ping_INST/raddr" type="array">
+         <obj_property name="ElementShortName">raddr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">raddr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buffers_INST/out_buff_bram_ping_INST/rdata" type="array">
+         <obj_property name="ElementShortName">rdata[0:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[0:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/nlms_int_buff_control_INST/out_buff_manager_INST/reset_out_ptr" type="logic">
+         <obj_property name="ElementShortName">reset_out_ptr</obj_property>
+         <obj_property name="ObjectShortName">reset_out_ptr</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group154" type="group">
+      <obj_property name="label">bram a</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/bram_rst_a" type="logic">
+         <obj_property name="ElementShortName">bram_rst_a</obj_property>
+         <obj_property name="ObjectShortName">bram_rst_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/bram_clk_a" type="logic">
+         <obj_property name="ElementShortName">bram_clk_a</obj_property>
+         <obj_property name="ObjectShortName">bram_clk_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/bram_en_a" type="logic">
+         <obj_property name="ElementShortName">bram_en_a</obj_property>
+         <obj_property name="ObjectShortName">bram_en_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/bram_we_a" type="array">
+         <obj_property name="ElementShortName">bram_we_a[3:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_we_a[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/bram_addr_a" type="array">
+         <obj_property name="ElementShortName">bram_addr_a[12:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_addr_a[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/bram_wrdata_a" type="array">
+         <obj_property name="ElementShortName">bram_wrdata_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_wrdata_a[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/bram_rddata_a" type="array">
+         <obj_property name="ElementShortName">bram_rddata_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_rddata_a[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group162" type="group">
+      <obj_property name="label">bram b</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_rst_b" type="logic">
+         <obj_property name="ElementShortName">bram_rst_b</obj_property>
+         <obj_property name="ObjectShortName">bram_rst_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_clk_b" type="logic">
+         <obj_property name="ElementShortName">bram_clk_b</obj_property>
+         <obj_property name="ObjectShortName">bram_clk_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_en_b" type="logic">
+         <obj_property name="ElementShortName">bram_en_b</obj_property>
+         <obj_property name="ObjectShortName">bram_en_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_we_b" type="array">
+         <obj_property name="ElementShortName">bram_we_b[3:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_we_b[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_addr_b" type="array">
+         <obj_property name="ElementShortName">bram_addr_b[11:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_addr_b[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_rddata_b" type="array">
+         <obj_property name="ElementShortName">bram_rddata_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_rddata_b[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/nlms_top_0/inst/DUT/bram_wrdata_b" type="array">
+         <obj_property name="ElementShortName">bram_wrdata_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_wrdata_b[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/S_AXI" type="protoinst">
+         <obj_property name="children_use_element_short_name">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank 1=#D399FF 2=pink</obj_property>
+         <obj_property name="EnumTransactionValueTable">0=blank;1=Read;2=Write;3=Read/Write</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">turquoise</obj_property>
+         <obj_property name="Render_Data">/bram_test_tb/DUT/system_top_i/axi_bram_ctrl_0/S_AXI.readWriteSummary</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CellHeight">36</obj_property>
+         <obj_property name="ElementShortName">S_AXI</obj_property>
+         <obj_property name="ObjectShortName">S_AXI</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

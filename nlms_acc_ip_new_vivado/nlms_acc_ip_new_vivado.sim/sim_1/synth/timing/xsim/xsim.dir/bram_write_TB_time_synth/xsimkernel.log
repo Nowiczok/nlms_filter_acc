@@ -1,0 +1,7 @@
+Running: xsim.dir/bram_write_TB_time_synth/xsimk.exe -simmode gui -wdb bram_write_TB_time_synth.wdb -simrunnum 0 -socket 49842
+Design successfully loaded
+Design Loading Memory Usage: 42652 KB (Peak: 42652 KB)
+Design Loading CPU Usage: 78 ms
+Simulation completed
+Simulation Memory Usage: 54604 KB (Peak: 54604 KB)
+Simulation CPU Usage: 3859 ms

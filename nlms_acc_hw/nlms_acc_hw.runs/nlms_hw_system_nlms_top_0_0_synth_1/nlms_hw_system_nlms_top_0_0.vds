@@ -1,0 +1,519 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sun Jun 18 14:20:56 2023
+# Process ID: 29888
+# Current directory: D:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.runs/nlms_hw_system_nlms_top_0_0_synth_1
+# Command line: vivado.exe -log nlms_hw_system_nlms_top_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source nlms_hw_system_nlms_top_0_0.tcl
+# Log file: D:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.runs/nlms_hw_system_nlms_top_0_0_synth_1/nlms_hw_system_nlms_top_0_0.vds
+# Journal file: D:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.runs/nlms_hw_system_nlms_top_0_0_synth_1\vivado.jou
+# Running On: DESKTOP-P6SHRJL, OS: Windows, CPU Frequency: 2208 MHz, CPU Physical cores: 6, Host memory: 17047 MB
+#-----------------------------------------------------------
+Sourcing tcl script 'D:/Vivado_2/Vivado/2022.2/scripts/Vivado_init.tcl'
+source nlms_hw_system_nlms_top_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 386.285 ; gain = 69.414
+WARNING: [Board 49-151] The current board 'digilentinc.com::cora-z7-07s:1.1' is from a local repo. The vivado install has a corresponding board with version greater than or equal to the local repo board. Please use boards from vivado install to avoid any upgrade/migrate issues
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/fpga_projects/SDUP/projekt/nlms_ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado_2/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: nlms_hw_system_nlms_top_0_0
+Command: synth_design -top nlms_hw_system_nlms_top_0_0 -part xc7z007sclg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z007s'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z007s'
+INFO: [Device 21-403] Loading part xc7z007sclg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10064
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Vivado_2/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 1206.492 ; gain = 408.598
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'nlms_hw_system_nlms_top_0_0' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ip/nlms_hw_system_nlms_top_0_0/synth/nlms_hw_system_nlms_top_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'nlms_ip_packager_wrapper' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_ip_packager_wrapper.v:4]
+INFO: [Synth 8-6157] synthesizing module 'nlms_top' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_top.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'nlms_system_write' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_system_write.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_system_write' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_system_write.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'nlms_flow_control' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_flow_control.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_flow_control' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_flow_control.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'nlms_int_buffers' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_int_buffers.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'nlms_bram' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_bram.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_bram' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_bram.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'nlms_bram__parameterized0' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_bram.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_bram__parameterized0' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_bram.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'nlms_bram__parameterized1' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_bram.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_bram__parameterized1' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_bram.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_int_buffers' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_int_buffers.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'nlms_int_buff_control' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_int_buff_control.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'nlms_x_fifo_buff' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_x_fifo_buff.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_x_fifo_buff' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_x_fifo_buff.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'nlms_h_fetch_manager' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_h_fetch_manager.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_h_fetch_manager' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_h_fetch_manager.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'nlms_h_write_manager' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_h_write_manager.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_h_write_manager' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_h_write_manager.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'nlms_out_buff_write_manager' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_out_buff_write_manager.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_out_buff_write_manager' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_out_buff_write_manager.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_int_buff_control' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_int_buff_control.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'nlms_datapath' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_datapath.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'nlms_multipliers' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_multipliers.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'nlms_mul' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_mul.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_mul' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_mul.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_multipliers' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_multipliers.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'nlms_product_processor' [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_product_processor.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_product_processor' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_product_processor.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_datapath' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_datapath.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_top' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_top.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_ip_packager_wrapper' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_ip_packager_wrapper.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'nlms_hw_system_nlms_top_0_0' (0#1) [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ip/nlms_hw_system_nlms_top_0_0/synth/nlms_hw_system_nlms_top_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element first_read_data_r_reg[0] was removed.  [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ipshared/b8d9/src/nlms_x_fifo_buff.sv:292]
+WARNING: [Synth 8-7129] Port abort_processing in module nlms_product_processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port products_saturation in module nlms_product_processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port h_fetched_valid in module nlms_product_processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port h_fetched_last in module nlms_product_processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port abort_processing in module nlms_multipliers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port h_fetched_last in module nlms_multipliers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mi_final_valid in module nlms_multipliers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[15] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[14] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[13] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[12] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[11] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[10] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[9] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[8] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[7] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[6] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[5] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[4] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[3] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[2] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[1] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[0] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port abort_processing in module nlms_h_fetch_manager is either unconnected or has no load
+WARNING: [Synth 8-7129] Port raddr[1] in module nlms_bram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port raddr[0] in module nlms_bram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port en in module nlms_int_buffers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port nrst in module nlms_int_buffers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mi_final_valid in module nlms_flow_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_a[1] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_a[0] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[31] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[30] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[29] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[28] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[27] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[26] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[25] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[24] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[23] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[22] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[21] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[20] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[19] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[18] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[17] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_a[16] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_rst_b in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_clk_b in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_we_b[3] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_we_b[2] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_we_b[1] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_we_b[0] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[1] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_addr_b[0] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[31] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[30] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[29] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[28] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[27] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[26] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[25] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[24] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[23] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[22] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[21] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[20] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[19] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[18] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[17] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[16] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[15] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[14] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[13] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[12] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[11] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[10] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[9] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[8] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[7] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[6] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[5] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[4] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[3] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[2] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[1] in module nlms_system_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_wrdata_b[0] in module nlms_system_write is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:16 . Memory (MB): peak = 1313.301 ; gain = 515.406
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:16 . Memory (MB): peak = 1313.301 ; gain = 515.406
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:16 . Memory (MB): peak = 1313.301 ; gain = 515.406
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.087 . Memory (MB): peak = 1313.301 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ip/nlms_hw_system_nlms_top_0_0/src/nlms_constraints.xdc] for cell 'inst'
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ip/nlms_hw_system_nlms_top_0_0/src/nlms_constraints.xdc] for cell 'inst'
+Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ip/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/constrs_1/new/nlms_constraints.xdc] for cell 'inst'
+WARNING: [Constraints 18-619] A clock with name 'bram_clk_a' already exists, overwriting the previous clock with the same name. [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ip/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/constrs_1/new/nlms_constraints.xdc:1]
+Finished Parsing XDC File [d:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.gen/sources_1/bd/nlms_hw_system/ip/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/constrs_1/new/nlms_constraints.xdc] for cell 'inst'
+Parsing XDC File [D:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.runs/nlms_hw_system_nlms_top_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.runs/nlms_hw_system_nlms_top_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1420.797 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.111 . Memory (MB): peak = 1420.797 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Vivado_2/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:32 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z007sclg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:32 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  D:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.runs/nlms_hw_system_nlms_top_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:32 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'main_flow_fsm_sate_r_reg' in module 'nlms_flow_control'
+INFO: [Synth 8-802] inferred FSM for state register 'fifo_fsm_state_r_reg' in module 'nlms_x_fifo_buff'
+INFO: [Synth 8-802] inferred FSM for state register 'muls_fsm_state_r_reg' in module 'nlms_multipliers'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+          MAIN_FLOW_IDLE |                              000 |                             0000
+  MAIN_FLOW_GET_X_SAMPLE |                              001 |                             0001
+MAIN_FLOW_UPDATE_X_SUM_OF_SQUARES |                              010 |                             0010
+MAIN_FLOW_START_FIR_FILTRATION |                              011 |                             0011
+MAIN_FLOW_CALCULATE_ADAPTATION_COEF |                              100 |                             0100
+MAIN_FLOW_START_ADAPTATION |                              101 |                             0101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'main_flow_fsm_sate_r_reg' using encoding 'sequential' in module 'nlms_flow_control'
+INFO: [Synth 8-3971] The signal "nlms_bram:/mem_content_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+         X_FIFO_FSM_IDLE |                             0010 |                               00
+X_FIFO_FSM_FETCH_SAMPLES |                             0100 |                               01
+ X_FIFO_FSM_PUSH_TO_FIFO |                             0001 |                               10
+X_FIFO_FSM_OUTPUT_SAMPLES |                             1000 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'fifo_fsm_state_r_reg' using encoding 'one-hot' in module 'nlms_x_fifo_buff'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+           MULS_FSM_IDLE |                            00010 |                              000
+ MULS_FSM_FIR_FILTRATION |                            10000 |                              001
+ MULS_FSM_SUM_OF_SQUARES |                            01000 |                              010
+      MULS_FSM_ADAP_COEF |                            00100 |                              011
+     MULS_FSM_ADAPTATION |                            00001 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'muls_fsm_state_r_reg' using encoding 'one-hot' in module 'nlms_multipliers'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:34 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 9     
+	   4 Input   16 Bit       Adders := 2     
+	   2 Input   16 Bit       Adders := 4     
+	   2 Input   12 Bit       Adders := 1     
+	   2 Input    7 Bit       Adders := 9     
+	   3 Input    7 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 3     
+	   2 Input    2 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 4     
++---Registers : 
+	               64 Bit    Registers := 1     
+	               33 Bit    Registers := 4     
+	               16 Bit    Registers := 65    
+	                7 Bit    Registers := 7     
+	                5 Bit    Registers := 3     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 85    
++---RAMs : 
+	               2K Bit	(128 X 16 bit)          RAMs := 4     
+	               2K Bit	(32 X 64 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   16 Bit        Muxes := 42    
+	   4 Input   16 Bit        Muxes := 9     
+	   5 Input   16 Bit        Muxes := 7     
+	   2 Input    7 Bit        Muxes := 10    
+	   2 Input    5 Bit        Muxes := 3     
+	  12 Input    5 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 3     
+	   4 Input    3 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 17    
+	   6 Input    3 Bit        Muxes := 4     
+	   5 Input    3 Bit        Muxes := 8     
+	   2 Input    2 Bit        Muxes := 4     
+	   3 Input    2 Bit        Muxes := 3     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 33    
+	   6 Input    1 Bit        Muxes := 7     
+	   3 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 11    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 66 (col length:40)
+BRAMs: 100 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP prod_raw_sign_nxt_c, operation Mode is: A*B.
+DSP Report: operator prod_raw_sign_nxt_c is absorbed into DSP prod_raw_sign_nxt_c.
+DSP Report: Generating DSP prod_raw_sign_nxt_c, operation Mode is: A*B.
+DSP Report: operator prod_raw_sign_nxt_c is absorbed into DSP prod_raw_sign_nxt_c.
+DSP Report: Generating DSP prod_raw_sign_nxt_c, operation Mode is: A*B.
+DSP Report: operator prod_raw_sign_nxt_c is absorbed into DSP prod_raw_sign_nxt_c.
+DSP Report: Generating DSP prod_raw_sign_nxt_c, operation Mode is: A*B.
+DSP Report: operator prod_raw_sign_nxt_c is absorbed into DSP prod_raw_sign_nxt_c.
+WARNING: [Synth 8-7129] Port abort_processing in module nlms_multipliers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port h_fetched_last in module nlms_multipliers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mi_final_valid in module nlms_multipliers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[15] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[14] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[13] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[12] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[11] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[10] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[9] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[8] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[7] in module nlms_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gamma[6] in module nlms_datapath is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3971] The signal "inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/mem_content_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:51 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++-------------------------------+-----------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                    | RTL Object                              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-------------------------------+-----------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|inst/DUT/nlms_int_buffers_INST | x_buff_bram_ping_INST/mem_content_reg   | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|inst/DUT/nlms_int_buffers_INST | d_buff_bram_ping_INST/mem_content_reg   | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|inst/DUT/nlms_int_buffers_INST | h_buff_bram_INST/mem_content_reg        | 32 x 64(READ_FIRST)    | W |   | 32 x 64(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|inst/DUT/nlms_int_buffers_INST | out_buff_bram_ping_INST/mem_content_reg | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++-------------------------------+-----------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|nlms_mul    | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|nlms_mul    | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|nlms_mul    | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|nlms_mul    | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-565] redefining clock 'bram_clk_a'
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:01:07 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:01:08 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++-------------------------------+-----------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                    | RTL Object                              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-------------------------------+-----------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|inst/DUT/nlms_int_buffers_INST | x_buff_bram_ping_INST/mem_content_reg   | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|inst/DUT/nlms_int_buffers_INST | d_buff_bram_ping_INST/mem_content_reg   | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|inst/DUT/nlms_int_buffers_INST | h_buff_bram_INST/mem_content_reg        | 32 x 64(READ_FIRST)    | W |   | 32 x 64(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|inst/DUT/nlms_int_buffers_INST | out_buff_bram_ping_INST/mem_content_reg | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++-------------------------------+-----------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/mem_content_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/mem_content_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/mem_content_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/DUT/nlms_int_buffers_INST/x_fifo_buff_bram_INST/mem_content_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/DUT/nlms_int_buffers_INST/x_buff_bram_ping_INST/mem_content_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/DUT/nlms_int_buffers_INST/d_buff_bram_ping_INST/mem_content_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/DUT/nlms_int_buffers_INST/h_buff_bram_INST/mem_content_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/DUT/nlms_int_buffers_INST/out_buff_bram_ping_INST/mem_content_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:01:09 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|nlms_mul    | (A*B)'      | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|nlms_mul    | (A*B)'      | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|nlms_mul    | (A*B)'      | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|nlms_mul    | (A*B)'      | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    31|
+|2     |DSP48E1  |     4|
+|3     |LUT1     |     1|
+|4     |LUT2     |   235|
+|5     |LUT3     |   237|
+|6     |LUT4     |   137|
+|7     |LUT5     |   259|
+|8     |LUT6     |   417|
+|9     |MUXF7    |    32|
+|10    |RAMB18E1 |     7|
+|11    |RAMB36E1 |     1|
+|12    |FDCE     |  1003|
+|13    |FDPE     |     2|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 1420.797 ; gain = 622.902
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 84 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:36 ; elapsed = 00:01:10 . Memory (MB): peak = 1420.797 ; gain = 515.406
+Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 1420.797 ; gain = 622.902
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.079 . Memory (MB): peak = 1430.969 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 75 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1438.562 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: ab16e62c
+INFO: [Common 17-83] Releasing license: Synthesis
+74 Infos, 105 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:55 ; elapsed = 00:01:26 . Memory (MB): peak = 1438.562 ; gain = 1017.707
+INFO: [Common 17-1381] The checkpoint 'D:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.runs/nlms_hw_system_nlms_top_0_0_synth_1/nlms_hw_system_nlms_top_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP nlms_hw_system_nlms_top_0_0, cache-ID = 23d851d7a0116ed5
+INFO: [Coretcl 2-1174] Renamed 22 cell refs.
+INFO: [Common 17-1381] The checkpoint 'D:/fpga_projects/SDUP/projekt/nlms_acc_hw/nlms_acc_hw.runs/nlms_hw_system_nlms_top_0_0_synth_1/nlms_hw_system_nlms_top_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file nlms_hw_system_nlms_top_0_0_utilization_synth.rpt -pb nlms_hw_system_nlms_top_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 18 14:22:36 2023...

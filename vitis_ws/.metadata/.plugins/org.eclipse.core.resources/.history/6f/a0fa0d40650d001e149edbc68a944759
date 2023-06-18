@@ -1,0 +1,71 @@
+#include <stdint.h>
+#include <string.h>
+#include "xparameters.h"
+
+#define X_SAMPLES_COUNT 16
+#define H_BLOCKS_COUNT 8
+#define NUM_MULS 4
+#define H_COEFS_COUNT (Y_BLOCKS_COUNT*NUM_MULS)
+
+// buffers
+#define X_BUFF_OFFSET        (0)
+#define D_BUFF_OFFSET        (128*4)
+#define H_BUFF_OFFSET        (256*4)
+#define X_FIFO_BUFF_OFFSET   (384*4)
+#define OUT_BUFF_ADDR        (512*4)
+
+// registers
+#define CONFIG_REG_OFFSET              (640*4)
+#define X_SAMPLES_CNT_REG_OFFSET       (641*4)
+#define H_COEFS_BLOCKS_CNT_REG_OFFSET  (642*4)
+#define CNTRL_REG_OFFSET               (643*4)
+#define STAT_REG_OFFSET                (644*4)
+#define MI_REG_OFFSET                  (645*4)
+#define GAMMA_REG_OFFSET               (646*4)
+
+int main(){
+	uint32_t* nlms_base_addr = XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR;
+
+	int32_t x_samples[X_SAMPLES_COUNT];
+	int32_t d_samples[X_SAMPLES_COUNT];
+	int32_t h_coefs[H_COEFS_COUNT];
+	uint32_t config_reg;
+
+	//-----------------------------------------------
+	// samples generation
+	//-----------------------------------------------
+
+	// generate x samples
+	for(int i = 1; i <= X_SAMPLES_COUNT; i++){
+		x_samples[i] = i+X_BUFF_OFFSET;
+	}
+
+	// generate d samples
+	for(int i = 1; i <= X_SAMPLES_COUNT; i++){
+		d_samples[i] = i+D_BUFF_OFFSET;
+	}
+
+	// generate y coefs
+	for(int i = 1; i <= H_COEFS_COUNT; i++){
+		h_coefs[i] = i+H_BUFF_OFFSET;
+	}
+
+	// prepare config reg
+
+
+	//-----------------------------------------------
+	// writes
+	//-----------------------------------------------
+
+	// write to x buff
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		*(nlms_base_addr+X_BUFF_OFFSET+i) = x_samples[i];
+	}
+
+	// write to d buff
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		*(nlms_base_addr+D_BUFF_OFFSET+i) = d_samples[i];
+	}
+
+	while(1){};
+}

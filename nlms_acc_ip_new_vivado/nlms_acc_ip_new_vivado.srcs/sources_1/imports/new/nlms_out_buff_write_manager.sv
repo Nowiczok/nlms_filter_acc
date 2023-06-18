@@ -56,7 +56,7 @@ assign out_buff_we_nxt_c = filter_output_valid;
 `FF_EN_NRST(out_buff_we_r, out_buff_we_nxt_c, clk, out_buff_we_en_c, nrst, '0)
 
 // WADDR
-assign out_buff_waddr_en_c = en && (out_buff_we_r);
+assign out_buff_waddr_en_c = en && (reset_out_ptr || out_buff_we_r);
 assign out_buff_waddr_nxt_c = (reset_out_ptr) ? '0 : out_buff_waddr_r + OUT_BUFF_ADDR_WIDTH'('h1);
 `FF_EN_NRST(out_buff_waddr_r, out_buff_waddr_nxt_c, clk, out_buff_waddr_en_c, nrst, '0)
 

@@ -1,0 +1,32 @@
+#include <stdint.h>
+#include <string.h>
+#include "xparameters.h"
+
+#define X_SAMPLES_COUNT 16
+#define Y_BLOCKS_COUNT 8
+#define NUM_MULS 4
+#define Y_COEFS_COUNT (Y_BLOCKS_COUNT*NUM_MULS)
+
+int main(){
+
+	int32_t x_samples[VALS_COUNT];
+	int32_t y_coefs[Y_BLOCKS_COUNT*NUM_MULS];
+
+	// generate x samples
+	for(int i = 1; i <= X_SAMPLES_COUNT; i++){
+		x_samples[i] = i;
+	}
+
+	// generate y coefs
+	for(int i = 1; i <= X_SAMPLES_COUNT; i++){
+		y_coefs[i] = i;
+	}
+
+	uint32_t* bram_base_addr = XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR;
+	//memcpy(bram_base_addr, vals, VALS_COUNT * sizeof(uint32_t));
+	for(int i = 0; i < VALS_COUNT; i++){
+		*(bram_base_addr+i) = vals[i];
+	}
+
+	while(1){};
+}

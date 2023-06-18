@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
 
+`include "nlms_design_macros.vh"
 
 module nlms_product_processor #(
   parameter SAMPLE_WIDTH = 'x,

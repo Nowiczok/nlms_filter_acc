@@ -1,5 +1,5 @@
 # compile verilog/system verilog design source files
-sv xil_defaultlib  --include "../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new" \
+sv xil_defaultlib "D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_design_macros.vh" --include "../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new" \
 "../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_bram.sv" \
 "../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_datapath.sv" \
 "../../../../nlms_acc_ip_new_vivado.srcs/sources_1/imports/new/nlms_flow_control.sv" \

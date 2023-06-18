@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May  8 19:54:05 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Jun 18 13:54:13 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:cora-z7-07s:part0:1.1" DEVICE="7z007s" NAME="bd_a7a5" PACKAGE="clg400" SPEEDGRADE="-1"/>
 

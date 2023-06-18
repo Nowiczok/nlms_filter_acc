@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x41DC2F157FCF2AED",
+      "boundary_crc": "0x41DC2F15A79DB37D",
       "device": "xc7z007sclg400-1",
       "gen_directory": "../../../../nlms_acc.gen/sources_1/bd/system_top",
       "name": "system_top",
@@ -12,7 +12,6 @@
     },
     "design_tree": {
       "axi_bram_ctrl_0": "",
-      "bram_ip_top_0": "",
       "microblaze_0": "",
       "microblaze_0_local_memory": {
         "dlmb_v10": "",
@@ -24,7 +23,8 @@
       "mdm_1": "",
       "clk_wiz_1": "",
       "rst_clk_wiz_1_100M": "",
-      "axi_smc": ""
+      "axi_smc": "",
+      "nlms_top_0": ""
     },
     "interface_ports": {
       "diff_clock_rtl": {
@@ -73,12 +73,6 @@
         "xci_name": "system_top_axi_bram_ctrl_0_0",
         "xci_path": "ip\\system_top_axi_bram_ctrl_0_0\\system_top_axi_bram_ctrl_0_0.xci",
         "inst_hier_path": "axi_bram_ctrl_0"
-      },
-      "bram_ip_top_0": {
-        "vlnv": "xilinx.com:user:bram_ip_top:1.0",
-        "xci_name": "system_top_bram_ip_top_0_2",
-        "xci_path": "ip\\system_top_bram_ip_top_0_2\\system_top_bram_ip_top_0_2.xci",
-        "inst_hier_path": "bram_ip_top_0"
       },
       "microblaze_0": {
         "vlnv": "xilinx.com:ip:microblaze:11.0",
@@ -401,19 +395,25 @@
             }
           }
         }
+      },
+      "nlms_top_0": {
+        "vlnv": "xilinx.com:user:nlms_top:1.61",
+        "xci_name": "system_top_nlms_top_0_1",
+        "xci_path": "ip\\system_top_nlms_top_0_1\\system_top_nlms_top_0_1.xci",
+        "inst_hier_path": "nlms_top_0"
       }
     },
     "interface_nets": {
       "axi_bram_ctrl_0_BRAM_PORTA": {
         "interface_ports": [
           "axi_bram_ctrl_0/BRAM_PORTA",
-          "bram_ip_top_0/PORT_A"
+          "nlms_top_0/BRAM_A"
         ]
       },
       "axi_bram_ctrl_0_BRAM_PORTB": {
         "interface_ports": [
           "axi_bram_ctrl_0/BRAM_PORTB",
-          "bram_ip_top_0/PORT_B"
+          "nlms_top_0/BRAM_B"
         ]
       },
       "axi_smc_M00_AXI": {
@@ -538,7 +538,7 @@
       "file": {
         "name": "D:/fpga_projects/SDUP/projekt/vitis_ws/axi_to_bram_tests/Debug/axi_to_bram_tests.elf",
         "type": "ELF",
-        "checksum": "509482136",
+        "checksum": "1444749210",
         "IsVisible": "1",
         "ScopedToRef": "system_top",
         "ScopedToCell": [
@@ -551,7 +551,7 @@
       "file": {
         "name": "D:/fpga_projects/SDUP/projekt/vitis_ws/axi_to_bram_tests/Debug/axi_to_bram_tests.elf",
         "type": "ELF",
-        "checksum": "509482136",
+        "checksum": "1444749210",
         "IsVisible": "1",
         "ScopedToRef": "system_top",
         "ScopedToCell": [

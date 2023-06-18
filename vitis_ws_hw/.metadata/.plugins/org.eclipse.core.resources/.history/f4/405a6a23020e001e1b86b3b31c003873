@@ -1,0 +1,187 @@
+#include <stdint.h>
+#include <string.h>
+#include <math.h>
+#include "xparameters.h"
+
+#define PI 3.1415f
+#define SAMPLE_RATE 512
+
+#define X_SAMPLES_COUNT 64
+#define H_BLOCKS_COUNT 8
+#define NUM_MULS 4
+#define H_COEFS_COUNT (H_BLOCKS_COUNT*NUM_MULS)
+#define Q_FORMAT 8
+#define FIX_SCALE (1 << Q_FORMAT)
+
+// buffers
+#define X_BUFF_OFFSET        (0)
+#define D_BUFF_OFFSET        (128)
+#define H_BUFF_OFFSET        (256)
+#define X_FIFO_BUFF_OFFSET   (384)
+#define OUT_BUFF_ADDR        (512)
+
+// registers
+#define CONFIG_REG_OFFSET              (640)
+#define X_SAMPLES_CNT_REG_OFFSET       (641)
+#define H_COEFS_BLOCKS_CNT_REG_OFFSET  (642)
+#define CNTRL_REG_OFFSET               (643)
+#define STAT_REG_OFFSET                (644)
+#define MI_REG_OFFSET                  (645)
+#define GAMMA_REG_OFFSET               (646)
+
+int main(){
+	int32_t* nlms_base_addr = XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR;
+
+	int32_t x_samples[X_SAMPLES_COUNT];
+	int32_t d_samples[X_SAMPLES_COUNT];
+	int32_t h_coefs[H_COEFS_COUNT];
+	int16_t out_buff[X_SAMPLES_COUNT];
+	uint32_t config_reg;
+	uint32_t nlms_busy;
+
+	//===============================================
+	// preconfig
+	//===============================================
+
+	//-----------------------------------------------
+	// samples generation
+	//-----------------------------------------------
+
+	// generate initial y coefs
+	h_coefs[0] = 1 * FIX_SCALE;
+	for(int i = 1; i < H_COEFS_COUNT; i++){
+		h_coefs[i] = 0;
+	}
+
+	// prepare config reg
+	config_reg = 0x01fd;
+
+	//-----------------------------------------------
+	// writes
+	//-----------------------------------------------
+
+	// zero x fifo buff
+	for(int i = 0; i < H_COEFS_COUNT; i++){
+		*(nlms_base_addr+X_FIFO_BUFF_OFFSET+i) = 0;
+	}
+
+	// write to h buff
+	for(int i = 0; i < H_COEFS_COUNT; i++){
+		*(nlms_base_addr+H_BUFF_OFFSET+i) = h_coefs[i];
+	}
+
+	// write config register
+	*(nlms_base_addr + CONFIG_REG_OFFSET) = config_reg;
+
+	// write x samples count reg
+	*(nlms_base_addr + X_SAMPLES_CNT_REG_OFFSET) = X_SAMPLES_COUNT;
+
+	// write h coefs blocks reg
+	*(nlms_base_addr + H_COEFS_BLOCKS_CNT_REG_OFFSET) = H_BLOCKS_COUNT;
+
+	// write mi reg
+	*(nlms_base_addr + MI_REG_OFFSET) = 0.02 * FIX_SCALE;
+
+	//===============================================
+	// first processing
+	//===============================================
+
+	//-----------------------------------------------
+	// samples generation
+	//-----------------------------------------------
+
+	// generate x and d samples
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		float sample_x_f;
+		float sample_d_f;
+		float t = i/512;
+
+		sample_x_f = 2 * sin(2 * PI * (t + 10) * 50);
+		x_samples[i] = (int16_t)(sample_x_f * FIX_SCALE);
+
+		sample_d_f = 2 * sin(2 * PI * t * 10) + sin(2 * PI * t * 50);
+		d_samples[i] = (int16_t)(sample_d_f * FIX_SCALE);
+	}
+
+	//-----------------------------------------------
+	// writes
+	//-----------------------------------------------
+
+	// write to x buff
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		*(nlms_base_addr+X_BUFF_OFFSET+i) = x_samples[i];
+	}
+
+	// write to d buff
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		*(nlms_base_addr+D_BUFF_OFFSET+i) = d_samples[i];
+	}
+
+	// start processing
+	*(nlms_base_addr + CNTRL_REG_OFFSET) = 0x01;
+
+	//-----------------------------------------------
+	// reads
+	//-----------------------------------------------
+
+	nlms_busy = 1;
+	// poll for end of processing
+	while(nlms_busy){
+		nlms_busy = *(nlms_base_addr + STAT_REG_OFFSET);
+	}
+
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		out_buff[i] = *(nlms_base_addr + OUT_BUFF_ADDR+i);
+	}
+
+	//===============================================
+	// second processing
+	//===============================================
+
+	//-----------------------------------------------
+	// samples generation
+	//-----------------------------------------------
+
+	// generate x samples
+	for(int i = 1; i <= X_SAMPLES_COUNT; i++){
+		x_samples[i-1] = (i + X_SAMPLES_COUNT) * FIX_SCALE;
+	}
+
+	// generate d samples
+	for(int i = 1; i <= X_SAMPLES_COUNT; i++){
+		d_samples[i-1] = (i + X_SAMPLES_COUNT + 5) * FIX_SCALE;
+	}
+
+	//-----------------------------------------------
+	// writes
+	//-----------------------------------------------
+
+	// write to x buff
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		*(nlms_base_addr+X_BUFF_OFFSET+i) = x_samples[i];
+	}
+
+	// write to d buff
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		*(nlms_base_addr+D_BUFF_OFFSET+i) = d_samples[i];
+	}
+
+	// start processing
+	*(nlms_base_addr + CNTRL_REG_OFFSET) = 0x01;
+
+	//-----------------------------------------------
+	// reads
+	//-----------------------------------------------
+
+	nlms_busy = 1;
+	// poll for end of processing
+	while(nlms_busy){
+		nlms_busy = *(nlms_base_addr + STAT_REG_OFFSET);
+	}
+
+	for(int i = 0; i < X_SAMPLES_COUNT; i++){
+		out_buff[i] = *(nlms_base_addr + OUT_BUFF_ADDR+i);
+	}
+
+	while(1){};
+}

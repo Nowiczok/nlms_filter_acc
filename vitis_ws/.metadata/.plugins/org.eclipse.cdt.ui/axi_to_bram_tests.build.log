@@ -1,16 +1,19 @@
-20:55:35 **** Incremental Build of configuration Debug for project axi_to_bram_tests ****
+12:37:14 **** Incremental Build of configuration Debug for project axi_to_bram_tests ****
 make all 
 'Building file: ../src/main.c'
 'Invoking: MicroBlaze gcc compiler'
 mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -ID:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
 In file included from ../src/main.c:3:
 ../src/main.c: In function 'main':
-D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/bspinclude/include/xparameters.h:496:45: warning: initialization of 'uint32_t *' {aka 'long unsigned int *'} from 'unsigned int' makes pointer from integer without a cast [-Wint-conversion]
+D:/fpga_projects/SDUP/projekt/vitis_ws/system_top_wrapper/export/system_top_wrapper/sw/system_top_wrapper/standalone_microblaze_0/bspinclude/include/xparameters.h:496:45: warning: initialization of 'int32_t *' {aka 'long int *'} from 'unsigned int' makes pointer from integer without a cast [-Wint-conversion]
   496 | #define XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR 0xC0000000U
       |                                             ^~~~~~~~~~~
-../src/main.c:9:36: note: in expansion of macro 'XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR'
-    9 |         uint32_t* bram_base_addr = XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR;
-      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/main.c:29:35: note: in expansion of macro 'XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR'
+   29 |         int32_t* nlms_base_addr = XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR;
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/main.c:34:17: warning: variable 'out_buff' set but not used [-Wunused-but-set-variable]
+   34 |         int32_t out_buff[X_SAMPLES_COUNT];
+      |                 ^~~~~~~~
 'Finished building: ../src/main.c'
 ' '
 'Building target: axi_to_bram_tests.elf'
@@ -21,9 +24,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LD:/fpga_projects/SDUP/projekt/vitis_ws/sys
 'Invoking: MicroBlaze Print Size'
 mb-size axi_to_bram_tests.elf  |tee "axi_to_bram_tests.elf.size"
    text	   data	    bss	    dec	    hex	filename
-   1900	    268	   3112	   5280	   14a0	axi_to_bram_tests.elf
+   3300	    268	   3112	   6680	   1a18	axi_to_bram_tests.elf
 'Finished building: axi_to_bram_tests.elf.size'
 ' '
 
-20:55:35 Build Finished (took 771ms)
+12:37:15 Build Finished (took 698ms)
 

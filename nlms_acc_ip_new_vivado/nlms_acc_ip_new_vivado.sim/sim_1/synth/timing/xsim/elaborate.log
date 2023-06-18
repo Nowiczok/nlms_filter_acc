@@ -1,0 +1,64 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 --maxdelay -L xil_defaultlib -L uvm -L simprims_ver -L secureip --snapshot bram_write_TB_time_synth -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.bram_write_TB xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-2861] module 'nlms_top' does not have a parameter named LOG2_H_BUFF_HEIGHT [D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v:81]
+WARNING: [VRFC 10-2861] module 'nlms_top' does not have a parameter named LOG2_X_D_BUFF_HEIGHT [D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v:82]
+WARNING: [VRFC 10-2861] module 'nlms_top' does not have a parameter named SAMPLE_WIDTH [D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v:83]
+WARNING: [VRFC 10-2861] module 'nlms_top' does not have a parameter named LOG2_NUM_MULS [D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v:84]
+WARNING: [VRFC 10-2861] module 'nlms_top' does not have a parameter named SAMPLE_Q_FORMAT [D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v:85]
+WARNING: [VRFC 10-2861] module 'nlms_top' does not have a parameter named BRAM_ADDR_WIDTH [D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v:86]
+WARNING: [VRFC 10-2861] module 'nlms_top' does not have a parameter named BRAM_DATA_WIDTH [D:/fpga_projects/SDUP/projekt/nlms_acc_ip_new_vivado/nlms_acc_ip_new_vivado.srcs/sim_1/new/bram_write_TB.v:87]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+INFO: [XSIM 43-3451] SDF backannotation process started with SDF file "bram_write_TB_time_synth.sdf", for root module "bram_write_TB/DUT".
+INFO: [XSIM 43-3452] SDF backannotation was successful for SDF file "bram_write_TB_time_synth.sdf", for root module "bram_write_TB/DUT".
+Time Resolution for simulation is 1ps
+Compiling module simprims_ver.IBUF
+Compiling module simprims_ver.BUFG
+Compiling module simprims_ver.OBUF
+Compiling module simprims_ver.LUT6
+Compiling module simprims_ver.LUT4
+Compiling module simprims_ver.FDCE_default
+Compiling module simprims_ver.FDPE_default
+Compiling module simprims_ver.LUT5
+Compiling module simprims_ver.x_lut3_mux8
+Compiling module simprims_ver.LUT3
+Compiling module simprims_ver.DSP48E1(ACASCREG=0,ALUMODEREG=0,...
+Compiling module simprims_ver.x_lut2_mux4
+Compiling module simprims_ver.LUT2
+Compiling module xil_defaultlib.nlms_mul
+Compiling module simprims_ver.CARRY4
+Compiling module xil_defaultlib.nlms_mul_2
+Compiling module xil_defaultlib.nlms_mul_3
+Compiling module xil_defaultlib.nlms_mul_4
+Compiling module xil_defaultlib.nlms_multipliers
+Compiling module xil_defaultlib.nlms_product_processor
+Compiling module xil_defaultlib.nlms_datapath
+Compiling module simprims_ver.x_lut1_mux2
+Compiling module simprims_ver.LUT1
+Compiling module xil_defaultlib.nlms_flow_control
+Compiling module xil_defaultlib.nlms_h_fetch_manager
+Compiling module xil_defaultlib.nlms_h_write_manager
+Compiling module xil_defaultlib.nlms_out_buff_write_manager
+Compiling module simprims_ver.MUXF7
+Compiling module xil_defaultlib.nlms_x_fifo_buff
+Compiling module xil_defaultlib.nlms_int_buff_control
+Compiling module simprims_ver.RB18_INTERNAL_VLOG(READ_WIDTH_A=...
+Compiling module simprims_ver.RAMB18E1(READ_WIDTH_A=18,READ_WI...
+Compiling module xil_defaultlib.nlms_bram__parameterized0
+Compiling module simprims_ver.RB36_INTERNAL_VLOG(RAM_MODE="SDP...
+Compiling module simprims_ver.RAMB36E1(RAM_MODE="SDP",READ_WID...
+Compiling module xil_defaultlib.nlms_bram__parameterized1
+Compiling module xil_defaultlib.nlms_bram__parameterized0_0
+Compiling module xil_defaultlib.nlms_bram__parameterized0_1
+Compiling module xil_defaultlib.nlms_bram
+Compiling module xil_defaultlib.nlms_int_buffers
+Compiling module xil_defaultlib.nlms_system_write
+Compiling module xil_defaultlib.nlms_top
+Compiling module xil_defaultlib.bram_write_TB
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot bram_write_TB_time_synth

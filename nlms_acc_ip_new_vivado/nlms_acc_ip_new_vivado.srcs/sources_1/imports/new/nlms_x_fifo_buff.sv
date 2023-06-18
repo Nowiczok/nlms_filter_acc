@@ -167,7 +167,6 @@ logic [X_FIFO_FSM_LEN-1:0] fifo_fsm_state_r;
 
 // FSM transition indicators
 logic tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES;
-logic tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES_d;  // tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES delayed by one cycle
 logic tran_FIFO_FSM_IDLE__FETCH_SAMPLES;
 logic tran_FIFO_FSM_FETCH_SAMPLES__PUSH_TO_FIFO;
 logic tran_FIFO_FSM_PUSH_TO_FIFO__IDLE;
@@ -193,7 +192,6 @@ always_comb begin
 end
 `FF_EN_NRST(fifo_fsm_state_r, fifo_fsm_state_nxt_c, clk, fifo_fsm_state_en_c, nrst, X_FIFO_FSM_IDLE)
 assign tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES = (fifo_fsm_state_r == X_FIFO_FSM_IDLE) && (fifo_fsm_state_nxt_c == X_FIFO_FSM_OUTPUT_SAMPLES);
-`FF_EN_NRST(tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES_d, tran_FIFO_FSM_IDLE__OUTPUT_SAMPLES, clk, en, nrst, '0)
 assign tran_FIFO_FSM_FETCH_SAMPLES__PUSH_TO_FIFO = (fifo_fsm_state_r == X_FIFO_FSM_FETCH_SAMPLES) && (fifo_fsm_state_nxt_c == X_FIFO_FSM_PUSH_TO_FIFO);
 assign tran_FIFO_FSM_PUSH_TO_FIFO__IDLE = (fifo_fsm_state_r == X_FIFO_FSM_PUSH_TO_FIFO) && (fifo_fsm_state_nxt_c == X_FIFO_FSM_IDLE);
 assign tran_FIFO_FSM_IDLE__FETCH_SAMPLES = (fifo_fsm_state_r == X_FIFO_FSM_IDLE) && (fifo_fsm_state_nxt_c == X_FIFO_FSM_FETCH_SAMPLES);

@@ -59,7 +59,7 @@ module nlms_system_write #(
   output logic [SAMPLE_WIDTH-1:0] d_buff_wdata,
   
   output logic h_buff_we,
-  output logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_waddr,
+  output logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_waddr,
   output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_wdata,
   
   output logic x_fifo_buff_we,
@@ -77,8 +77,8 @@ module nlms_system_write #(
   output logic x_samples_u2,
   output logic x_fract,
   output logic [$clog2(SAMPLE_WIDTH)-1:0] act_input_bits,
-  output logic [SAMPLE_WIDTH-1:0] x_samples_count,
-  output logic [SAMPLE_WIDTH-1:0] h_coef_blocks_count,
+  output logic [X_D_BUFF_ADDR_WIDH-1:0] x_samples_count,
+  output logic [(H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1):0] h_coef_blocks_count,
   output logic abort_processing,
   output logic [SAMPLE_WIDTH-1:0] mi,
   output logic [SAMPLE_WIDTH-1:0] gamma,
@@ -140,8 +140,8 @@ logic h_buff_we_nxt_c;
 logic h_buff_we_r;
 
 logic h_buff_waddr_en_c;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_waddr_nxt_c;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_waddr_r;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_waddr_nxt_c;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_waddr_r;
 
 logic  h_buff_temp_buff_en_c;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_temp_buff_nxt_c;
@@ -162,15 +162,14 @@ logic [SAMPLE_WIDTH-1:0] status_reg_r;
 //-------------------------read data signals-------------------------
 
 logic prev_access_to_out_buff_r;
-logic prev_access_to_status_reg_r;
 
 //-------------------------normal bram rtl-------------------------
 assign bram_we_c = bram_en_a && |bram_we_a;
-assign bram_waddr_c = bram_addr_a;
+assign bram_waddr_c = {2'b00, bram_addr_a[BRAM_ADDR_WIDTH-1:2]};  // addresses are 4 byte aligned, scaling down needed
 assign bram_wdata_c = bram_wrdata_a[SAMPLE_WIDTH-1:0];
 
 assign bram_re_c = bram_en_b;
-assign bram_raddr_c = bram_addr_b;
+assign bram_raddr_c = {2'b00, bram_addr_b[BRAM_ADDR_WIDTH-1:2]};  // addresses are 4 byte aligned, scaling down needed
 assign bram_rddata_b = {{(BRAM_DATA_WIDTH-SAMPLE_WIDTH){1'b0}}, bram_rdata_c};
 
 //-------------------------address translation rtl-------------------------
@@ -218,7 +217,6 @@ assign out_buff_raddr = adj_addr_out_buff_c;
 //-------------------------read data rtl-------------------------
 
 `FF_EN_NRST(prev_access_to_out_buff_r, access_to_out_buff_c, clk, en, nrst, '0)
-`FF_EN_NRST(prev_access_to_status_reg_r, access_to_status_reg_c, clk, en, nrst, '0)
 
 assign bram_rdata_c = (prev_access_to_out_buff_r) ? out_buff_rdata : // zero extended busy flag
                                                     {{(SAMPLE_WIDTH-1){1'b0}}, busy};
@@ -251,7 +249,7 @@ end
 
 // register that holds address
 assign h_buff_waddr_en_c = en && (access_to_h_buff_c && bram_we_c && (h_buff_writes_cnt_r == '0));
-assign h_buff_waddr_nxt_c = adj_addr_h_buff_c[BRAM_ADDR_WIDTH:LOG2_NUM_MULS];
+assign h_buff_waddr_nxt_c = adj_addr_h_buff_c[BRAM_ADDR_WIDTH-1:LOG2_NUM_MULS];
 `FF_EN_NRST(h_buff_waddr_r, h_buff_waddr_nxt_c, clk, h_buff_waddr_en_c, nrst, '0)
 
 assign h_buff_we = h_buff_we_r;
@@ -275,8 +273,8 @@ assign y_as_out = config_reg_r[2];
 assign x_samples_u2 = config_reg_r[3];
 assign x_fract = config_reg_r[4];
 assign act_input_bits = config_reg_r[8:5];
-assign x_samples_count = x_samples_count_reg_r;
-assign h_coef_blocks_count = h_coefs_blocks_count_reg_r;
+assign x_samples_count = x_samples_count_reg_r[X_D_BUFF_ADDR_WIDH-1:0];
+assign h_coef_blocks_count = h_coefs_blocks_count_reg_r[(H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1):0];
 assign mi = mi_reg_r;
 assign gamma = gamma_reg_r;
 

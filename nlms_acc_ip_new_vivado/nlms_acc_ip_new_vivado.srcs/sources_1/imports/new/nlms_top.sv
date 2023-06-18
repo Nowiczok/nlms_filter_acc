@@ -1,7 +1,7 @@
 
 module nlms_top #(
-  parameter LOG2_H_BUFF_HEIGHT = $clog2(64),
-  parameter LOG2_X_D_BUFF_HEIGHT = $clog2(64),
+  parameter LOG2_H_BUFF_HEIGHT = $clog2(128),
+  parameter LOG2_X_D_BUFF_HEIGHT = $clog2(128),
   parameter SAMPLE_WIDTH = 16,
   parameter LOG2_NUM_MULS = $clog2(4),
   parameter SAMPLE_Q_FORMAT = 8,
@@ -115,15 +115,15 @@ logic [SAMPLE_WIDTH-1:0] d_buff_wdata;
   
 // h_buff-h_fetch_manager interface
 logic h_buff_re;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_raddr;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_rdata;
 
 logic h_buff_system_we;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_system_waddr;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_system_waddr;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_system_wdata;
 
 logic h_buff_we;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_waddr;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_waddr;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_wdata;
 
 // out_buffer interface

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sun Jun 18 13:54:25 2023
+# Process ID: 22312
+# Current directory: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/system_top_nlms_top_0_1_synth_1
+# Command line: vivado.exe -log system_top_nlms_top_0_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_top_nlms_top_0_1.tcl
+# Log file: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/system_top_nlms_top_0_1_synth_1/system_top_nlms_top_0_1.vds
+# Journal file: D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.runs/system_top_nlms_top_0_1_synth_1\vivado.jou
+# Running On: DESKTOP-P6SHRJL, OS: Windows, CPU Frequency: 2208 MHz, CPU Physical cores: 6, Host memory: 17047 MB
+#-----------------------------------------------------------
+source system_top_nlms_top_0_1.tcl -notrace

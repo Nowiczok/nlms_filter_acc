@@ -49,15 +49,15 @@ module nlms_int_buffers #(
   
   // h_buff interface
   input logic h_buff_re,
-  input logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_raddr,
+  input logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_raddr,
   output logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_rdata,
   
   input logic h_buff_we,
-  input logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_waddr,
+  input logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_waddr,
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_wdata,
   
   input logic h_buff_system_we,
-  input logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_system_waddr,
+  input logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_system_waddr,
   input logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_system_wdata,
   
   // out_buff_interface
@@ -109,11 +109,11 @@ logic [SAMPLE_WIDTH-1:0] out_buff_ping_wdata;
 //-------------------------x_fifo_buff buffer signals-------------------------
 logic x_fifo_buff_final_we_c;
 logic [H_BUFF_ADDR_WIDTH-1:0] x_fifo_buff_final_waddr_c;
-logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] x_fifo_buff_final_wdata_c;
+logic [SAMPLE_WIDTH-1:0] x_fifo_buff_final_wdata_c;
 
 //-------------------------h_buff ping-pong buffers signals-------------------------
 logic h_buff_final_we_c;
-logic [H_BUFF_ADDR_WIDTH-1:0] h_buff_final_waddr_c;
+logic [H_BUFF_ADDR_WIDTH-LOG2_NUM_MULS-1:0] h_buff_final_waddr_c;
 logic [NUM_MULS-1:0][SAMPLE_WIDTH-1:0] h_buff_final_wdata_c;
 
 //-------------------------x_fifo_buff buffer RTL-------------------------

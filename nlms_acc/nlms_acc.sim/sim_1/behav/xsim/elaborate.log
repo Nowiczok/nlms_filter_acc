@@ -4,10 +4,251 @@ Running: D:/Vivado_2/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debu
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-5021] port 'interrupt_ack' is not connected on this instance [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/sim/system_top.v:493]
+WARNING: [VRFC 10-5021] port 'interrupt_ack' is not connected on this instance [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/sim/system_top.v:478]
 WARNING: [VRFC 10-5021] port 'peripheral_reset' is not connected on this instance [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/sim/system_top.v:569]
 WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ip/system_top_axi_smc_2/bd_0/sim/bd_a7a5.v:728]
 WARNING: [VRFC 10-5021] port 'lmb_rst' is not connected on this instance [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/sim/system_top.v:158]
 WARNING: [VRFC 10-5021] port 'lmb_rst' is not connected on this instance [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/sim/system_top.v:204]
+WARNING: [VRFC 10-5021] port 'clear_x_sum_of_squares' is not connected on this instance [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_top.sv:421]
+WARNING: [VRFC 10-5021] port 'mi_final_valid' is not connected on this instance [D:/fpga_projects/SDUP/projekt/nlms_acc/nlms_acc.ip_user_files/bd/system_top/ipshared/b8d9/src/nlms_datapath.sv:67]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package xpm.vcomponents
+Compiling package axi_bram_ctrl_v4_1_7.axi_bram_ctrl_funcs
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package unisim.vcomponents
+Compiling package synopsys.attributes
+Compiling package ieee.std_logic_misc
+Compiling package mdm_v3_2_23.mdm_funcs
+Compiling package ieee.std_logic_unsigned
+Compiling package axi_lite_ipif_v3_0_4.ipif_pkg
+Compiling package ieee.std_logic_signed
+Compiling package microblaze_v11_0_10.microblaze_types
+Compiling package microblaze_v11_0_10.microblaze_isa
+Compiling package microblaze_v11_0_10.mmu_types
+Compiling package lmb_bram_if_cntlr_v4_0_21.lmb_bram_if_funcs
+Compiling package smartconnect_v1_0.sc_util_v1_0_4_pkg
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_7.wrap_brst [\wrap_brst(c_axi_addr_width=13,c...]
+Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
+Compiling architecture muxcy_l_v of entity unisim.MUXCY_L [muxcy_l_default]
+Compiling architecture xorcy_v of entity unisim.XORCY [xorcy_default]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(0,15)\]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture fdr_v of entity unisim.FDR [fdr_default]
+Compiling architecture imp of entity axi_bram_ctrl_v4_1_7.SRL_FIFO [\SRL_FIFO(c_data_bits=1,c_depth=...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_7.wr_chnl [\wr_chnl(c_axi_addr_width=13,c_a...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_7.rd_chnl [\rd_chnl(c_axi_addr_width=13,c_a...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_7.full_axi [\full_axi(c_s_axi_addr_width=13,...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_7.axi_bram_ctrl_top [\axi_bram_ctrl_top(c_bram_addr_w...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_7.axi_bram_ctrl [\axi_bram_ctrl(c_memory_depth=20...]
+Compiling architecture system_top_axi_bram_ctrl_0_0_arch of entity xil_defaultlib.system_top_axi_bram_ctrl_0_0 [system_top_axi_bram_ctrl_0_0_def...]
+Compiling module xlconstant_v1_1_7.xlconstant_v1_1_7_xlconstant(CON...
+Compiling module xil_defaultlib.bd_a7a5_one_0
+Compiling architecture fdre_v of entity unisim.FDRE [\FDRE(init='1')\]
+Compiling architecture implementation of entity lib_cdc_v1_0_2.cdc_sync [\cdc_sync(c_vector_width=2,c_mtb...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="1111111111111111")...]
+Compiling architecture srl16_v of entity unisim.SRL16 [\SRL16(init="1111111111111111")(...]
+Compiling architecture imp of entity proc_sys_reset_v5_0_13.lpf [\lpf(c_ext_rst_width=4,c_aux_rst...]
+Compiling architecture imp of entity proc_sys_reset_v5_0_13.upcnt_n [\upcnt_n(c_size=6)\]
+Compiling architecture imp of entity proc_sys_reset_v5_0_13.sequence_psr [sequence_psr_default]
+Compiling architecture imp of entity proc_sys_reset_v5_0_13.proc_sys_reset [\proc_sys_reset(c_family="zynq",...]
+Compiling architecture bd_a7a5_psr_aclk_0_arch of entity xil_defaultlib.bd_a7a5_psr_aclk_0 [bd_a7a5_psr_aclk_0_default]
+Compiling module xil_defaultlib.clk_map_imp_19BMPCC
+Compiling module xpm.xpm_cdc_async_rst(DEST_SYNC_FF=3...
+Compiling module xil_defaultlib.bd_a7a5_m00e_0
+Compiling module xil_defaultlib.m00_exit_pipeline_imp_PIN2MV
+Compiling module xil_defaultlib.bd_a7a5_m00s2a_0
+Compiling module xil_defaultlib.bd_a7a5_s00a2s_0
+Compiling module xil_defaultlib.bd_a7a5_s00mmu_0
+Compiling module xil_defaultlib.bd_a7a5_s00sic_0
+Compiling module xil_defaultlib.bd_a7a5_s00tr_0
+Compiling module xil_defaultlib.s00_entry_pipeline_imp_1O68BO4
+Compiling module xil_defaultlib.bd_a7a5_sarn_0
+Compiling module xil_defaultlib.bd_a7a5_sawn_0
+Compiling module xil_defaultlib.bd_a7a5_sbn_0
+Compiling module xil_defaultlib.bd_a7a5_srn_0
+Compiling module xil_defaultlib.bd_a7a5_swn_0
+Compiling module xil_defaultlib.s00_nodes_imp_1KZQ1OU
+Compiling module xil_defaultlib.bd_a7a5
+Compiling module xil_defaultlib.system_top_axi_smc_2
+Compiling module unisims_ver.IBUFDS
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.system_top_clk_wiz_1_2_clk_wiz
+Compiling module xil_defaultlib.system_top_clk_wiz_1_2
+Compiling architecture bscane2_v of entity unisim.BSCANE2 [\BSCANE2(jtag_chain=2)(1,5)\]
+Compiling architecture imp of entity mdm_v3_2_23.MB_BSCANE2 [\MB_BSCANE2(c_target=zynq,jtag_c...]
+Compiling architecture lut1_v of entity unisim.LUT1 [\LUT1(init="10")(0,1)\]
+Compiling architecture imp of entity mdm_v3_2_23.MB_LUT1 [\MB_LUT1(c_target=zynq,init="10"...]
+Compiling architecture bufgctrl_v of entity unisim.BUFGCTRL [\BUFGCTRL(init_out=1,preselect_i...]
+Compiling architecture bufgce_1_v of entity unisim.BUFGCE_1 [bufgce_1_default]
+Compiling architecture imp of entity mdm_v3_2_23.MB_BUFGCE_1 [\MB_BUFGCE_1(c_target=zynq)\]
+Compiling architecture imp of entity mdm_v3_2_23.xil_scan_reset_control [xil_scan_reset_control_default]
+Compiling architecture fdce_v of entity unisim.FDCE [fdce_default]
+Compiling architecture fdc_1_v of entity unisim.FDC_1 [fdc_1_default]
+Compiling architecture imp of entity mdm_v3_2_23.MB_FDC_1 [\MB_FDC_1(c_target=zynq)\]
+Compiling architecture fdre_1_v of entity unisim.FDRE_1 [fdre_1_default]
+Compiling architecture imp of entity mdm_v3_2_23.MB_FDRE_1 [\MB_FDRE_1(c_target=zynq)\]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="0000000101100111")...]
+Compiling architecture imp of entity mdm_v3_2_23.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_stati...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="0100001010000111")...]
+Compiling architecture imp of entity mdm_v3_2_23.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_stati...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="0100010001000011")...]
+Compiling architecture imp of entity mdm_v3_2_23.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_stati...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="0101100001001101")...]
+Compiling architecture imp of entity mdm_v3_2_23.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_stati...]
+Compiling architecture imp of entity mdm_v3_2_23.JTAG_CONTROL [\JTAG_CONTROL(c_target=zynq,c_us...]
+Compiling architecture imp of entity mdm_v3_2_23.MDM_Core [\MDM_Core(c_target=zynq,c_jtag_c...]
+Compiling architecture imp of entity mdm_v3_2_23.MDM [\MDM(c_family="zynq",c_device="x...]
+Compiling architecture system_top_mdm_1_2_arch of entity xil_defaultlib.system_top_mdm_1_2 [system_top_mdm_1_2_default]
+Compiling architecture imp of entity microblaze_v11_0_10.DAXI_interface [\DAXI_interface(c_data_size=32,c...]
+Compiling architecture and2b1l_v of entity unisim.AND2B1L [and2b1l_default]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_AND2B1L [\MB_AND2B1L(c_target=zynq)\]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="1111111111111111")...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_use_s...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="0011111111111111")...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_use_s...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="0000000000011011")...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_use_s...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(15,0)\]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_use_s...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="0000000001100100")...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_use_s...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="0010010100000000")...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_SRL16E [\MB_SRL16E(c_target=zynq,c_use_s...]
+Compiling architecture imp of entity microblaze_v11_0_10.mb_sync_bit [\mb_sync_bit(c_levels=1,c_reset_...]
+Compiling architecture imp of entity microblaze_v11_0_10.mb_sync_vec [\mb_sync_vec(c_levels=1,c_reset_...]
+Compiling architecture imp of entity microblaze_v11_0_10.mb_sync_bit [\mb_sync_bit(c_levels=1)\]
+Compiling architecture imp of entity microblaze_v11_0_10.mb_sync_vec [\mb_sync_vec(c_width=10)\]
+Compiling architecture srlc16e_v of entity unisim.SRLC16E [\SRLC16E(0,15)\]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_SRLC16E [\MB_SRLC16E(c_target=zynq,c_use_...]
+Compiling architecture imp of entity microblaze_v11_0_10.address_hit [\address_hit(c_target=zynq,c_use...]
+Compiling architecture imp of entity microblaze_v11_0_10.xil_scan_reset_control [xil_scan_reset_control_default]
+Compiling architecture imp of entity microblaze_v11_0_10.Debug [\Debug(c_data_size=32,c_instr_si...]
+Compiling architecture imp of entity microblaze_v11_0_10.interrupt_mode_converter [\interrupt_mode_converter(c_edge...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="10010000000010010000...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=zynq,init="100...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="10010000000010010000...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=zynq,init="100...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_FDRE [\MB_FDRE(c_target=zynq)\]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_MUXCY_XORCY [\MB_MUXCY_XORCY(c_target=zynq)\]
+Compiling architecture muxf7_v of entity unisim.MUXF7 [muxf7_default]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_MUXF7 [\MB_MUXF7(c_target=zynq)\]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_FDR [\MB_FDR(c_target=zynq)\]
+Compiling architecture imp of entity microblaze_v11_0_10.PC_Module_gti [\PC_Module_gti(c_data_size=32,c_...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=zynq,init="000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000001111...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=zynq,init="000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111000000001111...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=zynq,init="111...]
+Compiling architecture fdse_v of entity unisim.FDSE [fdse_default]
+Compiling architecture fds_v of entity unisim.FDS [fds_default]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_FDS [\MB_FDS(c_target=zynq)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000111111110000...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=zynq,init="000...]
+Compiling architecture imp of entity microblaze_v11_0_10.PreFetch_Buffer_gti [\PreFetch_Buffer_gti(c_instr_siz...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_MUXCY [\MB_MUXCY(c_target=zynq)\]
+Compiling architecture imp of entity microblaze_v11_0_10.carry_and [\carry_and(c_target=zynq)\]
+Compiling architecture imp of entity microblaze_v11_0_10.jump_logic [\jump_logic(c_instr_size=32,c_ta...]
+Compiling architecture imp of entity microblaze_v11_0_10.carry_or [\carry_or(c_target=zynq)\]
+Compiling architecture imp of entity microblaze_v11_0_10.Decode_gti [\Decode_gti(c_data_size=32,c_ins...]
+Compiling architecture lut6_2_v of entity unisim.LUT6_2 [\LUT6_2(init="000000001111111100...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6_2 [\MB_LUT6_2(c_target=zynq,init="0...]
+Compiling architecture ram32m_v of entity unisim.RAM32M [ram32m_default]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_RAM32M [\MB_RAM32M(c_target=zynq,c_use_l...]
+Compiling architecture imp of entity microblaze_v11_0_10.Register_File_gti [\Register_File_gti(c_data_size=3...]
+Compiling architecture imp of entity microblaze_v11_0_10.Operand_Select_gti [\Operand_Select_gti(c_data_size=...]
+Compiling architecture lut6_2_v of entity unisim.LUT6_2 [\LUT6_2(init="011000000111101010...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6_2 [\MB_LUT6_2(c_target=zynq,init="0...]
+Compiling architecture imp of entity microblaze_v11_0_10.ALU_Bit [\ALU_Bit(c_target=zynq,c_allow_l...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="01100000011110101010...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=zynq,init="011...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101000001010")(0...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT4 [\MB_LUT4(c_target=zynq,init="111...]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1000")(0,3)\]
+Compiling architecture mult_and_v of entity unisim.MULT_AND [mult_and_default]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_MULT_AND [\MB_MULT_AND(c_target=zynq)\]
+Compiling architecture imp of entity microblaze_v11_0_10.ALU_Bit [\ALU_Bit(c_target=zynq,c_allow_l...]
+Compiling architecture imp of entity microblaze_v11_0_10.ALU [\ALU(c_data_size=32,c_allow_lut6...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=rtl,init="1100...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=rtl,init="1100...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6 [\MB_LUT6(c_target=rtl,init="1100...]
+Compiling architecture imp of entity microblaze_v11_0_10.Shift_Logic_Module_gti [\Shift_Logic_Module_gti(c_data_s...]
+Compiling architecture imp of entity microblaze_v11_0_10.mul_unit [\mul_unit(c_data_size=32,c_targe...]
+Compiling architecture imp of entity microblaze_v11_0_10.Barrel_Shifter_gti [\Barrel_Shifter_gti(c_data_size=...]
+Compiling architecture imp of entity microblaze_v11_0_10.WB_Mux_Bit [\WB_Mux_Bit(c_target=zynq,c_lut_...]
+Compiling architecture imp of entity microblaze_v11_0_10.WB_Mux [\WB_Mux(c_data_size=32,c_daddr_s...]
+Compiling architecture imp of entity microblaze_v11_0_10.Zero_Detect_gti [\Zero_Detect_gti(c_data_size=32,...]
+Compiling architecture imp of entity microblaze_v11_0_10.Byte_Doublet_Handle_gti [\Byte_Doublet_Handle_gti(c_data_...]
+Compiling architecture imp of entity microblaze_v11_0_10.Data_Flow_Logic [\Data_Flow_Logic(c_data_size=32,...]
+Compiling architecture msr_reg of entity microblaze_v11_0_10.msr_reg_gti [\msr_reg_gti(c_data_size=32,c_ta...]
+Compiling architecture lut6_2_v of entity unisim.LUT6_2 [\LUT6_2(init="111111110000000011...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6_2 [\MB_LUT6_2(c_target=zynq,init="1...]
+Compiling architecture imp of entity microblaze_v11_0_10.mux_bus [\mux_bus(c_target=zynq,c_allow_l...]
+Compiling architecture lut6_2_v of entity unisim.LUT6_2 [\LUT6_2(init="100101101001011010...]
+Compiling architecture imp of entity microblaze_v11_0_10.MB_LUT6_2 [\MB_LUT6_2(c_target=zynq,init="1...]
+Compiling architecture imp of entity microblaze_v11_0_10.exception_registers_gti [\exception_registers_gti(c_data_...]
+Compiling architecture imp of entity microblaze_v11_0_10.Fpu [\Fpu(c_data_size=32,c_target=zyn...]
+Compiling architecture imp of entity microblaze_v11_0_10.PVR [\PVR(c_data_size=32,c_daddr_size...]
+Compiling architecture imp of entity microblaze_v11_0_10.Data_Flow_gti [\Data_Flow_gti(c_data_size=32,c_...]
+Compiling architecture imp of entity microblaze_v11_0_10.read_data_mux [\read_data_mux(c_data_size=32,c_...]
+Compiling architecture imp of entity microblaze_v11_0_10.instr_mux [\instr_mux(c_instr_size=32,c_lmb...]
+Compiling architecture imp of entity microblaze_v11_0_10.MMU [\MMU(c_data_size=32,c_daddr_size...]
+Compiling architecture imp of entity microblaze_v11_0_10.MicroBlaze_GTi [\MicroBlaze_GTi(c_num_sync_ff_cl...]
+Compiling architecture imp of entity microblaze_v11_0_10.mb_sync_bit [mb_sync_bit_default]
+Compiling architecture imp of entity microblaze_v11_0_10.MicroBlaze_Core [\MicroBlaze_Core(c_freq=10000000...]
+Compiling architecture imp of entity microblaze_v11_0_10.MicroBlaze [\MicroBlaze(c_freq=100000000,c_e...]
+Compiling architecture system_top_microblaze_0_2_arch of entity xil_defaultlib.system_top_microblaze_0_2 [system_top_microblaze_0_2_defaul...]
+Compiling architecture imp of entity lmb_bram_if_cntlr_v4_0_21.pselect_mask [\pselect_mask(c_bar="00000000000...]
+Compiling architecture imp of entity lmb_bram_if_cntlr_v4_0_21.lmb_mux [\lmb_mux(c_target=zynq,c_baseadd...]
+Compiling architecture imp of entity lmb_bram_if_cntlr_v4_0_21.lmb_bram_if_cntlr [\lmb_bram_if_cntlr(c_family="zyn...]
+Compiling architecture system_top_dlmb_bram_if_cntlr_2_arch of entity xil_defaultlib.system_top_dlmb_bram_if_cntlr_2 [system_top_dlmb_bram_if_cntlr_2_...]
+Compiling architecture imp of entity lmb_v10_v3_0_12.lmb_v10 [\lmb_v10(c_lmb_num_slaves=1)\]
+Compiling architecture system_top_dlmb_v10_2_arch of entity xil_defaultlib.system_top_dlmb_v10_2 [system_top_dlmb_v10_2_default]
+Compiling architecture imp of entity lmb_bram_if_cntlr_v4_0_21.pselect_mask [\pselect_mask(c_bar="00000000000...]
+Compiling architecture imp of entity lmb_bram_if_cntlr_v4_0_21.lmb_mux [\lmb_mux(c_target=zynq,c_baseadd...]
+Compiling architecture imp of entity lmb_bram_if_cntlr_v4_0_21.lmb_bram_if_cntlr [\lmb_bram_if_cntlr(c_family="zyn...]
+Compiling architecture system_top_ilmb_bram_if_cntlr_2_arch of entity xil_defaultlib.system_top_ilmb_bram_if_cntlr_2 [system_top_ilmb_bram_if_cntlr_2_...]
+Compiling architecture system_top_ilmb_v10_2_arch of entity xil_defaultlib.system_top_ilmb_v10_2 [system_top_ilmb_v10_2_default]
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_output_stage(...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5(C_FAMILY="zyn...
+Compiling module xil_defaultlib.system_top_lmb_bram_2
+Compiling module xil_defaultlib.microblaze_0_local_memory_imp_EN...
+Compiling module xil_defaultlib.nlms_system_write(LOG2_H_BUFF_HE...
+Compiling module xil_defaultlib.nlms_flow_control(LOG2_X_D_BUFF_...
+Compiling module xil_defaultlib.nlms_bram(LOG2_HEIGHT=7,WORD_WID...
+Compiling module xil_defaultlib.nlms_bram(LOG2_HEIGHT=7,WORD_WID...
+Compiling module xil_defaultlib.nlms_bram(LOG2_HEIGHT=5,WORD_WID...
+Compiling module xil_defaultlib.nlms_int_buffers(LOG2_H_BUFF_HEI...
+Compiling module xil_defaultlib.nlms_x_fifo_buff(LOG2_H_BUFF_HEI...
+Compiling module xil_defaultlib.nlms_h_fetch_manager(LOG2_H_BUFF...
+Compiling module xil_defaultlib.nlms_h_write_manager(LOG2_H_BUFF...
+Compiling module xil_defaultlib.nlms_out_buff_write_manager(SAMP...
+Compiling module xil_defaultlib.nlms_int_buff_control(LOG2_H_BUF...
+Compiling module xil_defaultlib.nlms_mul(INPUT_WIDTH=16,Q_FORMAT...
+Compiling module xil_defaultlib.nlms_multipliers(SAMPLE_WIDTH=16...
+Compiling module xil_defaultlib.nlms_product_processor(SAMPLE_WI...
+Compiling module xil_defaultlib.nlms_datapath(SAMPLE_WIDTH=16,SA...
+Compiling module xil_defaultlib.nlms_top(LOG2_H_BUFF_HEIGHT=7,LO...
+Compiling module xil_defaultlib.nlms_ip_packager_wrapper
+Compiling module xil_defaultlib.system_top_nlms_top_0_1
+Compiling architecture imp of entity proc_sys_reset_v5_0_13.lpf [\lpf(c_ext_rst_width=4,c_aux_rst...]
+Compiling architecture imp of entity proc_sys_reset_v5_0_13.proc_sys_reset [\proc_sys_reset(c_family="zynq",...]
+Compiling architecture system_top_rst_clk_wiz_1_100m_2_arch of entity xil_defaultlib.system_top_rst_clk_wiz_1_100M_2 [system_top_rst_clk_wiz_1_100m_2_...]
+Compiling module xil_defaultlib.system_top
+Compiling module xil_defaultlib.system_top_wrapper
+Compiling module xil_defaultlib.bram_test_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot bram_test_tb_behav
