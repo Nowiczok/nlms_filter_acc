@@ -1,14 +1,14 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Sat Jun 17 19:37:24 2023
+| Date         : Mon Jun 19 14:02:32 2023
 | Host         : DESKTOP-P6SHRJL running 64-bit major release  (build 9200)
-| Command      : report_utilization -file nlms_top_utilization_synth.rpt -pb nlms_top_utilization_synth.pb
-| Design       : nlms_top
+| Command      : report_utilization -file nlms_ip_packager_wrapper_utilization_synth.rpt -pb nlms_ip_packager_wrapper_utilization_synth.pb
+| Design       : nlms_ip_packager_wrapper
 | Device       : xc7z007sclg400-1
 | Speed File   : -1
 | Design State : Synthesized
------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 
@@ -95,7 +95,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+--------+
 |          Site Type          | Used | Fixed | Prohibited | Available |  Util% |
 +-----------------------------+------+-------+------------+-----------+--------+
-| Bonded IOB                  |  112 |     0 |          0 |       100 | 112.00 |
+| Bonded IOB                  |  108 |     0 |          0 |       100 | 108.00 |
 | Bonded IPADs                |    0 |     0 |          0 |         2 |   0.00 |
 | Bonded IOPADs               |    0 |     0 |          0 |       130 |   0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         2 |   0.00 |
@@ -152,20 +152,20 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDCE     | 1003 |        Flop & Latch |
-| LUT6     |  419 |                 LUT |
-| LUT5     |  256 |                 LUT |
-| LUT3     |  239 |                 LUT |
-| LUT2     |  232 |                 LUT |
-| LUT4     |  139 |                 LUT |
+| LUT6     |  417 |                 LUT |
+| LUT5     |  259 |                 LUT |
+| LUT3     |  237 |                 LUT |
+| LUT2     |  235 |                 LUT |
+| LUT4     |  137 |                 LUT |
 | OBUF     |   64 |                  IO |
-| IBUF     |   48 |                  IO |
+| IBUF     |   44 |                  IO |
 | MUXF7    |   32 |               MuxFx |
 | CARRY4   |   31 |          CarryLogic |
 | RAMB18E1 |    7 |        Block Memory |
 | DSP48E1  |    4 |    Block Arithmetic |
-| LUT1     |    2 |                 LUT |
 | FDPE     |    2 |        Flop & Latch |
 | RAMB36E1 |    1 |        Block Memory |
+| LUT1     |    1 |                 LUT |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 

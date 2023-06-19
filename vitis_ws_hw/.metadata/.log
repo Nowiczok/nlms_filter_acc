@@ -13072,3 +13072,336 @@ Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.]. Thread: Worker-109: Laun
 
 !ENTRY com.xilinx.sdk.utils 1 0 2023-06-19 01:52:38.225
 !MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '40'
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 05:08:23.628
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 07:32:47.420
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 09:31:22.492
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 10:12:37.177
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 10:28:28.737
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 10:57:16.106
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 12:25:49.877
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 12:54:49.990
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:00.989
+!MESSAGE XSCT Command: [disconnect tcfchan#41], Thread: Thread-3645
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.103
+!MESSAGE XSCT command with result: [disconnect tcfchan#41], Result: [null, ]. Thread: Thread-3645
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.218
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.257
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#42]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.259
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.272
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Cora Z7 - 7007S 210370AD7939A]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.273
+!MESSAGE XSCT Command: [version -server], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.274
+!MESSAGE XSCT command with result: [version -server], Result: [null, 2022.2]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.274
+!MESSAGE XSCT Command: [version], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.275
+!MESSAGE XSCT command with result: [version], Result: [null, xsct 2022.2.0
+SW Build 0 on 2022-10-13-12:09:39
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.276
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.285
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Cora Z7 - 7007S 210370AD7939A]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.286
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.306
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.306
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.314
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Cora Z7 - 7007S 210370AD7939A]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.314
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.337
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.338
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.344
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Cora Z7 - 7007S 210370AD7939A]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.345
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.370
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.373
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.382
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Cora Z7 - 7007S 210370AD7939A]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.382
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.404
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.405
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.414
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Cora Z7 - 7007S 210370AD7939A]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.414
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.437
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.438
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.450
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Cora Z7 - 7007S 210370AD7939A]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.450
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.473
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.474
+!MESSAGE XSCT Command: [jtag targets -set -filter {name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level == 0}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.501
+!MESSAGE XSCT command with result: [jtag targets -set -filter {name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level == 0}], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.502
+!MESSAGE XSCT Command: [jtag frequency], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.511
+!MESSAGE XSCT command with result: [jtag frequency], Result: [null, 15000000]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.511
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*"}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.632
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*"}], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.633
+!MESSAGE XSCT Command: [rst -system], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.744
+!MESSAGE XSCT command with result: [rst -system], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:01.745
+!MESSAGE XSCT Command: [after 3000], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:04.751
+!MESSAGE XSCT command with result: [after 3000], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:04.785
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:04.794
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Cora Z7 - 7007S 210370AD7939A]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:04.794
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:04.829
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:04.831
+!MESSAGE XSCT Command: [targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:04.871
+!MESSAGE XSCT command with result: [targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370AD7939A" && level==0 && jtag_device_ctx=="jsn-Cora Z7 - 7007S-210370AD7939A-13723093-0"}], Result: [null, ]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:04.871
+!MESSAGE XSCT Command: [fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.210
+!MESSAGE XSCT command with result: [fpga -file D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/bitstream/nlms_hw_system_wrapper.bit], Result: [null, ]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.262
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*"}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.283
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*"}], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.284
+!MESSAGE XSCT Command: [loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.320
+!MESSAGE XSCT command with result: [loadhw -hw D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_system_wrapper/export/nlms_hw_system_wrapper/hw/nlms_hw_system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs], Result: [null, nlms_hw_system_wrapper_1]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.321
+!MESSAGE XSCT Command: [configparams force-mem-access 1], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.323
+!MESSAGE XSCT command with result: [configparams force-mem-access 1], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.324
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*"}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.338
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*"}], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.339
+!MESSAGE XSCT Command: [source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.389
+!MESSAGE XSCT command with result: [source D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/_ide/psinit/ps7_init.tcl], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.389
+!MESSAGE XSCT Command: [ps7_init], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.908
+!MESSAGE XSCT command with result: [ps7_init], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.908
+!MESSAGE XSCT Command: [ps7_post_config], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.936
+!MESSAGE XSCT command with result: [ps7_post_config], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.936
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "*A9*#0"}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.945
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "*A9*#0"}], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:06.945
+!MESSAGE XSCT Command: [dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:07.151
+!MESSAGE XSCT command with result: [dow D:/fpga_projects/SDUP/projekt/vitis_ws_hw/nlms_hw_tests/Debug/nlms_hw_tests.elf], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:07.152
+!MESSAGE XSCT Command: [configparams force-mem-access 0], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:07.200
+!MESSAGE XSCT command with result: [configparams force-mem-access 0], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:07.291
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "*A9*#0"}], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:07.305
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "*A9*#0"}], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:07.305
+!MESSAGE XSCT Command: [con], Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-06-19 13:47:07.339
+!MESSAGE XSCT command with result: [con], Result: [null, ]. Thread: Worker-163: Launching SystemDebugger_nlms_hw_tests_system
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-19 13:47:07.341
+!MESSAGE Tool usage for 'TCF_APP_DEBUG' updated to '41'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2023-06-19 13:47:07.341
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '41'
+
+!ENTRY org.eclipse.tcf 4 0 2023-06-19 14:13:05.311
+!MESSAGE Invalid peerAdded event
+!STACK 0
+java.lang.Error
+	at org.eclipse.tcf.internal.services.remote.LocatorProxy$1.event(LocatorProxy.java:64)
+	at org.eclipse.tcf.core.AbstractChannel.handleInput(AbstractChannel.java:1191)
+	at org.eclipse.tcf.core.AbstractChannel$1$1.run(AbstractChannel.java:371)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:98)
+	at java.base/java.lang.Thread.run(Thread.java:829)
